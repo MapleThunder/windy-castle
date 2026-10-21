@@ -1,52 +1,95 @@
-"""Write data/maps/town.json: the Tiny Hamlet, traced from screenshots of the original.
+"""Write data/maps/town.json: the outdoor map around the Tiny Hamlet, traced from screenshots of the original.
 
-Positions were measured relative to the well in two screenshots, so expect ±1 tile.
+North to south: mountains with the abandoned mine's tunnel, the east–west highway, a diagonal road
+down to the hamlet gate (with a branch east), then the hamlet ringed by farmland.
+Hamlet positions come from a labelled screenshot (±1 tile); the countryside from four more.
 Edit the tables below and re-run:  python3 -I tools/town_layout.py
 """
 import json
+import math
 import os
 
-W, H = 36, 37
-ROAD_X = 18  # the north–south road
+W, H = 64, 76
+MINE = (25, 1)            # tunnel into the mountain (stairs down)
+HIGHWAY = (24, 25)        # the two highway rows, running edge to edge
+GATE = (10, 42)           # gap in the hamlet gate; posts either side
+ROAD_X = GATE[0]          # the hamlet's north–south road
+BRANCH_ROW = 33           # road east off the diagonal
 
-# Grass inside the farmland ring: (first row, last row, first col, last col).
-GRASS = [(0, 6, 13, 23), (7, 13, 7, 30), (14, 22, 8, 29), (23, 28, 8, 26), (29, 35, 11, 22)]
+# Hamlet grass inside the farmland: (first row, last row, first col, last col).
+HAMLET_GRASS = [(43, 48, 5, 15), (49, 61, 2, 20), (62, 67, 3, 17), (68, 73, 5, 14)]
+FARM_PATCHES = [(39, 41, 0, 6), (40, 41, 15, 24)]  # fields just outside the gate
 
-# name, bitmap, (x, y, w, h), sign position or None, flavour (from the HLP where it has any).
+# name, bitmap, (x, y, w, h), sign position or None, flavour.
 BUILDINGS = [
-    ("A villager's cottage", "bitmaps/191.png", (7, 8, 3, 3), None, ""),
-    ("A wealthy looking villa.", "bitmaps/194.png", (25, 7, 3, 3), None, ""),
-    ("Snorri the Sage", "bitmaps/192.png", (13, 17, 2, 2), (15, 19),
+    ("A villager's cottage", "bitmaps/191.png", (2, 50, 3, 3), None, ""),
+    ("A wealthy looking villa.", "bitmaps/194.png", (17, 49, 3, 3), None, ""),
+    ("Snorri the Sage", "bitmaps/192.png", (6, 58, 2, 2), (8, 59),
      "The home of the village sage. For a fee the Sage will identify an object you bring."),
-    ("Gunnhild's General Store", "bitmaps/191.png", (22, 16, 3, 3), (21, 16),
-     "Packs, bags, food and the odds and ends a traveller needs."),
-    ("Olaf's Junk Store", "bitmaps/194.png", (11, 23, 3, 3), (15, 23),
+    ("Olaf's Junk Store", "bitmaps/194.png", (13, 57, 3, 3), (12, 57),
      "Olaf will buy anything at all, even cursed or worthless things, though never for much."),
-    ("Bjorn the Blacksmith", "bitmaps/191.png", (22, 23, 3, 3), (20, 23),
+    ("Bjorn the Blacksmith", "bitmaps/191.png", (5, 62, 3, 3), (8, 62),
      "Weapons and armour, forged and mended."),
-    ("Shrine of Odin", "bitmaps/250.png", (16, 30, 5, 5), (19, 28),
+    ("Gunnhild's General Store", "bitmaps/194.png", (13, 62, 3, 3), (12, 62),
+     "Packs, bags, food and the odds and ends a traveller needs."),
+    ("Shrine of Odin", "bitmaps/250.png", (8, 67, 5, 5), (11, 66),
      "The priests of Odin heal the injured, lift curses and restore drained strength, for a suitable donation."),
-    ("the village well", "icons/67.png", (18, 24, 1, 1), None, ""),
+    ("the village well", "icons/67.png", (10, 63, 1, 1), None, ""),
 ]
-PLAZA = (16, 22, 4, 4)  # x, y, w, h of the dirt square around the well
-
-# Footpaths from each door to the road, as lists of tiles.
+PLAZA = (9, 62, 3, 3)
 PATHS = [
-    [(10, 10), (11, 9), (12, 9), (13, 8), (14, 8), (15, 7), (16, 7), (17, 6)],     # cottage (diagonal)
-    [(24, 9), (23, 10), (22, 10), (21, 11), (20, 11), (19, 12)],                    # villa (diagonal)
-    [(15, 18), (16, 18), (17, 18), (19, 18), (20, 18), (21, 18)],                   # sage ↔ general store
-    [(14, 24), (15, 24), (20, 24), (21, 24)],                                       # junk store, smithy
+    [(8, 58), (9, 58), (11, 58), (12, 58)],                         # Snorri ↔ Olaf
+    [(8, 63), (12, 63)],                                            # Bjorn, Gunnhild to the plaza
+    [(5, 52), (6, 51), (7, 51), (8, 50), (9, 50)],                  # cottage
+    [(16, 51), (15, 52), (14, 52), (13, 53), (12, 53), (11, 54)],   # villa
 ]
+
+
+def mountain_edge(x):
+    """Last mountain row in column x: thin over the mine road, deeper to the east (screenshot)."""
+    base = 4 + 4 * max(0, x - MINE[0]) / 24 - 1.5 * max(0, MINE[0] - x) / 25
+    wobble = 0.9 * math.sin(x * 0.45) + 0.7 * math.sin(x * 0.21 + 2)
+    return max(2, min(11, round(base + wobble)))
+
+
+def snow_edge(x):
+    """Last snow row in column x, for the snowfield east of the tunnel (or -1)."""
+    if not 31 <= x <= 47:
+        return -1
+    return max(0, round(2.5 + 1.2 * math.sin(x * 0.8) - abs(x - 39) / 6))
 
 
 def main():
-    g = [["f"] * W for _ in range(H)]
-    for r0, r1, c0, c1 in GRASS:
+    g = [["."] * W for _ in range(H)]
+    for x in range(W):
+        for y in range(mountain_edge(x) + 1):
+            g[y][x] = "^"
+        for y in range(snow_edge(x) + 1):
+            g[y][x] = "*"
+    for y in range(MINE[1] + 1, HIGHWAY[0]):
+        g[y][MINE[0]] = ":"
+    g[MINE[1]][MINE[0]] = "M"
+    for y in HIGHWAY:
+        for x in range(W):
+            g[y][x] = ":"
+    for k in range(16):                                          # 45° road from the highway to the gate
+        g[HIGHWAY[1] + 1 + k][MINE[0] - k] = ":"
+    for x in range(MINE[0] - (BRANCH_ROW - HIGHWAY[1] - 1) + 1, W):
+        g[BRANCH_ROW][x] = ":"
+    for r0, r1, c0, c1 in FARM_PATCHES:
+        for y in range(r0, r1 + 1):
+            for x in range(c0, c1 + 1):
+                g[y][x] = "f"
+    for y in range(GATE[1], H):                                  # farmland ring around the hamlet
+        for x in range(W):
+            g[y][x] = "f"
+    for r0, r1, c0, c1 in HAMLET_GRASS:
         for y in range(r0, r1 + 1):
             for x in range(c0, c1 + 1):
                 g[y][x] = "."
-    for y in range(1, 30):
+    for y in range(GATE[1], 67):
         g[y][ROAD_X] = ":"
+    g[GATE[1]][GATE[0] - 1] = g[GATE[1]][GATE[0] + 1] = "G"
     px, py, pw, ph = PLAZA
     for y in range(py, py + ph):
         for x in range(px, px + pw):
@@ -54,8 +97,6 @@ def main():
     for path in PATHS:
         for x, y in path:
             g[y][x] = ":"
-    for x in (ROAD_X - 1, ROAD_X, ROAD_X + 1):
-        g[0][x] = "G"
     buildings = []
     for name, bitmap, (x, y, w, h), sign, flavour in BUILDINGS:
         for yy in range(y, y + h):
@@ -68,14 +109,18 @@ def main():
     spec = {
         "name": "A Tiny Hamlet",
         "source": "dosbox",
-        "_note": "Traced by eye from two screenshots of the original (±1 tile). Generated by tools/town_layout.py.",
+        "_note": "Traced by eye from screenshots of the original (±1 tile). Generated by tools/town_layout.py.",
         "width": W, "height": H,
-        "legend": {"f": "farmland", ".": "grass", ":": "dirt", "B": "building", "G": "town_gate"},
+        "legend": {"f": "farmland", ".": "grass", ":": "dirt", "B": "building", "G": "town_gate",
+                   "^": "mountain", "*": "snow", "M": "stairs_down"},
         "rows": ["".join(r) for r in g],
-        "player_start": [ROAD_X, 20],
-        "mine_arrival": [ROAD_X, 1],
-        "gate": {"name": "the hamlet gate", "bitmap": "bitmaps/193.png", "rect": [ROAD_X - 1, 0, 3, 1],
-                 "text": "The path north to the abandoned mine."},
+        "player_start": [ROAD_X, 56],
+        "mine_arrival": list(MINE),
+        "gate": {"name": "the hamlet gate", "bitmap": "bitmaps/193.png", "rect": [GATE[0] - 1, GATE[1], 3, 1],
+                 "pass": list(GATE)},
+        "highway_row": HIGHWAY[0],
+        # source: the original's message at either end of the highway.
+        "edge_message": "You look at the highway vanishing in the distance, and feel no need to continue.",
         "buildings": buildings,
     }
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "maps", "town.json")

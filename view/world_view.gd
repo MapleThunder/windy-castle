@@ -82,6 +82,84 @@ func tile_to_px(p: Vector2i) -> Vector2:
 	return Vector2(p * s) + Vector2(s, s) / 2.0
 
 
+# source: exe — the original's 32×32 transition bitmaps (see tools/extract/manifest.py TRANSITIONS).
+# Grass with road on two adjacent sides: the road fills that half of the tile, so stepped roads draw as smooth 45° bands.
+const ROAD_HALF := {"ne": "edge.dirt.grass.1", "nw": "edge.dirt.grass.3", "se": "edge.dirt.grass.2", "sw": "edge.dirt.grass.0"}
+const ROCK_HALF := {"nw": "edge.wall.grass.0", "ne": "edge.wall.grass.1"}  # jagged mountain corners on grass
+const SNOW_ON_ROCK := {"nw": "edge.wall.floor.2", "ne": "edge.wall.floor.0", "sw": "edge.wall.floor.3", "se": "edge.wall.floor.1"}
+
+
+static func _kind(t: int) -> String:
+	match t:
+		Tile.T.DIRT, Tile.T.STAIRS_DOWN, Tile.T.STAIRS_UP:
+			return "road"
+		Tile.T.MOUNTAIN:
+			return "rock"
+		Tile.T.SNOW:
+			return "snow"
+		Tile.T.FARMLAND, Tile.T.TOWN_GATE:
+			return "farm"
+	return "grass"
+
+
+## Which pair of adjacent sides (and only those two) match `kind`: "ne", "nw", "se", "sw" or "".
+func _corner(p: Vector2i, kind: String) -> String:
+	var l := game.level
+	var n := _kind(l.get_tile(p + Vector2i.UP)) == kind and l.in_bounds(p + Vector2i.UP)
+	var s := _kind(l.get_tile(p + Vector2i.DOWN)) == kind and l.in_bounds(p + Vector2i.DOWN)
+	var e := _kind(l.get_tile(p + Vector2i.RIGHT)) == kind and l.in_bounds(p + Vector2i.RIGHT)
+	var w := _kind(l.get_tile(p + Vector2i.LEFT)) == kind and l.in_bounds(p + Vector2i.LEFT)
+	var diagonal := func(d: Vector2i) -> bool: return _kind(l.get_tile(p + d)) == kind
+	# A staircase notch has the tile between the two sides unfilled; a junction or a plaza corner
+	# has it filled, and those stay square, as in the original.
+	if n and e and not s and not w and not diagonal.call(Vector2i(1, -1)):
+		return "ne"
+	if n and w and not s and not e and not diagonal.call(Vector2i(-1, -1)):
+		return "nw"
+	if s and e and not n and not w and not diagonal.call(Vector2i(1, 1)):
+		return "se"
+	if s and w and not n and not e and not diagonal.call(Vector2i(-1, 1)):
+		return "sw"
+	return ""
+
+
+func _outdoor_sprite(p: Vector2i, t: int) -> String:
+	var l := game.level
+	match _kind(t):
+		"grass":
+			var c := _corner(p, "road")
+			if c != "":
+				return ROAD_HALF[c]
+			c = _corner(p, "rock")
+			if ROCK_HALF.has(c):
+				return ROCK_HALF[c]
+			return "tile.grass"
+		"rock":
+			var c := _corner(p, "snow")
+			if c != "":
+				return SNOW_ON_ROCK[c]
+			if _kind(l.get_tile(p + Vector2i.DOWN)) == "grass":
+				return "edge.wall.floor.4"  # grass fringe along the bottom
+			if _kind(l.get_tile(p + Vector2i.LEFT)) == "grass":
+				return "edge.wall.grass_edge.0"
+			if _kind(l.get_tile(p + Vector2i.RIGHT)) == "grass":
+				return "edge.wall.grass_edge.1"
+			return "tile.wall"
+		"snow":
+			if _kind(l.get_tile(p + Vector2i.DOWN)) == "rock":
+				return "edge.wall.floor.5"
+			if _kind(l.get_tile(p + Vector2i.LEFT)) == "rock":
+				return "edge.wall.floor.6"
+			if _kind(l.get_tile(p + Vector2i.RIGHT)) == "rock":
+				return "edge.wall.floor.7"
+			return "tile.floor"
+	if t == Tile.T.FARMLAND:
+		return "tile.farmland"
+	if t == Tile.T.TOWN_GATE:
+		return "tile.farmland"  # the gate posts stand in the fields; the gate bitmap draws over them
+	return "tile.dirt"
+
+
 func _ground_sprite(t: int, town: bool) -> String:
 	if town:
 		match t:
@@ -99,6 +177,8 @@ func _ground_sprite(t: int, town: bool) -> String:
 func _feature_sprite(t: int, town: bool) -> String:
 	if town and t == Tile.T.TOWN_GATE:
 		return ""  # drawn as the gate bitmap with the buildings
+	if town and t == Tile.T.STAIRS_DOWN:
+		return "tile.mine.entrance"
 	if t in [Tile.T.DOOR_CLOSED, Tile.T.DOOR_OPEN, Tile.T.STAIRS_DOWN, Tile.T.STAIRS_UP, Tile.T.TOWN_GATE]:
 		return Tile.sprite(t)
 	return ""
@@ -147,7 +227,8 @@ func refresh_tile(p: Vector2i, town: bool = game.level.depth == 0) -> void:
 	var seen := game.visible.has(p)
 	var t := game.level.get_tile(p)
 	var lit_layer := walls if Tile.opaque(t) else ground
-	(lit_layer if seen else memory).set_cell(p, _source(_ground_sprite(t, town)), Vector2i.ZERO)
+	var sprite := _outdoor_sprite(p, t) if town else _ground_sprite(t, town)
+	(lit_layer if seen else memory).set_cell(p, _source(sprite), Vector2i.ZERO)
 	var f := _feature_sprite(t, town)
 	if game.level.features.has(p):
 		f = game.level.features[p]["sprite"]

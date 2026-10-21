@@ -1,7 +1,7 @@
 extends Control
 ## Screen router: title → character creation → game, plus saving, loading and death.
 ## Debug options (after `--`): --start=game (skip the title with a default hero), --start-depth=<n>,
-## --seed=<n>, --hp=<n>, --screenshot=<path> [--frames=<n>], --fps, --keys=<k1,k2,...> (injected one every 10 frames),
+## --seed=<n>, --hp=<n>, --at=<x>,<y>, --screenshot=<path> [--frames=<n>], --fps, --keys=<k1,k2,...> (injected one every 10 frames),
 ## --click=<x>,<y> [--click-frame=<n>] [--right] (a click at that screen position, default frame 20),
 ## --hover=<x>,<y> (mouse moved there 5 frames before the click frame).
 
@@ -35,6 +35,10 @@ func _ready() -> void:
 			var g := game_screen.game
 			g.enter_level(g.level, Town.mine_arrival() if g.level.depth == 0 else g.level.find_tile(Tile.T.STAIRS_DOWN))
 			g.perform({"type": "stairs_down"})
+			game_screen.world.refresh_all()
+		if options.has("at"):  # debug: stand somewhere on the current level
+			var at: PackedStringArray = options["at"].split(",")
+			game_screen.game.enter_level(game_screen.game.level, Vector2i(int(at[0]), int(at[1])))
 			game_screen.world.refresh_all()
 		if options.has("hp"):
 			game_screen.game.player.hp = int(options["hp"])

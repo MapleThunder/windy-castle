@@ -191,15 +191,31 @@ func test_stairs_roundtrip_persists_level() -> void:
 	assert_false(g.level.actors.any(func(a): return a.id == victim_id), "dead monster stays dead")
 
 
-func test_walking_into_the_gate_goes_to_the_mine() -> void:
+func test_mine_tunnel_roundtrip() -> void:
 	var g := F.new_game()
 	g.enter_level(g.level, Town.mine_arrival())
-	var ev := g.perform({"type": "move", "dir": Vector2i(0, -1)})
-	assert_has(F.types(ev), "level_changed")
+	assert_has(F.types(g.perform({"type": "stairs_down"})), "level_changed")
 	assert_eq(g.level.depth, 1)
 	g.perform({"type": "stairs_up"})
 	assert_eq(g.level.depth, 0)
 	assert_eq(g.player.pos, Town.mine_arrival())
+
+
+func test_outdoors_is_fully_visible() -> void:
+	var g := F.new_game()
+	assert_eq(g.visible.size(), g.level.width * g.level.height)
+	assert_eq(g.level.explored.count(0), 0)
+
+
+func test_highway_ends_both_sides() -> void:
+	var g := F.new_game()
+	var y := Town.highway_row()
+	for side in [[Vector2i(0, y), Vector2i(-1, 0)], [Vector2i(g.level.width - 1, y), Vector2i(1, 0)]]:
+		g.enter_level(g.level, side[0])
+		var ev := g.perform({"type": "move", "dir": side[1]})
+		assert_eq(F.types(ev), ["message"])
+		assert_true("vanishing in the distance" in ev[0]["text"])
+		assert_eq(g.player.pos, side[0])
 
 
 func test_stepping_onto_stairs_hints_the_key() -> void:

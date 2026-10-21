@@ -4,7 +4,6 @@ extends RefCounted
 ## that follows, and return the events in order. The view never changes state directly.
 
 const MAX_MESSAGES := 500
-const SIGHT_TOWN := 20  # daylight
 const SIGHT_MINE := 7  # ASSUMED: torch radius
 const REGEN_TURNS := 10  # ASSUMED: 1 hp per 10 turns
 const SEARCH_PCT := 33  # ASSUMED: the HLP only says you may have to search more than once
@@ -164,7 +163,15 @@ func _end_player_turn(events: Array) -> void:
 
 
 func _update_view() -> void:
-	visible = FOV.compute(level, player.pos, SIGHT_TOWN if level.depth == 0 else SIGHT_MINE)
+	if level.depth == 0:  # source: hlp. Only once you leave the outside are unseen areas hidden.
+		if visible.size() != level.width * level.height:
+			visible = {}
+			for y in level.height:
+				for x in level.width:
+					visible[Vector2i(x, y)] = true
+			level.explored.fill(1)
+		return
+	visible = FOV.compute(level, player.pos, SIGHT_MINE)
 	for p in visible:
 		level.explored[level.index(p)] = 1
 
@@ -218,6 +225,10 @@ func _log(text: String) -> void:
 
 func _act_move(dir: Vector2i, options: Dictionary) -> Array:
 	var to := player.pos + dir
+	if not level.in_bounds(to):
+		var edge: String = Town.spec()["edge_message"] if level.depth == 0 and level.get_tile(player.pos) == Tile.T.DIRT \
+			else "You can't go that way."
+		return [[_msg(edge)], false]
 	var target := level.actor_at(to)
 	if target != null:
 		return [melee(player, target), true]
@@ -225,12 +236,12 @@ func _act_move(dir: Vector2i, options: Dictionary) -> Array:
 	if t == Tile.T.DOOR_CLOSED:
 		level.set_tile(to, Tile.T.DOOR_OPEN)
 		return [[{"type": "door_opened", "pos": to}], true]
-	if t == Tile.T.TOWN_GATE:
-		return _travel(1, "You follow the path north to the abandoned mine.")
 	if level.signs.has(to):
 		return [[_msg(level.signs[to])], false]
 	if t == Tile.T.FARMLAND:
 		return [[_msg("You'd trample the farmland.")], false]
+	if t == Tile.T.MOUNTAIN or t == Tile.T.SNOW:
+		return [[_msg("The mountains are too steep to climb.")], false]
 	if not Tile.passable(t):
 		return [[_msg("You can't go that way.")], false]
 	var events := move_actor(player, to)
@@ -240,7 +251,8 @@ func _act_move(dir: Vector2i, options: Dictionary) -> Array:
 	if not here.is_empty():
 		events.append(_msg("You see: " + ", ".join(here.map(_item_label))))  # source: exe ("You see:")
 	if level.get_tile(to) == Tile.T.STAIRS_DOWN:
-		events.append(_msg("Stairs down. Press > to climb down."))
+		events.append(_msg("The entrance to an abandoned mine. Press > to go down." if level.depth == 0
+			else "Stairs down. Press > to climb down."))
 	elif level.get_tile(to) == Tile.T.STAIRS_UP:
 		events.append(_msg("Stairs up. Press < to climb up."))
 	if level.features.has(to):
@@ -330,15 +342,9 @@ func _act_search() -> Array:
 
 
 func _act_stairs(tile: int, delta: int) -> Array:
-	if level.depth == 0 and delta > 0 and _next_to(Tile.T.TOWN_GATE):
-		return _travel(1, "You follow the path north to the abandoned mine.")
 	if level.get_tile(player.pos) != tile or level.depth + delta < 0:
 		return [[_msg("No stairs here")], false]  # source: exe
 	return _travel(delta, "")
-
-
-func _next_to(t: int) -> bool:
-	return AI.DIRS.any(func(d): return level.get_tile(player.pos + d) == t)
 
 
 func _travel(delta: int, text: String) -> Array:

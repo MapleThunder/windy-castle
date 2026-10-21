@@ -87,8 +87,28 @@ func test_town_loads() -> void:
 	assert_eq(t.depth, 0)
 	var start := Town.player_start()
 	assert_true(Tile.passable(t.get_tile(start)), "start passable")
-	assert_eq(t.get_tile(Town.mine_arrival() + Vector2i(0, -1)), Tile.T.TOWN_GATE, "the mine path leaves through the north gate")
-	assert_true(_flood_any(t, start).has(Town.mine_arrival()), "gate reachable from start")
+	assert_eq(t.get_tile(Town.mine_arrival()), Tile.T.STAIRS_DOWN, "the mine tunnel is the way down")
+	var reach := _flood_any(t, start)
+	assert_true(reach.has(Town.mine_arrival()), "mine reachable from the hamlet")
+	var gate := Town.gate()
+	assert_true(reach.has(gate), "through the hamlet gate")
+	assert_true(Tile.passable(t.get_tile(gate)))
+	assert_false(Tile.passable(t.get_tile(gate + Vector2i(-1, 0))), "gate posts")
+
+
+func test_highway_runs_edge_to_edge() -> void:
+	var t := Town.build()
+	var y := Town.highway_row()
+	for x in t.width:
+		assert_eq(t.get_tile(Vector2i(x, y)), Tile.T.DIRT, "highway at %d" % x)
+
+
+func test_mountains_in_the_north() -> void:
+	var t := Town.build()
+	for x in t.width:
+		assert_true(t.get_tile(Vector2i(x, 0)) in [Tile.T.MOUNTAIN, Tile.T.SNOW, Tile.T.STAIRS_DOWN, Tile.T.DIRT])
+	assert_false(Tile.passable(Tile.T.MOUNTAIN))
+	assert_false(Tile.passable(Tile.T.SNOW))
 
 
 func test_town_is_ringed_by_farmland() -> void:

@@ -25,7 +25,7 @@ The original's keys work as they did in 1993, and every menu item from its menu 
 | Numpad 5 / . | Wait |
 | g · s · o · c · x | Get · Search · Open · Close · Examine (then a direction or a click) |
 | r / Shift+R | Rest until healed |
-| < / > | Climb up / down stairs (in the hamlet, walk into the north gate to reach the mine) |
+| < / > | Climb up / down stairs (the mine's tunnel is north of the hamlet, past the highway) |
 | Left click | Walk there (or as close as you know a way), attack or open next to you, use stairs under you |
 | Right click / hover | Examine a site; hovering shows signs, monsters and items |
 | i | Inventory (drag and drop, or arrows + Enter / E equip / D drop / U remove) |
@@ -46,7 +46,7 @@ All are in Options (F10), and each can be turned off on its own:
 ## What's faithful and what's not yet
 
 - **From the original:** monster and item names, the item table (armour values, weapon classes, weights, bulk, container capacities), the keyboard commands, the menu structure, the help text, the art and the messages.
-- **Traced from screenshots of the original:** the Tiny Hamlet's layout (`tools/town_layout.py`, ±1 tile).
+- **Traced from screenshots of the original:** the outdoor map — the Tiny Hamlet, its gate and farmland, the highway, the roads and the mountains with the mine's tunnel (`tools/town_layout.py`, ±1 tile). Roads, mountain and snow edges use the original's transition tiles.
 - **Placeholders, marked `ASSUMED` in the code:** monster stats, combat numbers, character creation limits and level generation odds. They'll be replaced as the original's rules are recovered (`grep -rn ASSUMED engine/`).
 
 The UI fonts are VT323 and Pixelify Sans, both under the SIL Open Font License (`view/theme/fonts/`).

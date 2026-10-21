@@ -30,9 +30,6 @@ static func build() -> Level:
 			# source: exe ("A sign that says:"). Right-clicking a sign in the original showed this.
 			l.features[_v(b["sign"])] = {"sprite": "tile.sign", "text": "A sign that says: " + b["name"],
 				"detail": b.get("flavour", "")}
-	var gate: Dictionary = s["gate"]
-	for x in range(int(gate["rect"][0]), int(gate["rect"][0]) + int(gate["rect"][2])):
-		l.signs[Vector2i(x, int(gate["rect"][1]))] = gate["text"]
 	return l
 
 
@@ -40,6 +37,15 @@ static func player_start() -> Vector2i:
 	return _v(spec()["player_start"])
 
 
-## Where the player stands when coming back from the mine, just inside the north gate.
+## The mine's tunnel: the way down, and where the player arrives back from Mine Level 1.
 static func mine_arrival() -> Vector2i:
 	return _v(spec()["mine_arrival"])
+
+
+## The walkable gap in the hamlet gate.
+static func gate() -> Vector2i:
+	return _v(spec()["gate"]["pass"])
+
+
+static func highway_row() -> int:
+	return int(spec()["highway_row"])
