@@ -13,3 +13,4 @@ AGENTS.md
 .godot/
 *.translation
 export_presets.cfg
+__pycache__/

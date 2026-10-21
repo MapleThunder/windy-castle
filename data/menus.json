@@ -1,0 +1,312 @@
+[
+ {
+  "id": 10812,
+  "items": [
+   {
+    "label": "File",
+    "mnemonic": "F",
+    "items": [
+     {
+      "label": "New Game",
+      "mnemonic": "N",
+      "id": 117
+     },
+     {
+      "label": "Load...",
+      "mnemonic": "L",
+      "id": 116
+     },
+     {
+      "label": "Save",
+      "mnemonic": "S",
+      "id": 205
+     },
+     {
+      "label": "Save As...",
+      "mnemonic": "A",
+      "id": 101
+     },
+     {
+      "label": "Options...",
+      "mnemonic": "O",
+      "id": 211
+     },
+     {
+      "label": "Review Story...",
+      "mnemonic": "R",
+      "id": 207
+     },
+     {
+      "label": "Exit",
+      "mnemonic": "X",
+      "id": 102
+     }
+    ]
+   },
+   {
+    "label": "Character",
+    "mnemonic": "C",
+    "id": 188
+   },
+   {
+    "label": "Inventory",
+    "mnemonic": "I",
+    "id": 104
+   },
+   {
+    "label": "Map",
+    "mnemonic": "M",
+    "id": 174
+   },
+   {
+    "label": "Spells",
+    "mnemonic": "S",
+    "items": [
+     {
+      "label": "Spellbook...",
+      "mnemonic": "S",
+      "id": 106
+     },
+     {
+      "label": "Customize Spell Menu...",
+      "mnemonic": "C",
+      "id": 209
+     }
+    ]
+   },
+   {
+    "label": "Activate",
+    "mnemonic": "A",
+    "id": 118
+   },
+   {
+    "label": "Verbs",
+    "mnemonic": "V",
+    "items": [
+     {
+      "label": "Get",
+      "mnemonic": "G",
+      "id": 165
+     },
+     {
+      "label": "Examine",
+      "mnemonic": "X",
+      "id": 166
+     },
+     {
+      "label": "Free Hand",
+      "mnemonic": "F",
+      "id": 184
+     },
+     {
+      "label": "Search",
+      "mnemonic": "S",
+      "id": 164
+     },
+     {
+      "label": "Disarm Trap",
+      "mnemonic": "D",
+      "id": 197
+     },
+     {
+      "label": "Rest Until Healed",
+      "mnemonic": "R",
+      "id": 185
+     },
+     {
+      "label": "Sleep Until Mana is Restored",
+      "mnemonic": "M",
+      "id": 213
+     },
+     {
+      "label": "Open",
+      "mnemonic": "O",
+      "id": 198
+     },
+     {
+      "label": "Close",
+      "mnemonic": "C",
+      "id": 199
+     },
+     {
+      "label": "< Climb Up Stairs",
+      "mnemonic": "<",
+      "id": 162
+     },
+     {
+      "label": "> Climb Down Stairs",
+      "mnemonic": ">",
+      "id": 163
+     }
+    ]
+   },
+   {
+    "label": "Window",
+    "mnemonic": "W",
+    "items": [
+     {
+      "label": "Move Vertical",
+      "mnemonic": "V",
+      "id": 176
+     },
+     {
+      "label": "Move Horizontal",
+      "mnemonic": "H",
+      "id": 189
+     },
+     {
+      "label": "Arrange All",
+      "mnemonic": "A",
+      "id": 175
+     }
+    ]
+   },
+   {
+    "label": "Help",
+    "mnemonic": "H",
+    "items": [
+     {
+      "label": "Help Contents",
+      "mnemonic": "C",
+      "id": 179
+     },
+     {
+      "label": "Keyboard Commands",
+      "mnemonic": "K",
+      "id": 168
+     },
+     {
+      "label": "Mouse Commands",
+      "mnemonic": "M",
+      "id": 169
+     },
+     {
+      "label": "Spell Directory",
+      "mnemonic": "S",
+      "id": 190
+     },
+     {
+      "label": "Object Directory",
+      "mnemonic": "O",
+      "id": 191
+     },
+     {
+      "label": "Bestiary",
+      "mnemonic": "B",
+      "id": 203
+     },
+     {
+      "label": "Help On Help",
+      "mnemonic": "",
+      "id": 180
+     },
+     {
+      "label": "High Scores...",
+      "mnemonic": "H",
+      "id": 170
+     },
+     {
+      "separator": true
+     },
+     {
+      "label": "Order Information",
+      "mnemonic": "I",
+      "id": 210
+     },
+     {
+      "label": "About Castle of the Winds...",
+      "mnemonic": "A",
+      "id": 103
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": 10819,
+  "items": [
+   {
+    "label": "Exit",
+    "mnemonic": "X",
+    "id": 177
+   },
+   {
+    "label": "Character",
+    "mnemonic": "C",
+    "id": 188
+   },
+   {
+    "label": "Sort Pack",
+    "mnemonic": "P",
+    "id": 182
+   },
+   {
+    "label": "Name Object",
+    "mnemonic": "N",
+    "id": 187
+   },
+   {
+    "label": "Window",
+    "mnemonic": "W",
+    "items": [
+     {
+      "label": "Open Container",
+      "mnemonic": "O",
+      "id": 196
+     },
+     {
+      "label": "Arrange All",
+      "mnemonic": "A",
+      "id": 178
+     },
+     {
+      "label": "Auto Arrange",
+      "mnemonic": "U",
+      "id": 193
+     }
+    ]
+   },
+   {
+    "label": "Help",
+    "mnemonic": "H",
+    "items": [
+     {
+      "label": "Help Contents",
+      "mnemonic": "C",
+      "id": 179
+     },
+     {
+      "label": "Inventory Help",
+      "mnemonic": "I",
+      "id": 186
+     },
+     {
+      "label": "Store Help",
+      "mnemonic": "S",
+      "id": 206
+     },
+     {
+      "label": "Object Directory",
+      "mnemonic": "O",
+      "id": 191
+     },
+     {
+      "label": "Help On Help",
+      "mnemonic": "",
+      "id": 180
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": 10829,
+  "items": [
+   {
+    "label": "Exit",
+    "mnemonic": "X",
+    "id": 173
+   }
+  ]
+ }
+]

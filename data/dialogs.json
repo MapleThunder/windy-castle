@@ -1,0 +1,2510 @@
+[
+ {
+  "id": 303,
+  "caption": "",
+  "rect": [
+   22,
+   2,
+   223,
+   180
+  ],
+  "controls": [
+   {
+    "class": "static",
+    "id": 100,
+    "text": "Castle Of The Winds",
+    "rect": [
+     66,
+     4,
+     84,
+     10
+    ],
+    "style": 1342177281
+   },
+   {
+    "class": "static",
+    "id": 257,
+    "text": "Part One",
+    "rect": [
+     80,
+     14,
+     56,
+     8
+    ],
+    "style": 1342308353
+   },
+   {
+    "class": "static",
+    "id": 256,
+    "text": "\"A Question of Vengeance\"",
+    "rect": [
+     58,
+     24,
+     100,
+     8
+    ],
+    "style": 1342308353
+   },
+   {
+    "class": "static",
+    "id": 220,
+    "text": "Version 1.1A",
+    "rect": [
+     66,
+     34,
+     84,
+     10
+    ],
+    "style": 1342177281
+   },
+   {
+    "class": "static",
+    "id": 102,
+    "text": "Copyright © 1989-93, SaadaSoft",
+    "rect": [
+     46,
+     44,
+     122,
+     12
+    ],
+    "style": 1342177281
+   },
+   {
+    "class": "button",
+    "id": 1,
+    "text": "OK",
+    "rect": [
+     92,
+     158,
+     36,
+     14
+    ],
+    "style": 1342242817
+   },
+   {
+    "class": "static",
+    "id": 101,
+    "text": "#1",
+    "rect": [
+     16,
+     18,
+     16,
+     16
+    ],
+    "style": 1342177283
+   },
+   {
+    "class": "static",
+    "id": 318,
+    "text": "Designed and written by:",
+    "rect": [
+     6,
+     60,
+     84,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "static",
+    "id": 320,
+    "text": "Rick Saada",
+    "rect": [
+     118,
+     60,
+     56,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "static",
+    "id": 319,
+    "text": "With additional design work by: ",
+    "rect": [
+     6,
+     72,
+     106,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "static",
+    "id": 321,
+    "text": "Paul Canniff, Ben Goetter, ",
+    "rect": [
+     118,
+     72,
+     104,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "static",
+    "id": 328,
+    "text": "Don Hacherl, and Jeff McBride",
+    "rect": [
+     118,
+     80,
+     102,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "static",
+    "id": 322,
+    "text": "Artwork by:",
+    "rect": [
+     6,
+     92,
+     102,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "static",
+    "id": 323,
+    "text": "Paul Canniff",
+    "rect": [
+     118,
+     92,
+     94,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "static",
+    "id": 324,
+    "text": "Additional help and story text by:",
+    "rect": [
+     6,
+     108,
+     110,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "static",
+    "id": 325,
+    "text": "Ben Goetter",
+    "rect": [
+     118,
+     108,
+     94,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "static",
+    "id": 326,
+    "text": "and tested by:",
+    "rect": [
+     6,
+     136,
+     60,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "static",
+    "id": 327,
+    "text": "A cast of thousands (well, hundreds maybe)",
+    "rect": [
+     118,
+     136,
+     88,
+     18
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "static",
+    "id": 329,
+    "text": "Publicity by:",
+    "rect": [
+     6,
+     122,
+     46,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "static",
+    "id": 330,
+    "text": "John Hedtke",
+    "rect": [
+     118,
+     120,
+     60,
+     8
+    ],
+    "style": 1342308352
+   }
+  ]
+ },
+ {
+  "id": 305,
+  "caption": "",
+  "rect": [
+   60,
+   12,
+   191,
+   172
+  ],
+  "controls": [
+   {
+    "class": "static",
+    "id": 108,
+    "text": "Select An Object",
+    "rect": [
+     38,
+     10,
+     122,
+     10
+    ],
+    "style": 1342177281
+   },
+   {
+    "class": "static",
+    "id": 101,
+    "text": "Current Inventory:",
+    "rect": [
+     7,
+     24,
+     78,
+     10
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "listbox",
+    "id": 100,
+    "text": "",
+    "rect": [
+     7,
+     38,
+     177,
+     97
+    ],
+    "style": 1352728577
+   },
+   {
+    "class": "button",
+    "id": 1,
+    "text": "OK",
+    "rect": [
+     78,
+     149,
+     46,
+     14
+    ],
+    "style": 1342242817
+   }
+  ]
+ },
+ {
+  "id": 306,
+  "caption": "",
+  "rect": [
+   11,
+   19,
+   166,
+   43
+  ],
+  "controls": [
+   {
+    "class": "static",
+    "id": 100,
+    "text": "Call Object:",
+    "rect": [
+     4,
+     6,
+     42,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "edit",
+    "id": 226,
+    "text": "",
+    "rect": [
+     52,
+     4,
+     108,
+     12
+    ],
+    "style": 1350631552
+   },
+   {
+    "class": "button",
+    "id": 1,
+    "text": "OK",
+    "rect": [
+     18,
+     22,
+     50,
+     14
+    ],
+    "style": 1342242817
+   },
+   {
+    "class": "button",
+    "id": 2,
+    "text": "Cancel",
+    "rect": [
+     86,
+     22,
+     50,
+     14
+    ],
+    "style": 1342242816
+   }
+  ]
+ },
+ {
+  "id": 310,
+  "caption": "",
+  "rect": [
+   62,
+   4,
+   166,
+   188
+  ],
+  "controls": [
+   {
+    "class": "static",
+    "id": 115,
+    "text": "Text",
+    "rect": [
+     12,
+     14,
+     142,
+     148
+    ],
+    "style": 1342177287
+   },
+   {
+    "class": "button",
+    "id": 204,
+    "text": "Heal M&inor Wounds ",
+    "rect": [
+     16,
+     16,
+     81,
+     12
+    ],
+    "style": 1342242825
+   },
+   {
+    "class": "button",
+    "id": 205,
+    "text": "Heal M&edium Wounds",
+    "rect": [
+     16,
+     28,
+     82,
+     12
+    ],
+    "style": 1342242825
+   },
+   {
+    "class": "button",
+    "id": 206,
+    "text": "Heal M&ajor Wounds",
+    "rect": [
+     16,
+     40,
+     84,
+     12
+    ],
+    "style": 1342242825
+   },
+   {
+    "class": "button",
+    "id": 207,
+    "text": "&Heal",
+    "rect": [
+     16,
+     52,
+     30,
+     12
+    ],
+    "style": 1342242825
+   },
+   {
+    "class": "button",
+    "id": 208,
+    "text": "&Remove Curse",
+    "rect": [
+     16,
+     64,
+     62,
+     12
+    ],
+    "style": 1342242825
+   },
+   {
+    "class": "button",
+    "id": 209,
+    "text": "&Neutralize Poison",
+    "rect": [
+     16,
+     76,
+     84,
+     12
+    ],
+    "style": 1342242825
+   },
+   {
+    "class": "button",
+    "id": 210,
+    "text": "R&une of Return",
+    "rect": [
+     16,
+     88,
+     84,
+     12
+    ],
+    "style": 1342242825
+   },
+   {
+    "class": "button",
+    "id": 211,
+    "text": "Restore &Strength",
+    "rect": [
+     16,
+     100,
+     84,
+     12
+    ],
+    "style": 1342242825
+   },
+   {
+    "class": "button",
+    "id": 212,
+    "text": "Restore &Intelligence",
+    "rect": [
+     16,
+     112,
+     84,
+     12
+    ],
+    "style": 1342242825
+   },
+   {
+    "class": "button",
+    "id": 213,
+    "text": "Restore C&onstitution",
+    "rect": [
+     16,
+     124,
+     84,
+     12
+    ],
+    "style": 1342242825
+   },
+   {
+    "class": "button",
+    "id": 214,
+    "text": "Restore &Dexterity",
+    "rect": [
+     16,
+     136,
+     84,
+     12
+    ],
+    "style": 1342242825
+   },
+   {
+    "class": "button",
+    "id": 215,
+    "text": "Restore Drained Hit &Points",
+    "rect": [
+     16,
+     148,
+     98,
+     12
+    ],
+    "style": 1342177289
+   },
+   {
+    "class": "static",
+    "id": 104,
+    "text": "Temple of Odin",
+    "rect": [
+     0,
+     2,
+     166,
+     10
+    ],
+    "style": 1342177281
+   },
+   {
+    "class": "button",
+    "id": 175,
+    "text": "&Cast",
+    "rect": [
+     44,
+     168,
+     32,
+     14
+    ],
+    "style": 1342373888
+   },
+   {
+    "class": "button",
+    "id": 2,
+    "text": "E&xit",
+    "rect": [
+     92,
+     168,
+     30,
+     14
+    ],
+    "style": 1342242817
+   },
+   {
+    "class": "static",
+    "id": 108,
+    "text": "500 CP",
+    "rect": [
+     114,
+     18,
+     28,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 109,
+    "text": "900 CP",
+    "rect": [
+     114,
+     30,
+     28,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 110,
+    "text": "1400 CP",
+    "rect": [
+     114,
+     42,
+     28,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 111,
+    "text": "2500 CP",
+    "rect": [
+     112,
+     54,
+     30,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 112,
+    "text": "2500 CP",
+    "rect": [
+     112,
+     66,
+     30,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 113,
+    "text": "1800 CP",
+    "rect": [
+     112,
+     78,
+     30,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 114,
+    "text": "1000 CP",
+    "rect": [
+     112,
+     90,
+     30,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 124,
+    "text": "3000 CP",
+    "rect": [
+     108,
+     102,
+     34,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 125,
+    "text": "3000 CP",
+    "rect": [
+     110,
+     114,
+     32,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 127,
+    "text": "3000 CP",
+    "rect": [
+     108,
+     126,
+     34,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 128,
+    "text": "3000 CP",
+    "rect": [
+     108,
+     138,
+     34,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 319,
+    "text": "3000 CP",
+    "rect": [
+     114,
+     150,
+     28,
+     8
+    ],
+    "style": 1342177282
+   }
+  ]
+ },
+ {
+  "id": 311,
+  "caption": "",
+  "rect": [
+   96,
+   54,
+   124,
+   42
+  ],
+  "controls": [
+   {
+    "class": "edit",
+    "id": 105,
+    "text": "",
+    "rect": [
+     6,
+     26,
+     50,
+     12
+    ],
+    "style": 1350631424
+   },
+   {
+    "class": "static",
+    "id": 100,
+    "text": "How many pieces?",
+    "rect": [
+     6,
+     6,
+     64,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "scrollbar",
+    "id": 118,
+    "text": "",
+    "rect": [
+     56,
+     26,
+     8,
+     12
+    ],
+    "style": 1342177281
+   },
+   {
+    "class": "button",
+    "id": 1,
+    "text": "OK",
+    "rect": [
+     74,
+     4,
+     40,
+     14
+    ],
+    "style": 1342242817
+   },
+   {
+    "class": "button",
+    "id": 2,
+    "text": "Cancel",
+    "rect": [
+     74,
+     24,
+     40,
+     14
+    ],
+    "style": 1342242816
+   }
+  ]
+ },
+ {
+  "id": 315,
+  "caption": "Customize Spell Menu",
+  "rect": [
+   43,
+   18,
+   186,
+   131
+  ],
+  "controls": [
+   {
+    "class": "static",
+    "id": 117,
+    "text": "Current Keys:",
+    "rect": [
+     12,
+     6,
+     81,
+     10
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 118,
+    "text": "Known Spells:",
+    "rect": [
+     100,
+     6,
+     74,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "listbox",
+    "id": 1081,
+    "text": "",
+    "rect": [
+     12,
+     18,
+     82,
+     85
+    ],
+    "style": 1352728577
+   },
+   {
+    "class": "listbox",
+    "id": 1082,
+    "text": "",
+    "rect": [
+     100,
+     18,
+     74,
+     85
+    ],
+    "style": 1352728577
+   },
+   {
+    "class": "button",
+    "id": 1041,
+    "text": "&Change",
+    "rect": [
+     12,
+     110,
+     44,
+     14
+    ],
+    "style": 1342242816
+   },
+   {
+    "class": "button",
+    "id": 1,
+    "text": "Close",
+    "rect": [
+     130,
+     110,
+     44,
+     14
+    ],
+    "style": 1342242817
+   },
+   {
+    "class": "button",
+    "id": 1049,
+    "text": "&Help",
+    "rect": [
+     70,
+     110,
+     44,
+     14
+    ],
+    "style": 1342242816
+   }
+  ]
+ },
+ {
+  "id": 307,
+  "caption": "Learn Spell",
+  "rect": [
+   47,
+   15,
+   140,
+   136
+  ],
+  "controls": [
+   {
+    "class": "static",
+    "id": 100,
+    "text": "Available Spells:",
+    "rect": [
+     6,
+     4,
+     128,
+     8
+    ],
+    "style": 1342177281
+   },
+   {
+    "class": "listbox",
+    "id": 174,
+    "text": "",
+    "rect": [
+     6,
+     14,
+     128,
+     97
+    ],
+    "style": 1352859649
+   },
+   {
+    "class": "button",
+    "id": 1,
+    "text": "OK",
+    "rect": [
+     22,
+     116,
+     38,
+     14
+    ],
+    "style": 1342242817
+   },
+   {
+    "class": "button",
+    "id": 1049,
+    "text": "Help",
+    "rect": [
+     74,
+     116,
+     38,
+     14
+    ],
+    "style": 1342242816
+   }
+  ]
+ },
+ {
+  "id": 314,
+  "caption": "Cast Spell",
+  "rect": [
+   42,
+   24,
+   232,
+   134
+  ],
+  "controls": [
+   {
+    "class": "button",
+    "id": 1041,
+    "text": "&Attack Spells",
+    "rect": [
+     10,
+     22,
+     66,
+     12
+    ],
+    "style": 1342373897
+   },
+   {
+    "class": "button",
+    "id": 1042,
+    "text": "&Defense Spells",
+    "rect": [
+     10,
+     36,
+     66,
+     12
+    ],
+    "style": 1342177289
+   },
+   {
+    "class": "button",
+    "id": 1043,
+    "text": "&Healing Spells",
+    "rect": [
+     10,
+     50,
+     66,
+     12
+    ],
+    "style": 1342177289
+   },
+   {
+    "class": "button",
+    "id": 1044,
+    "text": "&Movement Spells",
+    "rect": [
+     10,
+     64,
+     72,
+     12
+    ],
+    "style": 1342177289
+   },
+   {
+    "class": "button",
+    "id": 1045,
+    "text": "Di&vination Spells",
+    "rect": [
+     10,
+     78,
+     70,
+     12
+    ],
+    "style": 1342177289
+   },
+   {
+    "class": "button",
+    "id": 1046,
+    "text": "M&iscellaneous Spells",
+    "rect": [
+     10,
+     92,
+     82,
+     12
+    ],
+    "style": 1342177289
+   },
+   {
+    "class": "listbox",
+    "id": 1081,
+    "text": "",
+    "rect": [
+     107,
+     19,
+     112,
+     89
+    ],
+    "style": 1352859777
+   },
+   {
+    "class": "button",
+    "id": 1,
+    "text": "&Cast",
+    "rect": [
+     42,
+     114,
+     42,
+     14
+    ],
+    "style": 1342242816
+   },
+   {
+    "class": "button",
+    "id": 2,
+    "text": "Cancel",
+    "rect": [
+     100,
+     114,
+     42,
+     14
+    ],
+    "style": 1342242817
+   },
+   {
+    "class": "button",
+    "id": 1049,
+    "text": "&Help",
+    "rect": [
+     158,
+     114,
+     32,
+     14
+    ],
+    "style": 1342242816
+   },
+   {
+    "class": "button",
+    "id": 118,
+    "text": "",
+    "rect": [
+     4,
+     14,
+     94,
+     94
+    ],
+    "style": 1342177287
+   },
+   {
+    "class": "static",
+    "id": 119,
+    "text": "Spell Name",
+    "rect": [
+     106,
+     8,
+     46,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 120,
+    "text": "Mana",
+    "rect": [
+     196,
+     8,
+     20,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 121,
+    "text": "Spell Class:",
+    "rect": [
+     4,
+     8,
+     90,
+     8
+    ],
+    "style": 1342177280
+   }
+  ]
+ },
+ {
+  "id": 304,
+  "caption": "",
+  "rect": [
+   30,
+   0,
+   242,
+   186
+  ],
+  "controls": [
+   {
+    "class": "static",
+    "id": 100,
+    "text": "Castle of the Winds",
+    "rect": [
+     4,
+     4,
+     234,
+     8
+    ],
+    "style": 1342177281
+   },
+   {
+    "class": "static",
+    "id": 257,
+    "text": "Part One",
+    "rect": [
+     4,
+     14,
+     234,
+     8
+    ],
+    "style": 1342177281
+   },
+   {
+    "class": "static",
+    "id": 256,
+    "text": "\"A Question of Vengeance\"",
+    "rect": [
+     4,
+     24,
+     234,
+     8
+    ],
+    "style": 1342177281
+   },
+   {
+    "class": "static",
+    "id": 220,
+    "text": "Version 1.1A",
+    "rect": [
+     4,
+     34,
+     234,
+     8
+    ],
+    "style": 1342177281
+   },
+   {
+    "class": "static",
+    "id": 101,
+    "text": "Copyright © 1989-1993 by SaadaSoft",
+    "rect": [
+     4,
+     44,
+     234,
+     8
+    ],
+    "style": 1342177281
+   },
+   {
+    "class": "static",
+    "id": 320,
+    "text": "Published by Epic Megagames",
+    "rect": [
+     4,
+     54,
+     234,
+     8
+    ],
+    "style": 1342308353
+   },
+   {
+    "class": "static",
+    "id": 102,
+    "text": "Castle of the Winds is a shareware product,  it is not freeware.  This means that if you enjoy and continue to use this product you should become a registered user.  You can register and order Castle of ",
+    "rect": [
+     8,
+     78,
+     232,
+     24
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 318,
+    "text": "the Winds volumes I and II (which is not available as shareware) for $25, and get a sheet of hints and tips on how to play.  For more information on how to become a registered user, see Order Information under the Help menu.",
+    "rect": [
+     8,
+     102,
+     230,
+     32
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "button",
+    "id": 1,
+    "text": "OK",
+    "rect": [
+     100,
+     166,
+     40,
+     14
+    ],
+    "style": 1342242817
+   },
+   {
+    "class": "static",
+    "id": 1021,
+    "text": "You may distribute this program to your friends, as long as you distribute all the files that came in the original package.  Thanks for playing, and good luck!",
+    "rect": [
+     8,
+     134,
+     230,
+     32
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 319,
+    "text": "",
+    "rect": [
+     0,
+     68,
+     242,
+     2
+    ],
+    "style": 1342177284
+   }
+  ]
+ },
+ {
+  "id": 308,
+  "caption": "Character Creation",
+  "rect": [
+   34,
+   65528,
+   228,
+   200
+  ],
+  "controls": [
+   {
+    "class": "static",
+    "id": 108,
+    "text": "&Character name:",
+    "rect": [
+     8,
+     8,
+     56,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "edit",
+    "id": 151,
+    "text": "",
+    "rect": [
+     64,
+     4,
+     154,
+     12
+    ],
+    "style": 1350631552
+   },
+   {
+    "class": "static",
+    "id": 167,
+    "text": "Available",
+    "rect": [
+     8,
+     88,
+     32,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "statbar",
+    "id": 227,
+    "text": "",
+    "rect": [
+     8,
+     20,
+     16,
+     64
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 100,
+    "text": "Strength",
+    "rect": [
+     46,
+     88,
+     28,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "statbar",
+    "id": 158,
+    "text": "",
+    "rect": [
+     44,
+     20,
+     16,
+     64
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "scrollbar",
+    "id": 251,
+    "text": "",
+    "rect": [
+     64,
+     20,
+     10,
+     64
+    ],
+    "style": 1342242817
+   },
+   {
+    "class": "static",
+    "id": 153,
+    "text": "Intelligence",
+    "rect": [
+     88,
+     88,
+     38,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "statbar",
+    "id": 159,
+    "text": "",
+    "rect": [
+     92,
+     20,
+     16,
+     64
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "scrollbar",
+    "id": 252,
+    "text": "",
+    "rect": [
+     112,
+     20,
+     10,
+     64
+    ],
+    "style": 1342242817
+   },
+   {
+    "class": "static",
+    "id": 154,
+    "text": "Constitution",
+    "rect": [
+     138,
+     88,
+     38,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "statbar",
+    "id": 160,
+    "text": "",
+    "rect": [
+     140,
+     20,
+     16,
+     64
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "scrollbar",
+    "id": 253,
+    "text": "",
+    "rect": [
+     160,
+     20,
+     10,
+     64
+    ],
+    "style": 1342242817
+   },
+   {
+    "class": "static",
+    "id": 155,
+    "text": "Dexterity",
+    "rect": [
+     188,
+     88,
+     34,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "statbar",
+    "id": 161,
+    "text": "",
+    "rect": [
+     188,
+     20,
+     16,
+     64
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "scrollbar",
+    "id": 254,
+    "text": "",
+    "rect": [
+     208,
+     20,
+     10,
+     64
+    ],
+    "style": 1342242817
+   },
+   {
+    "class": "button",
+    "id": 212,
+    "text": "Character Gender",
+    "rect": [
+     8,
+     98,
+     82,
+     28
+    ],
+    "style": 1342177287
+   },
+   {
+    "class": "static",
+    "id": 221,
+    "text": "#323",
+    "rect": [
+     106,
+     106,
+     16,
+     16
+    ],
+    "style": 1342177283
+   },
+   {
+    "class": "button",
+    "id": 181,
+    "text": "&Male",
+    "rect": [
+     12,
+     110,
+     36,
+     12
+    ],
+    "style": 1342373892
+   },
+   {
+    "class": "button",
+    "id": 182,
+    "text": "&Female",
+    "rect": [
+     48,
+     110,
+     38,
+     12
+    ],
+    "style": 1342242820
+   },
+   {
+    "class": "button",
+    "id": 224,
+    "text": "Custom Character Icon",
+    "rect": [
+     134,
+     98,
+     84,
+     12
+    ],
+    "style": 1342373891
+   },
+   {
+    "class": "static",
+    "id": 237,
+    "text": "Icon &Filename:",
+    "rect": [
+     134,
+     110,
+     56,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "edit",
+    "id": 225,
+    "text": "",
+    "rect": [
+     134,
+     122,
+     84,
+     12
+    ],
+    "style": 1350631424
+   },
+   {
+    "class": "static",
+    "id": 1141,
+    "text": "#253",
+    "rect": [
+     24,
+     144,
+     16,
+     16
+    ],
+    "style": 1342177283
+   },
+   {
+    "class": "static",
+    "id": 1142,
+    "text": "#254",
+    "rect": [
+     74,
+     144,
+     16,
+     16
+    ],
+    "style": 1342177283
+   },
+   {
+    "class": "static",
+    "id": 1143,
+    "text": "#255",
+    "rect": [
+     126,
+     144,
+     16,
+     16
+    ],
+    "style": 1342177283
+   },
+   {
+    "class": "static",
+    "id": 1144,
+    "text": "#256",
+    "rect": [
+     180,
+     144,
+     16,
+     16
+    ],
+    "style": 1342177283
+   },
+   {
+    "class": "button",
+    "id": 1121,
+    "text": "&Easy",
+    "rect": [
+     16,
+     160,
+     39,
+     10
+    ],
+    "style": 1342373897
+   },
+   {
+    "class": "button",
+    "id": 1122,
+    "text": "&Intermediate",
+    "rect": [
+     56,
+     160,
+     52,
+     10
+    ],
+    "style": 1342177289
+   },
+   {
+    "class": "button",
+    "id": 1123,
+    "text": "&Difficult",
+    "rect": [
+     116,
+     160,
+     39,
+     10
+    ],
+    "style": 1342177289
+   },
+   {
+    "class": "button",
+    "id": 1124,
+    "text": "E&xperts Only",
+    "rect": [
+     162,
+     160,
+     54,
+     10
+    ],
+    "style": 1342177289
+   },
+   {
+    "class": "button",
+    "id": 1,
+    "text": "OK",
+    "rect": [
+     8,
+     180,
+     46,
+     14
+    ],
+    "style": 1342373888
+   },
+   {
+    "class": "button",
+    "id": 2,
+    "text": "Cancel",
+    "rect": [
+     62,
+     180,
+     46,
+     14
+    ],
+    "style": 1342242816
+   },
+   {
+    "class": "button",
+    "id": 222,
+    "text": "&View Icon",
+    "rect": [
+     118,
+     180,
+     46,
+     14
+    ],
+    "style": 1342242816
+   },
+   {
+    "class": "button",
+    "id": 1049,
+    "text": "Help",
+    "rect": [
+     172,
+     180,
+     46,
+     14
+    ],
+    "style": 1342242816
+   },
+   {
+    "class": "button",
+    "id": 321,
+    "text": "Game Difficulty",
+    "rect": [
+     8,
+     134,
+     210,
+     40
+    ],
+    "style": 1342177287
+   }
+  ]
+ },
+ {
+  "id": 309,
+  "caption": "Edit Character",
+  "rect": [
+   20,
+   14,
+   270,
+   162
+  ],
+  "controls": [
+   {
+    "class": "static",
+    "id": 100,
+    "text": "Character name:",
+    "rect": [
+     14,
+     6,
+     56,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "edit",
+    "id": 151,
+    "text": "",
+    "rect": [
+     72,
+     2,
+     164,
+     12
+    ],
+    "style": 1350631552
+   },
+   {
+    "class": "static",
+    "id": 100,
+    "text": "Strength",
+    "rect": [
+     12,
+     92,
+     28,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "statbar",
+    "id": 158,
+    "text": "",
+    "rect": [
+     14,
+     20,
+     12,
+     70
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 153,
+    "text": "Intelligence",
+    "rect": [
+     46,
+     92,
+     38,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "statbar",
+    "id": 159,
+    "text": "",
+    "rect": [
+     52,
+     20,
+     12,
+     70
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 154,
+    "text": "Constitution",
+    "rect": [
+     86,
+     92,
+     38,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "statbar",
+    "id": 160,
+    "text": "",
+    "rect": [
+     90,
+     20,
+     12,
+     70
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 155,
+    "text": "Dexterity",
+    "rect": [
+     128,
+     92,
+     34,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "statbar",
+    "id": 161,
+    "text": "",
+    "rect": [
+     128,
+     20,
+     12,
+     70
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "button",
+    "id": 224,
+    "text": "Custom Character Icon",
+    "rect": [
+     162,
+     102,
+     84,
+     12
+    ],
+    "style": 1342373891
+   },
+   {
+    "class": "static",
+    "id": 237,
+    "text": "&Filename:",
+    "rect": [
+     162,
+     114,
+     36,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "edit",
+    "id": 225,
+    "text": "",
+    "rect": [
+     162,
+     126,
+     102,
+     12
+    ],
+    "style": 1350631424
+   },
+   {
+    "class": "button",
+    "id": 1,
+    "text": "OK",
+    "rect": [
+     8,
+     142,
+     46,
+     14
+    ],
+    "style": 1342373888
+   },
+   {
+    "class": "button",
+    "id": 2,
+    "text": "Cancel",
+    "rect": [
+     60,
+     142,
+     46,
+     14
+    ],
+    "style": 1342242816
+   },
+   {
+    "class": "button",
+    "id": 1041,
+    "text": "&Attributes",
+    "rect": [
+     114,
+     142,
+     46,
+     14
+    ],
+    "style": 1342242816
+   },
+   {
+    "class": "button",
+    "id": 222,
+    "text": "&View Icon",
+    "rect": [
+     166,
+     142,
+     46,
+     14
+    ],
+    "style": 1342242816
+   },
+   {
+    "class": "button",
+    "id": 1049,
+    "text": "Help",
+    "rect": [
+     220,
+     142,
+     46,
+     14
+    ],
+    "style": 1342242816
+   },
+   {
+    "class": "statbar",
+    "id": 101,
+    "text": "",
+    "rect": [
+     26,
+     20,
+     12,
+     70
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "statbar",
+    "id": 102,
+    "text": "",
+    "rect": [
+     64,
+     20,
+     12,
+     70
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "statbar",
+    "id": 103,
+    "text": "",
+    "rect": [
+     102,
+     20,
+     12,
+     70
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "statbar",
+    "id": 104,
+    "text": "",
+    "rect": [
+     140,
+     20,
+     12,
+     70
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 134,
+    "text": "Hit Points:",
+    "rect": [
+     160,
+     68,
+     36,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 135,
+    "text": "Mana Points:",
+    "rect": [
+     160,
+     76,
+     46,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 136,
+    "text": "Weight: ",
+    "rect": [
+     160,
+     44,
+     28,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 137,
+    "text": "Bulk:",
+    "rect": [
+     160,
+     52,
+     18,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 138,
+    "text": "Speed:",
+    "rect": [
+     160,
+     60,
+     24,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 139,
+    "text": "Copper:",
+    "rect": [
+     160,
+     84,
+     28,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 221,
+    "text": "#323",
+    "rect": [
+     140,
+     112,
+     16,
+     16
+    ],
+    "style": 1342177283
+   },
+   {
+    "class": "static",
+    "id": 140,
+    "text": "Character Level:",
+    "rect": [
+     160,
+     20,
+     56,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 141,
+    "text": "Character Experience:",
+    "rect": [
+     160,
+     28,
+     72,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 168,
+    "text": "1",
+    "rect": [
+     220,
+     20,
+     42,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 112,
+    "text": "0",
+    "rect": [
+     232,
+     28,
+     30,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 113,
+    "text": "0(0)",
+    "rect": [
+     186,
+     44,
+     78,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 114,
+    "text": "0(0)",
+    "rect": [
+     178,
+     52,
+     86,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 115,
+    "text": "32",
+    "rect": [
+     202,
+     60,
+     62,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 116,
+    "text": "0",
+    "rect": [
+     222,
+     84,
+     42,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 107,
+    "text": "10",
+    "rect": [
+     208,
+     68,
+     56,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 109,
+    "text": "5",
+    "rect": [
+     218,
+     76,
+     46,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 143,
+    "text": "Armor Value:",
+    "rect": [
+     160,
+     92,
+     42,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 111,
+    "text": "0",
+    "rect": [
+     216,
+     92,
+     48,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 1021,
+    "text": "Next Level At:",
+    "rect": [
+     160,
+     36,
+     68,
+     8
+    ],
+    "style": 1342177280
+   },
+   {
+    "class": "static",
+    "id": 1022,
+    "text": "0",
+    "rect": [
+     230,
+     36,
+     32,
+     8
+    ],
+    "style": 1342177282
+   },
+   {
+    "class": "static",
+    "id": 1141,
+    "text": "#253",
+    "rect": [
+     88,
+     114,
+     16,
+     16
+    ],
+    "style": 1342177283
+   },
+   {
+    "class": "static",
+    "id": 1028,
+    "text": "Experts Only",
+    "rect": [
+     14,
+     118,
+     64,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "button",
+    "id": 321,
+    "text": "Game Difficulty",
+    "rect": [
+     8,
+     104,
+     106,
+     32
+    ],
+    "style": 1342177287
+   }
+  ]
+ },
+ {
+  "id": 317,
+  "caption": "Review Story",
+  "rect": [
+   6,
+   18,
+   176,
+   84
+  ],
+  "controls": [
+   {
+    "class": "listbox",
+    "id": 100,
+    "text": "",
+    "rect": [
+     4,
+     16,
+     111,
+     67
+    ],
+    "style": 1352728577
+   },
+   {
+    "class": "static",
+    "id": 22,
+    "text": "Descriptions You've Read:",
+    "rect": [
+     4,
+     4,
+     119,
+     8
+    ],
+    "style": 1342308352
+   },
+   {
+    "class": "button",
+    "id": 255,
+    "text": "&View",
+    "rect": [
+     120,
+     14,
+     52,
+     14
+    ],
+    "style": 1342242816
+   },
+   {
+    "class": "button",
+    "id": 1041,
+    "text": "&Background",
+    "rect": [
+     120,
+     36,
+     52,
+     14
+    ],
+    "style": 1342242816
+   },
+   {
+    "class": "button",
+    "id": 2,
+    "text": "Close",
+    "rect": [
+     120,
+     58,
+     52,
+     14
+    ],
+    "style": 1342242816
+   }
+  ],
+  "font": [
+   "Helv",
+   8
+  ]
+ },
+ {
+  "id": 318,
+  "caption": "Castle Options",
+  "rect": [
+   46,
+   32,
+   252,
+   82
+  ],
+  "controls": [
+   {
+    "class": "button",
+    "id": 1003,
+    "text": "Use &Fast Mapping",
+    "rect": [
+     10,
+     6,
+     80,
+     10
+    ],
+    "style": 1342373891
+   },
+   {
+    "class": "button",
+    "id": 1002,
+    "text": "Stop &Running on Special Sites",
+    "rect": [
+     102,
+     8,
+     116,
+     10
+    ],
+    "style": 1342373891
+   },
+   {
+    "class": "button",
+    "id": 1005,
+    "text": "Use &Visual Effects",
+    "rect": [
+     10,
+     20,
+     82,
+     10
+    ],
+    "style": 1342373891
+   },
+   {
+    "class": "button",
+    "id": 1004,
+    "text": "&Scroll Rooms On Screen On Entry",
+    "rect": [
+     102,
+     22,
+     122,
+     10
+    ],
+    "style": 1342373891
+   },
+   {
+    "class": "button",
+    "id": 1007,
+    "text": "Show &Button Bar",
+    "rect": [
+     10,
+     34,
+     82,
+     10
+    ],
+    "style": 1342373891
+   },
+   {
+    "class": "button",
+    "id": 1006,
+    "text": "&Keep Backup Save File",
+    "rect": [
+     102,
+     36,
+     98,
+     10
+    ],
+    "style": 1342373891
+   },
+   {
+    "class": "button",
+    "id": 1001,
+    "text": "Save &Levels To Disk",
+    "rect": [
+     10,
+     48,
+     88,
+     10
+    ],
+    "style": 1342373891
+   },
+   {
+    "class": "button",
+    "id": 1,
+    "text": "OK",
+    "rect": [
+     106,
+     62,
+     40,
+     14
+    ],
+    "style": 1342373888
+   }
+  ],
+  "font": [
+   "MS Sans Serif",
+   8
+  ]
+ },
+ {
+  "id": 320,
+  "caption": "Character Attributes",
+  "rect": [
+   50,
+   22,
+   186,
+   174
+  ],
+  "controls": [
+   {
+    "class": "listbox",
+    "id": 1081,
+    "text": "",
+    "rect": [
+     6,
+     14,
+     172,
+     126
+    ],
+    "style": 1352728579
+   },
+   {
+    "class": "button",
+    "id": 1,
+    "text": "OK",
+    "rect": [
+     74,
+     152,
+     40,
+     14
+    ],
+    "style": 1342242817
+   }
+  ],
+  "font": [
+   "MS Sans Serif",
+   8
+  ]
+ }
+]

@@ -1,6 +1,6 @@
-# Castle of the Winds: Remake
+# Windy Castle
 
-A remake of Rick Saada's *Castle of the Winds* (1993) in Godot 4. It keeps the original's rules, monsters, items and dungeons, with a modern 2D look and optional quality-of-life features.
+A remake of Rick Saada's *Castle of the Winds* (1993) in Godot 4. The end goal is both games, *Part I: A Question of Vengeance* and *Part II: Lifthransir's Bane*, as one continuous game. It keeps the original's rules, monsters, items and dungeons, with a modern 2D look and optional quality-of-life features.
 
 Work in progress. The first milestone is a vertical slice: the town of Hamlet and the first mine levels.
 
