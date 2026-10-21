@@ -25,6 +25,7 @@ var _modals: Array[Control] = []
 var _queued: Dictionary = {}
 var _pending_direction := ""  # "open"/"close" waiting for a direction key
 var _running := Vector2i.ZERO
+var _path: Array[Vector2i] = []  # click-to-move steps still to take
 
 
 func start(g: Game, art: ArtPack) -> void:
@@ -75,6 +76,35 @@ func modal_open() -> bool:
 	return _modals.any(func(m): return m.visible)
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if not event is InputEventMouseButton or not event.pressed or event.button_index != MOUSE_BUTTON_LEFT:
+		return
+	if game == null or game.dead or modal_open() or not Settings.get_opt("click_to_move"):
+		return
+	var at: Vector2 = world.get_viewport().get_canvas_transform().affine_inverse() * (event as InputEventMouseButton).position
+	var tile := Vector2i((at / float(world.art.tile_size())).floor())
+	get_viewport().set_input_as_handled()
+	var d := tile - game.player.pos
+	if maxi(absi(d.x), absi(d.y)) == 1:
+		_path.clear()
+		_submit({"type": "move", "dir": d})  # adjacent: step, attack or open, like a key press
+		return
+	_path = PathFind.route(game.level, game.player.pos, tile)
+	if _path.is_empty():
+		hud.add_transient("You don't know a way there.")
+	elif not player.is_busy():
+		_step_path()
+
+
+func _step_path() -> void:
+	var next: Vector2i = _path.pop_front()
+	var d := next - game.player.pos
+	if maxi(absi(d.x), absi(d.y)) != 1:
+		_path.clear()
+		return
+	_submit({"type": "move", "dir": d})
+
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not event.is_pressed() or game == null or game.dead or modal_open():
 		return
@@ -90,6 +120,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if action == "":
 		return
 	get_viewport().set_input_as_handled()
+	_path.clear()
 	if action.begins_with("menu_"):
 		dispatch_menu(action)
 		return
@@ -129,6 +160,8 @@ func _submit(action: Dictionary) -> void:
 	var events := game.perform(action, Settings.options)
 	if _running != Vector2i.ZERO and not _keep_running(events):
 		_running = Vector2i.ZERO
+	if not _path.is_empty() and not _keep_walking(events):
+		_path.clear()
 	player.play(events, before)
 
 
@@ -197,6 +230,12 @@ func _submit_now(action: Dictionary) -> Array:
 	return events
 
 
+func _keep_walking(events: Array) -> bool:
+	if not events.any(func(e): return e["type"] in ["moved", "door_opened"]):
+		return false
+	return not game.level.actors.any(func(a): return not a.is_player() and game.visible.has(a.pos))
+
+
 func _keep_running(events: Array) -> bool:
 	for e in events:
 		if e["type"] != "moved" or e["actor_id"] != game.player.id:
@@ -216,3 +255,5 @@ func _on_finished() -> void:
 		_submit(next)
 	elif _running != Vector2i.ZERO:
 		_submit({"type": "move", "dir": _running})
+	elif not _path.is_empty():
+		_step_path()

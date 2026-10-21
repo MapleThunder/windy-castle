@@ -200,3 +200,11 @@ func _fit() -> void:
 	var s := pick_scale(Vector2i(area.size))
 	camera.zoom = Vector2(s, s)
 	camera.offset = (view / 2.0 - area.get_center()) / float(s)
+
+
+func _process(_delta: float) -> void:
+	if game == null:
+		return
+	var p := actor_node(game.player.id)
+	if p != null:
+		camera.position = p.position

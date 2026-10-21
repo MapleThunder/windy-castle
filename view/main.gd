@@ -1,7 +1,8 @@
 extends Control
 ## Screen router: title → character creation → game, plus saving, loading and death.
 ## Debug options (after `--`): --start=game (skip the title with a default hero), --start-depth=<n>,
-## --seed=<n>, --hp=<n>, --screenshot=<path> [--frames=<n>], --fps, --keys=<k1,k2,...> (injected one every 10 frames).
+## --seed=<n>, --hp=<n>, --screenshot=<path> [--frames=<n>], --fps, --keys=<k1,k2,...> (injected one every 10 frames),
+## --click=<x>,<y> (a left click at that screen position on frame 20).
 
 const DEFAULT_SPEC := {"name": "Hero", "gender": "male", "stats": {"str": 50, "int": 50, "con": 50, "dex": 50}}
 
@@ -172,6 +173,15 @@ func _process(_delta: float) -> void:
 			var up: InputEventKey = ev.duplicate()
 			up.pressed = false
 			Input.parse_input_event(up)
+	if options.has("click") and _frames == 20:
+		var xy: PackedStringArray = options["click"].split(",")
+		for pressed in [true, false]:
+			var click := InputEventMouseButton.new()
+			click.button_index = MOUSE_BUTTON_LEFT
+			click.pressed = pressed
+			click.position = Vector2(float(xy[0]), float(xy[1]))
+			click.global_position = click.position
+			Input.parse_input_event(click)
 	if options.has("screenshot") and _frames == int(options.get("frames", "30")):
 		get_viewport().get_texture().get_image().save_png(options["screenshot"])
 		get_tree().quit()
