@@ -5,10 +5,12 @@ extends RefCounted
 const DIR := "user://saves"
 
 
-static func path_for(name: String) -> String:
+## id 0 gives a plain "<name>.json" (Save As); quick-saves pass the character's save_id.
+static func path_for(name: String, id: int = 0) -> String:
 	DirAccess.make_dir_recursive_absolute(DIR)
 	var safe := name.strip_edges().to_lower().replace(" ", "_").validate_filename()
-	return "%s/%s.json" % [DIR, safe if safe != "" else "hero"]
+	safe = safe if safe != "" else "hero"
+	return "%s/%s.json" % [DIR, safe if id == 0 else "%s_%d" % [safe, id]]
 
 
 static func list() -> Array:

@@ -22,8 +22,8 @@ func _defaults() -> Dictionary:
 func load_from(path: String) -> void:
 	var d := _defaults()
 	options = d["options"].duplicate()
-	_bindings = d["bindings"].duplicate(true)
-	_vi = d["vi_bindings"].duplicate(true)
+	_bindings = _canon_all(d["bindings"])
+	_vi = _canon_all(d["vi_bindings"])
 	if not FileAccess.file_exists(path):
 		return
 	var saved: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
@@ -33,15 +33,20 @@ func load_from(path: String) -> void:
 	for k in saved.get("options", {}):
 		if options.has(k):
 			options[k] = saved["options"][k]
-	for action in saved.get("bindings", {}):
+	var saved_keys := _canon_all(saved.get("bindings", {}))
+	for action in saved_keys:
 		if _bindings.has(action):
-			_bindings[action] = saved["bindings"][action]
+			_bindings[action] = saved_keys[action]
+	var saved_vi := _canon_all(saved.get("vi_bindings", {}))
+	for action in saved_vi:
+		if _vi.has(action):
+			_vi[action] = saved_vi[action]
 
 
 func save_to(path: String) -> void:
 	var f := FileAccess.open(path, FileAccess.WRITE)
 	if f != null:
-		f.store_string(JSON.stringify({"options": options, "bindings": _bindings}, "\t"))
+		f.store_string(JSON.stringify({"options": options, "bindings": _bindings, "vi_bindings": _vi}, "\t"))
 
 
 func get_opt(name: String) -> Variant:
@@ -63,6 +68,7 @@ func bindings() -> Dictionary:
 
 ## Bind `key` to `action`, removing it from any other action. Returns the action that lost it, or "".
 func bind(action: String, key: String) -> String:
+	key = canon(key)
 	var lost := ""
 	for other in _bindings:
 		if other != action and key in _bindings[other]:
@@ -79,6 +85,7 @@ func bind(action: String, key: String) -> String:
 
 
 func unbind(action: String, key: String) -> void:
+	key = canon(key)
 	_bindings[action].erase(key)
 	if _vi.has(action):
 		_vi[action].erase(key)
@@ -93,6 +100,29 @@ func apply() -> void:
 			InputMap.add_action(action)
 		for key in bindings()[action]:
 			InputMap.action_add_event(action, parse_key(key))
+
+
+## One spelling per key ("s" and "S" are both "S"), so bindings compare reliably.
+static func canon(text: String) -> String:
+	return key_string(parse_key(text))
+
+
+static func _canon_all(d: Dictionary) -> Dictionary:
+	var out := {}
+	for action in d:
+		out[action] = d[action].map(canon)
+	return out
+
+
+## How a key is shown to the player: plain letters in lower case, as the original's help does.
+static func display(text: String) -> String:
+	var parts := text.split("+")
+	var last := parts[-1]
+	if last.length() == 1 and parts.size() == 1:
+		return last.to_lower()
+	if last.length() == 1 and parts.size() == 2 and parts[0] == "Shift":
+		return last.to_upper()
+	return text
 
 
 static func parse_key(text: String) -> InputEventKey:

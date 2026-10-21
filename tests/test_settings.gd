@@ -14,7 +14,7 @@ func test_defaults_load() -> void:
 	assert_eq(s.get_opt("vi_keys"), true, "original movement keys on by default")
 	assert_eq(s.get_opt("auto_pickup_gold"), true)
 	assert_has(s.bindings(), "move_n")
-	assert_has(s.bindings()["search"], "s")
+	assert_has(s.bindings()["search"], "S")
 	s.free()
 
 
@@ -40,8 +40,8 @@ func test_parse_key_modifiers() -> void:
 func test_rebind_conflict_moves_key() -> void:
 	var s := _fresh()
 	assert_eq(s.bind("pickup", "s"), "search")
-	assert_false("s" in s.bindings()["search"])
-	assert_has(s.bindings()["pickup"], "s")
+	assert_false("S" in s.bindings()["search"])
+	assert_has(s.bindings()["pickup"], "S")
 	assert_eq(s.bind("pickup", "s"), "", "binding again is a no-op")
 	s.free()
 
@@ -54,7 +54,7 @@ func test_corrupt_settings_falls_back_to_defaults() -> void:
 	var s: Node = SettingsScript.new()
 	s.load_from(path)
 	assert_eq(s.get_opt("vi_keys"), true)
-	assert_has(s.bindings()["search"], "s")
+	assert_has(s.bindings()["search"], "S")
 	s.free()
 
 
@@ -73,9 +73,9 @@ func test_unknown_saved_entries_ignored() -> void:
 
 func test_vi_keys_toggle() -> void:
 	var s := _fresh()
-	assert_has(s.bindings()["move_n"], "k")
+	assert_has(s.bindings()["move_n"], "K")
 	s.options["vi_keys"] = false
-	assert_false("k" in s.bindings()["move_n"])
+	assert_false("K" in s.bindings()["move_n"])
 	assert_has(s.bindings()["move_n"], "Kp 8")
 	s.free()
 
@@ -121,3 +121,25 @@ func _labels(items: Array) -> Array:
 		else:
 			out.append(it["label"])
 	return out
+
+
+func test_rebind_conflict_with_captured_key_string() -> void:
+	# The rebind panel stores keys as key_string(event), e.g. "S", not the defaults' "s".
+	var s := _fresh()
+	var captured := GameSettings.key_string(GameSettings.parse_key("s"))
+	assert_eq(s.bind("pickup", captured), "search")
+	assert_false(s.bindings()["search"].any(func(k): return GameSettings.parse_key(k).keycode == KEY_S))
+	s.free()
+
+
+func test_stolen_vi_key_stays_moved_after_restart() -> void:
+	var path := "user://vi_settings.json"
+	var s := _fresh()
+	assert_eq(s.bind("search", "K"), "move_n")
+	s.save_to(path)
+	var t: Node = SettingsScript.new()
+	t.load_from(path)
+	assert_false(t.bindings()["move_n"].any(func(k): return GameSettings.parse_key(k).keycode == KEY_K))
+	assert_true(t.bindings()["search"].any(func(k): return GameSettings.parse_key(k).keycode == KEY_K))
+	s.free()
+	t.free()

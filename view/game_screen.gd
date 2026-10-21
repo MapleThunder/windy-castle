@@ -22,6 +22,7 @@ var player := EventPlayer.new()
 var hud := Hud.new()
 var inventory := InventoryPanel.new()
 var _modals: Array[Control] = []
+var extra_modal: Callable = func(): return false  # dialogs owned by main.gd
 var _queued: Dictionary = {}
 var _pending_direction := ""  # "open"/"close" waiting for a direction key
 var _running := Vector2i.ZERO
@@ -73,7 +74,7 @@ func _drop_modal(panel: Control) -> void:
 
 
 func modal_open() -> bool:
-	return _modals.any(func(m): return m.visible)
+	return _modals.any(func(m): return m.visible) or extra_modal.call()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -158,7 +159,7 @@ func _submit(action: Dictionary) -> void:
 	hud.clear_transient()
 	var before := game.visible.duplicate()
 	var events := game.perform(action, Settings.options)
-	if _running != Vector2i.ZERO and not _keep_running(events):
+	if _running != Vector2i.ZERO and not keeps_running(events, game):
 		_running = Vector2i.ZERO
 	if not _path.is_empty() and not _keep_walking(events):
 		_path.clear()
@@ -216,7 +217,7 @@ static func cheat_sheet() -> String:
 		var rows := ""
 		for action in Menus.DESCRIPTIONS:
 			if Menus.DESCRIPTIONS[action][0] == group and b.has(action) and not b[action].is_empty():
-				rows += "[cell]%s[/cell][cell][color=#e0a050]%s[/color][/cell]" % [Menus.DESCRIPTIONS[action][1], ", ".join(b[action])]
+				rows += "[cell]%s[/cell][cell][color=#e0a050]%s[/color][/cell]" % [Menus.DESCRIPTIONS[action][1], ", ".join(b[action].map(GameSettings.display))]
 		if rows != "":
 			out += "[b]%s[/b]\n[table=2]%s[/table]\n\n" % [group, rows]
 	return out
@@ -236,15 +237,22 @@ func _keep_walking(events: Array) -> bool:
 	return not game.level.actors.any(func(a): return not a.is_player() and game.visible.has(a.pos))
 
 
-func _keep_running(events: Array) -> bool:
+## Shift-running continues while only the player moved (out-of-sight monsters may wander),
+## no monster is in view and nothing lies underfoot.
+static func keeps_running(events: Array, g: Game) -> bool:
+	var moved := false
 	for e in events:
-		if e["type"] != "moved" or e["actor_id"] != game.player.id:
+		if e["type"] != "moved":
 			return false
-	if events.is_empty():
+		if e["actor_id"] == g.player.id:
+			moved = true
+		elif g.visible.has(e["to"]) or g.visible.has(e["from"]):
+			return false
+	if not moved:
 		return false
-	if game.level.actors.any(func(a): return not a.is_player() and game.visible.has(a.pos)):
+	if g.level.actors.any(func(a): return not a.is_player() and g.visible.has(a.pos)):
 		return false
-	return game.level.items_at(game.player.pos).is_empty()
+	return g.level.items_at(g.player.pos).is_empty()
 
 
 func _on_finished() -> void:

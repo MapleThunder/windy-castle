@@ -140,6 +140,10 @@ func toggle_full_log() -> void:
 
 ## The map viewport is what the HUD leaves uncovered.
 func map_rect(viewport: Vector2) -> Rect2:
+	return map_rect_for(viewport)
+
+
+static func map_rect_for(viewport: Vector2) -> Rect2:
 	return Rect2(PANEL_WIDTH, 0, maxf(1.0, viewport.x - PANEL_WIDTH), maxf(1.0, viewport.y - LOG_HEIGHT))
 
 

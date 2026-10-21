@@ -171,31 +171,63 @@ func _update_load() -> void:
 # --- moves -------------------------------------------------------------------------------
 
 func move(from: ItemSlot, to: ItemSlot) -> void:
-	var it := from.item
-	var uid := int(it.get("uid", 0))
-	var steps: Array[Dictionary] = []
-	match [from.area, to.area]:
-		["pack", "equip"]:
-			steps = [{"type": "equip", "uid": uid, "slot": to.slot}]
-		["pack", "floor"]:
-			steps = [{"type": "drop", "uid": uid}]
-		["equip", "pack"]:
-			steps = [{"type": "unequip", "slot": from.slot}]
-		["equip", "floor"]:
-			steps = [{"type": "unequip", "slot": from.slot}, {"type": "drop", "uid": uid}]
-		["floor", "pack"]:
-			steps = [{"type": "pickup", "uid": uid}]
-		["floor", "equip"]:
-			steps = [{"type": "pickup", "uid": uid}, {"type": "equip", "uid": uid, "slot": to.slot}]
-		["equip", "equip"]:
-			steps = [{"type": "unequip", "slot": from.slot}, {"type": "equip", "uid": uid, "slot": to.slot}]
-	for step in steps:
+	var plan := plan_move(game, from.area, from.slot, from.item, to.area, to.slot)
+	if plan["reject"] != "":
+		_toast(plan["reject"])
+	for step in plan["steps"]:
 		var events: Array = submit.call(step)
 		if events.size() == 1 and events[0]["type"] == "message":
 			_toast(events[0]["text"])
 			break
 	_held = null
 	rebuild()
+
+
+## The engine actions for one drag, or a rejection before any of them run, so a move that can't
+## finish never half-happens (a turn spent picking up, or an item left unequipped).
+static func plan_move(g: Game, from_area: String, from_slot: String, item: Dictionary,
+		to_area: String, to_slot: String) -> Dictionary:
+	var uid := int(item.get("uid", 0))
+	var reject := ""
+	if to_area == "equip":
+		reject = _equip_problem(g, item, from_slot, to_slot)
+	if reject == "" and from_area == "floor":
+		reject = g.inventory.can_add(item, g.db)
+	if reject != "":
+		return {"steps": [], "reject": reject}
+	var steps := []
+	match [from_area, to_area]:
+		["pack", "equip"]:
+			steps = [{"type": "equip", "uid": uid, "slot": to_slot}]
+		["pack", "floor"]:
+			steps = [{"type": "drop", "uid": uid}]
+		["equip", "pack"]:
+			steps = [{"type": "unequip", "slot": from_slot}]
+		["equip", "floor"]:
+			steps = [{"type": "unequip", "slot": from_slot}, {"type": "drop", "uid": uid}]
+		["floor", "pack"]:
+			steps = [{"type": "pickup", "uid": uid}]
+		["floor", "equip"]:
+			steps = [{"type": "pickup", "uid": uid}, {"type": "equip", "uid": uid, "slot": to_slot}]
+		["equip", "equip"]:
+			steps = [{"type": "unequip", "slot": from_slot}, {"type": "equip", "uid": uid, "slot": to_slot}]
+	return {"steps": steps, "reject": ""}
+
+
+static func _equip_problem(g: Game, item: Dictionary, from_slot: String, to_slot: String) -> String:
+	if item.get("id", "") == "gold" or item.is_empty():
+		return "You can't wear that."
+	var d := g.db.item(item["id"])
+	var fits: bool = (to_slot in ["ring_left", "ring_right"]) if d["slot"] == "ring" else d["slot"] == to_slot
+	if not fits:
+		return "You can't wear the %s there." % d["name"]
+	var eq := g.inventory.equipped
+	if to_slot == "shield" and eq["weapon"] != null and from_slot != "weapon" \
+			and int(g.db.item(eq["weapon"]["id"])["hands"]) == 2:
+		return Inventory.TWO_HAND_MSG
+	if to_slot == "weapon" and int(d["hands"]) == 2 and eq["shield"] != null and from_slot != "shield":
+		return Inventory.TWO_HAND_MSG
+	return ""
 
 
 func _toast(text: String) -> void:

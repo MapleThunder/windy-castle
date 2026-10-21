@@ -79,14 +79,17 @@ func _modal(panel: InfoPanel) -> void:
 
 
 func _start_game(spec: Dictionary, seed: int) -> void:
-	_begin(Game.new_game(spec, seed, db))
-	save_path = Saves.path_for(spec["name"])
+	var s := spec.duplicate()
+	s["save_id"] = randi() % 1000000  # quick-saves of two characters with one name must not collide
+	_begin(Game.new_game(s, seed, db))
+	save_path = Saves.path_for(s["name"], s["save_id"])
 
 
 func _begin(g: Game) -> void:
 	var s := GameScreen.new()
 	_swap(s)
 	s.start(g, art)
+	s.extra_modal = func(): return overlay_root.get_children().any(func(c): return c is CenterContainer and c.visible)
 	s.menu_requested.connect(_on_menu)
 	s.game_over.connect(_on_death)
 

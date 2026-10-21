@@ -2,7 +2,7 @@ class_name WorldView
 extends Node2D
 ## Draws the current level: terrain, features, town buildings, floor items and actors.
 
-const MIN_TILES := Vector2i(15, 11)
+const MIN_TILES := Vector2i(15, 10)
 const MAX_SCALE := 4
 
 var game: Game
@@ -133,7 +133,7 @@ func refresh_visibility(previous: Dictionary) -> void:
 		refresh_tile(p, town)
 	for p in game.visible:
 		refresh_tile(p, town)
-	refresh_entities()
+	refresh_entities(false)
 
 
 func refresh_tile(p: Vector2i, town: bool = game.level.depth == 0) -> void:
@@ -150,7 +150,8 @@ func refresh_tile(p: Vector2i, town: bool = game.level.depth == 0) -> void:
 		(features if seen else memory_features).set_cell(p, _source(f), Vector2i.ZERO)
 
 
-func refresh_entities() -> void:
+## prune = false keeps sprites of actors that just left the level (killed) for their death animation.
+func refresh_entities(prune: bool = true) -> void:
 	for c in items.get_children():
 		c.queue_free()
 	for p: Vector2i in game.level.floor_items:
@@ -173,7 +174,7 @@ func refresh_entities() -> void:
 		node.position = tile_to_px(a.pos)
 		node.visible = a.is_player() or game.visible.has(a.pos)
 	for id in _actor_nodes.keys():
-		if not live.has(id):
+		if prune and not live.has(id):
 			_actor_nodes[id].queue_free()
 			_actor_nodes.erase(id)
 

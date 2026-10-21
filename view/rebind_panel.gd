@@ -43,7 +43,7 @@ func refresh() -> void:
 				continue
 			var it := tree.create_item(root)
 			it.set_text(0, Menus.DESCRIPTIONS[action][1])
-			it.set_text(1, ", ".join(b[action]))
+			it.set_text(1, ", ".join(b[action].map(GameSettings.display)))
 			it.set_custom_color(1, GameTheme.ACCENT)
 			it.set_metadata(0, action)
 			if action == keep:
@@ -83,7 +83,7 @@ func _input(event: InputEvent) -> void:
 		var text := GameSettings.key_string(key)
 		var lost: String = Settings.bind(_capturing, text)
 		Settings.save_to(GameSettings.PATH)
-		status.text = "%s now does: %s." % [text, Menus.DESCRIPTIONS[_capturing][1]]
+		status.text = "%s now does: %s." % [GameSettings.display(text), Menus.DESCRIPTIONS[_capturing][1]]
 		if lost != "" and lost != _capturing:
 			status.text += " Moved from %s." % Menus.DESCRIPTIONS.get(lost, [lost, lost])[1]
 	_capturing = ""
