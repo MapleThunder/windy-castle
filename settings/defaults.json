@@ -1,0 +1,10 @@
+{
+	"options": {
+		"tooltips": true,
+		"vi_keys": false,
+		"click_to_move": true,
+		"auto_pickup_gold": true,
+		"damage_numbers": true
+	},
+	"bindings": {}
+}

@@ -1,0 +1,15 @@
+# Original games, DOSBox and Win3.1 setup (local only)
+reference/
+
+# AI / agent working documents (local only)
+docs/superpowers/
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+.superpowers/
+
+# Godot
+.godot/
+*.translation
+export_presets.cfg
