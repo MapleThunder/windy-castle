@@ -2,7 +2,7 @@
 shader_type canvas_item;
 render_mode unshaded;
 
-uniform vec3 tint = vec3(0.35, 0.38, 0.5);
+uniform vec3 tint = vec3(0.24, 0.26, 0.36);
 uniform float desaturate = 0.75;
 
 varying vec2 world_pos;

@@ -6,5 +6,47 @@
 		"auto_pickup_gold": true,
 		"damage_numbers": true
 	},
-	"bindings": {}
+	"vi_bindings": {
+		"move_n": ["k"], "move_ne": ["u"], "move_e": ["l"], "move_se": ["n"],
+		"move_s": ["j"], "move_sw": ["b"], "move_w": ["h"], "move_nw": ["y"]
+	},
+	"bindings": {
+		"move_n": ["Up", "Kp 8"],
+		"move_ne": ["Kp 9"],
+		"move_e": ["Right", "Kp 6"],
+		"move_se": ["Kp 3"],
+		"move_s": ["Down", "Kp 2"],
+		"move_sw": ["Kp 1"],
+		"move_w": ["Left", "Kp 4"],
+		"move_nw": ["Kp 7"],
+		"wait": ["Kp 5", "Period"],
+		"search": ["s"],
+		"rest": ["r"],
+		"sleep": ["Shift+r"],
+		"pickup": ["g"],
+		"open": ["o"],
+		"close": ["c"],
+		"stairs_up": ["Shift+Comma"],
+		"stairs_down": ["Shift+Period"],
+		"examine": ["x"],
+		"disarm": ["d"],
+		"free_hand": ["f"],
+		"view": ["v"],
+		"menu_new": ["Ctrl+n"],
+		"menu_load": ["Ctrl+o"],
+		"menu_save": ["Ctrl+s"],
+		"menu_save_as": ["Ctrl+Shift+s"],
+		"menu_options": ["F10"],
+		"menu_story": ["F9"],
+		"menu_quit": ["Ctrl+q"],
+		"menu_character": ["F2"],
+		"menu_inventory": ["i"],
+		"menu_map": ["m"],
+		"menu_spellbook": ["F3"],
+		"menu_activate": ["a"],
+		"menu_log": ["F4"],
+		"menu_help": ["F1"],
+		"menu_keys": ["Shift+Slash"],
+		"menu_rebind": ["F11"]
+	}
 }

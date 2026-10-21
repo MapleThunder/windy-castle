@@ -8,6 +8,10 @@ config/name="Windy Castle"
 run/main_scene="res://view/main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[autoload]
+
+Settings="*res://view/settings.gd"
+
 [display]
 
 window/size/viewport_width=1280
