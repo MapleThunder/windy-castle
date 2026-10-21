@@ -343,3 +343,46 @@ func _act_rest() -> Array:
 			break
 		_end_player_turn(events)
 	return events
+
+
+# --- persistence ---------------------------------------------------------------------------
+
+const SAVE_KEYS := ["spec", "stats", "depth", "levels", "player", "inventory", "turn", "messages", "dead",
+	"next_id", "next_uid", "rng_seed", "rng_state"]
+
+
+func to_dict() -> Dictionary:
+	var out_levels := {}
+	for depth in levels:
+		var l: Level = levels[depth]
+		l.actors.erase(player)
+		out_levels[str(depth)] = l.to_dict()
+	level.actors.append(player)
+	return {"spec": spec, "stats": stats, "depth": level.depth, "levels": out_levels,
+		"player": player.to_dict(), "inventory": inventory.to_dict(), "turn": turn, "messages": messages,
+		"dead": dead, "next_id": next_id, "next_uid": next_uid,
+		# 64-bit RNG values don't survive JSON numbers, so they travel as strings.
+		"rng_seed": str(rng.seed), "rng_state": str(rng.state)}
+
+
+static func from_dict(d: Dictionary, data: GameData) -> Game:
+	var g := Game.new()
+	g.db = data
+	g.spec = d["spec"]
+	g.stats = d["stats"]
+	for key: String in d["levels"]:
+		g.levels[int(key)] = Level.from_dict(d["levels"][key])
+	g.player = Actor.from_dict(d["player"])
+	g.inventory = Inventory.from_dict(d["inventory"])
+	g.turn = int(d["turn"])
+	g.messages.assign(d["messages"])
+	g.dead = d["dead"]
+	g.next_id = int(d["next_id"])
+	g.next_uid = int(d["next_uid"])
+	g.rng.seed = int(d["rng_seed"])
+	g.rng.state = int(d["rng_state"])
+	g.level = g.levels[int(d["depth"])]
+	g.level.actors.append(g.player)
+	g.refresh_player()  # derived from stats and equipment; never trust the saved copy
+	g._update_view()
+	return g
