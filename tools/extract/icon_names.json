@@ -1,5 +1,5 @@
 {
-	"_note": "Semantic sprite name → file under assets/original. Identified by eye from contact sheets; monster entries are refined from the EXE tables in tables.py.",
+	"_note": "Semantic sprite name \u2192 file under assets/original. Identified by eye from contact sheets; monster entries are refined from the EXE tables in tables.py.",
 	"player.male": "icons/401.png",
 	"player.female": "icons/403.png",
 	"tile.door.closed": "icons/4.png",
@@ -56,5 +56,13 @@
 	"item.silver": "icons/151.png",
 	"item.gold": "icons/153.png",
 	"item.platinum": "icons/155.png",
-	"fx.arrow": "icons/26.png"
+	"fx.arrow": "icons/26.png",
+	"monster.giant_rat": "icons/381.png",
+	"monster.kobold": "icons/379.png",
+	"monster.large_snake": "icons/383.png",
+	"monster.giant_bat": "icons/405.png",
+	"monster.wild_dog": "icons/387.png",
+	"monster.goblin": "icons/427.png",
+	"monster.hobgoblin": "icons/429.png",
+	"monster.gray_wolf": "icons/431.png"
 }

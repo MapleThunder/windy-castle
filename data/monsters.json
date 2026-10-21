@@ -1,0 +1,150 @@
+[
+ {
+  "id": "giant_rat",
+  "name": "Giant Rat",
+  "level": 1,
+  "hp": "1d4+1",
+  "speed": 100,
+  "attack": {
+   "to_hit": 0,
+   "damage": "1d3"
+  },
+  "armor": 0,
+  "flags": [
+   "animal"
+  ],
+  "min_depth": 1,
+  "sprite": "monster.giant_rat",
+  "described_in_help": true,
+  "source": "assumed"
+ },
+ {
+  "id": "kobold",
+  "name": "Kobold",
+  "level": 1,
+  "hp": "1d8",
+  "speed": 100,
+  "attack": {
+   "to_hit": 0,
+   "damage": "1d4"
+  },
+  "armor": 2,
+  "flags": [],
+  "min_depth": 1,
+  "sprite": "monster.kobold",
+  "described_in_help": true,
+  "source": "assumed"
+ },
+ {
+  "id": "large_snake",
+  "name": "Large Snake",
+  "level": 1,
+  "hp": "2d4",
+  "speed": 80,
+  "attack": {
+   "to_hit": 0,
+   "damage": "1d4"
+  },
+  "armor": 2,
+  "flags": [
+   "animal"
+  ],
+  "min_depth": 1,
+  "sprite": "monster.large_snake",
+  "described_in_help": true,
+  "source": "assumed"
+ },
+ {
+  "id": "giant_bat",
+  "name": "Giant Bat",
+  "level": 1,
+  "hp": "1d6",
+  "speed": 150,
+  "attack": {
+   "to_hit": 1,
+   "damage": "1d3"
+  },
+  "armor": 0,
+  "flags": [
+   "animal",
+   "flying",
+   "erratic"
+  ],
+  "min_depth": 1,
+  "sprite": "monster.giant_bat",
+  "described_in_help": true,
+  "source": "assumed"
+ },
+ {
+  "id": "wild_dog",
+  "name": "Wild Dog",
+  "level": 2,
+  "hp": "2d6",
+  "speed": 120,
+  "attack": {
+   "to_hit": 1,
+   "damage": "1d6"
+  },
+  "armor": 1,
+  "flags": [
+   "animal"
+  ],
+  "min_depth": 2,
+  "sprite": "monster.wild_dog",
+  "described_in_help": true,
+  "source": "assumed"
+ },
+ {
+  "id": "goblin",
+  "name": "Goblin",
+  "level": 2,
+  "hp": "2d6",
+  "speed": 100,
+  "attack": {
+   "to_hit": 1,
+   "damage": "1d6"
+  },
+  "armor": 4,
+  "flags": [],
+  "min_depth": 2,
+  "sprite": "monster.goblin",
+  "described_in_help": true,
+  "source": "assumed"
+ },
+ {
+  "id": "hobgoblin",
+  "name": "Hobgoblin",
+  "level": 3,
+  "hp": "3d6",
+  "speed": 100,
+  "attack": {
+   "to_hit": 2,
+   "damage": "1d8"
+  },
+  "armor": 6,
+  "flags": [],
+  "min_depth": 3,
+  "sprite": "monster.hobgoblin",
+  "described_in_help": true,
+  "source": "assumed"
+ },
+ {
+  "id": "gray_wolf",
+  "name": "Gray Wolf",
+  "level": 3,
+  "hp": "3d6",
+  "speed": 130,
+  "attack": {
+   "to_hit": 2,
+   "damage": "1d6+1"
+  },
+  "armor": 3,
+  "flags": [
+   "animal"
+  ],
+  "min_depth": 3,
+  "sprite": "monster.gray_wolf",
+  "described_in_help": false,
+  "source": "assumed"
+ }
+]
