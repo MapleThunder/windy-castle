@@ -2,7 +2,8 @@ extends Control
 ## Screen router: title → character creation → game, plus saving, loading and death.
 ## Debug options (after `--`): --start=game (skip the title with a default hero), --start-depth=<n>,
 ## --seed=<n>, --hp=<n>, --screenshot=<path> [--frames=<n>], --fps, --keys=<k1,k2,...> (injected one every 10 frames),
-## --click=<x>,<y> (a left click at that screen position on frame 20).
+## --click=<x>,<y> [--click-frame=<n>] [--right] (a click at that screen position, default frame 20),
+## --hover=<x>,<y> (mouse moved there 5 frames before the click frame).
 
 const DEFAULT_SPEC := {"name": "Hero", "gender": "male", "stats": {"str": 50, "int": 50, "con": 50, "dex": 50}}
 
@@ -32,7 +33,7 @@ func _ready() -> void:
 		_start_game(DEFAULT_SPEC, int(options.get("seed", "1")))
 		for i in int(options.get("start-depth", "0")):
 			var g := game_screen.game
-			g.enter_level(g.level, g.level.find_tile(Tile.T.STAIRS_DOWN))
+			g.enter_level(g.level, Town.mine_arrival() if g.level.depth == 0 else g.level.find_tile(Tile.T.STAIRS_DOWN))
 			g.perform({"type": "stairs_down"})
 			game_screen.world.refresh_all()
 		if options.has("hp"):
@@ -176,11 +177,18 @@ func _process(_delta: float) -> void:
 			var up: InputEventKey = ev.duplicate()
 			up.pressed = false
 			Input.parse_input_event(up)
-	if options.has("click") and _frames == 20:
+	var click_frame := int(options.get("click-frame", "20"))
+	if options.has("hover") and _frames == click_frame - 5:
+		var hxy: PackedStringArray = options["hover"].split(",")
+		var motion := InputEventMouseMotion.new()
+		motion.position = Vector2(float(hxy[0]), float(hxy[1]))
+		motion.global_position = motion.position
+		Input.parse_input_event(motion)
+	if options.has("click") and _frames == click_frame:
 		var xy: PackedStringArray = options["click"].split(",")
 		for pressed in [true, false]:
 			var click := InputEventMouseButton.new()
-			click.button_index = MOUSE_BUTTON_LEFT
+			click.button_index = MOUSE_BUTTON_RIGHT if options.has("right") else MOUSE_BUTTON_LEFT
 			click.pressed = pressed
 			click.position = Vector2(float(xy[0]), float(xy[1]))
 			click.global_position = click.position

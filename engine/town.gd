@@ -1,10 +1,14 @@
 class_name Town
 extends RefCounted
-## The starting hamlet, loaded from data/maps/town.json.
+## The starting hamlet, loaded from data/maps/town.json (written by tools/town_layout.py).
 
 
 static func spec() -> Dictionary:
 	return JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/town.json"))
+
+
+static func _v(a: Array) -> Vector2i:
+	return Vector2i(int(a[0]), int(a[1]))
 
 
 static func build() -> Level:
@@ -22,9 +26,20 @@ static func build() -> Level:
 		for y in range(int(r[1]), int(r[1]) + int(r[3])):
 			for x in range(int(r[0]), int(r[0]) + int(r[2])):
 				l.signs[Vector2i(x, y)] = b["name"]
+		if b.has("sign"):
+			# source: exe ("A sign that says:"). Right-clicking a sign in the original showed this.
+			l.features[_v(b["sign"])] = {"sprite": "tile.sign", "text": "A sign that says: " + b["name"],
+				"detail": b.get("flavour", "")}
+	var gate: Dictionary = s["gate"]
+	for x in range(int(gate["rect"][0]), int(gate["rect"][0]) + int(gate["rect"][2])):
+		l.signs[Vector2i(x, int(gate["rect"][1]))] = gate["text"]
 	return l
 
 
 static func player_start() -> Vector2i:
-	var p: Array = spec()["player_start"]
-	return Vector2i(int(p[0]), int(p[1]))
+	return _v(spec()["player_start"])
+
+
+## Where the player stands when coming back from the mine, just inside the north gate.
+static func mine_arrival() -> Vector2i:
+	return _v(spec()["mine_arrival"])

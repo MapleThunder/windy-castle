@@ -11,9 +11,9 @@ const DIRS := {
 }
 const SIMPLE := {"wait": "wait", "search": "search", "rest": "rest", "sleep": "rest", "pickup": "pickup",
 	"stairs_up": "stairs_up", "stairs_down": "stairs_down"}
-const NEEDS_DIRECTION := {"open": "open", "close": "close"}
+const NEEDS_DIRECTION := {"open": "open", "close": "close", "examine": "examine"}
 const RUN_LIMIT := 60
-const NOT_YET := {"examine": "Examine", "disarm": "Disarm Trap", "free_hand": "Free Hand", "view": "View"}
+const NOT_YET := {"disarm": "Disarm Trap", "free_hand": "Free Hand", "view": "View"}
 const ROUTED := ["menu_new", "menu_load", "menu_save", "menu_save_as", "menu_quit"]
 
 var game: Game
@@ -49,6 +49,7 @@ func start(g: Game, art: ArtPack) -> void:
 	player.finished.connect(_on_finished)
 	player.message_logged.connect(func(_t): hud.refresh())
 	player.stats_changed.connect(hud.refresh)
+	hud.action_pressed.connect(do_action)
 	player.player_died.connect(func(cause): game_over.emit(cause))
 
 
@@ -77,24 +78,77 @@ func modal_open() -> bool:
 	return _modals.any(func(m): return m.visible) or extra_modal.call()
 
 
+func _screen_to_tile(screen: Vector2) -> Vector2i:
+	var at: Vector2 = world.get_viewport().get_canvas_transform().affine_inverse() * screen
+	return Vector2i((at / float(world.art.tile_size())).floor())
+
+
 func _unhandled_input(event: InputEvent) -> void:
-	if not event is InputEventMouseButton or not event.pressed or event.button_index != MOUSE_BUTTON_LEFT:
+	if game == null or game.dead or modal_open():
 		return
-	if game == null or game.dead or modal_open() or not Settings.get_opt("click_to_move"):
+	var motion := event as InputEventMouseMotion
+	if motion != null:
+		_hover(_screen_to_tile(motion.position), motion.position)
 		return
-	var at: Vector2 = world.get_viewport().get_canvas_transform().affine_inverse() * (event as InputEventMouseButton).position
-	var tile := Vector2i((at / float(world.art.tile_size())).floor())
+	var click := event as InputEventMouseButton
+	if click == null or not click.pressed:
+		return
+	var tile := _screen_to_tile(click.position)
+	if click.button_index == MOUSE_BUTTON_RIGHT:  # source: hlp. Right-click examines a site.
+		get_viewport().set_input_as_handled()
+		_submit({"type": "examine", "pos": tile})
+		return
+	if click.button_index != MOUSE_BUTTON_LEFT:
+		return
 	get_viewport().set_input_as_handled()
 	var d := tile - game.player.pos
-	if maxi(absi(d.x), absi(d.y)) == 1:
-		_path.clear()
-		_submit({"type": "move", "dir": d})  # adjacent: step, attack or open, like a key press
+	var adjacent := maxi(absi(d.x), absi(d.y)) == 1
+	if _pending_direction == "examine":
+		_pending_direction = ""
+		_submit({"type": "examine", "pos": tile})
 		return
-	_path = PathFind.route(game.level, game.player.pos, tile)
+	if _pending_direction != "":
+		if adjacent:
+			_submit({"type": _pending_direction, "dir": d})
+		else:
+			hud.add_transient("Click a square next to you.")
+			return
+		_pending_direction = ""
+		return
+	if d == Vector2i.ZERO:
+		_use_here()
+		return
+	if not Settings.get_opt("click_to_move"):
+		return
+	if adjacent:
+		_path.clear()
+		_submit({"type": "move", "dir": d})  # step, attack or open, like a key press
+		return
+	_path = PathFind.route_toward(game.level, game.player.pos, tile)
 	if _path.is_empty():
 		hud.add_transient("You don't know a way there.")
 	elif not player.is_busy():
 		_step_path()
+
+
+## Clicking your own square uses whatever is there: stairs, then items.
+func _use_here() -> void:
+	var t := game.level.get_tile(game.player.pos)
+	if t == Tile.T.STAIRS_DOWN:
+		_submit({"type": "stairs_down"})
+	elif t == Tile.T.STAIRS_UP:
+		_submit({"type": "stairs_up"})
+	elif not game.level.items_at(game.player.pos).is_empty():
+		_submit({"type": "pickup"})
+
+
+func _hover(tile: Vector2i, screen: Vector2) -> void:
+	if not Settings.get_opt("tooltips"):
+		hud.show_hover("", screen)
+		return
+	var l := game.level
+	var interesting := l.features.has(tile) or l.signs.has(tile) or l.actor_at(tile) != null or not l.items_at(tile).is_empty()
+	hud.show_hover(game.describe(tile) if interesting and game.visible.has(tile) else "", screen)
 
 
 func _step_path() -> void:
@@ -119,8 +173,18 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			action = a
 			run = true
 	if action == "":
+		if (event as InputEventKey).keycode == KEY_ESCAPE and _pending_direction != "":
+			_pending_direction = ""
+			hud.add_transient("Command Aborted.")  # source: exe
+			get_viewport().set_input_as_handled()
 		return
 	get_viewport().set_input_as_handled()
+	player.fast = event.is_echo()
+	do_action(action, run)
+
+
+## One command from a key or a button-bar button.
+func do_action(action: String, run := false) -> void:
 	_path.clear()
 	if action.begins_with("menu_"):
 		dispatch_menu(action)
@@ -128,9 +192,11 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if NOT_YET.has(action):
 		hud.add_transient("%s isn't in this version yet." % NOT_YET[action])
 		return
-	player.fast = event.is_echo()
 	if DIRS.has(action):
-		if _pending_direction != "":
+		if _pending_direction == "examine":
+			_submit({"type": "examine", "pos": game.player.pos + DIRS[action]})
+			_pending_direction = ""
+		elif _pending_direction != "":
 			_submit({"type": _pending_direction, "dir": DIRS[action]})
 			_pending_direction = ""
 		elif run:
@@ -142,7 +208,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		_submit({"type": SIMPLE[action]})
 	elif NEEDS_DIRECTION.has(action):
 		_pending_direction = NEEDS_DIRECTION[action]
-		hud.add_transient("Command Pending: %s..." % action.capitalize())  # source: exe
+		var how := "click the site or press a direction" if action == "examine" else "press a direction or click next to you"
+		hud.add_transient("Command Pending: %s... (%s, Esc cancels)" % [action.capitalize(), how])  # source: exe
 
 
 func _match(event: InputEvent) -> String:

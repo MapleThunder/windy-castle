@@ -92,7 +92,8 @@ func float_text(at: Vector2, text: String, color: Color) -> void:
 	l.add_theme_color_override("font_color", color)
 	l.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.9))
 	l.add_theme_constant_override("outline_size", 4)
-	l.add_theme_font_size_override("font_size", 12)
+	l.add_theme_font_override("font", GameTheme.HEADING)
+	l.add_theme_font_size_override("font_size", 14)
 	l.position = at + Vector2(-8, -28)
 	l.z_index = 20
 	world.add_child(l)

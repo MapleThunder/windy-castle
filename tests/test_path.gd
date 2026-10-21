@@ -52,3 +52,22 @@ func test_closed_door_is_routable() -> void:
 
 func test_same_tile_is_empty() -> void:
 	assert_eq(PathFind.route(_room(), Vector2i(2, 2), Vector2i(2, 2)), [])
+
+
+func test_route_toward_unreachable_gets_closest() -> void:
+	var l := _room()
+	for y in range(1, 4):
+		l.set_tile(Vector2i(5, y), Tile.T.WALL)
+	var p := PathFind.route_toward(l, Vector2i(1, 2), Vector2i(7, 2))
+	assert_eq(p[-1], Vector2i(4, 2), "stops at the closest reachable tile")
+
+
+func test_route_toward_reachable_is_route() -> void:
+	assert_eq(PathFind.route_toward(_room(), Vector2i(1, 2), Vector2i(5, 2)), PathFind.route(_room(), Vector2i(1, 2), Vector2i(5, 2)))
+
+
+func test_route_toward_already_closest_is_empty() -> void:
+	var l := _room()
+	for y in range(1, 4):
+		l.set_tile(Vector2i(2, y), Tile.T.WALL)
+	assert_eq(PathFind.route_toward(l, Vector2i(1, 2), Vector2i(7, 2)), [])

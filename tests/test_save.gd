@@ -20,8 +20,7 @@ func _script() -> Array:
 func test_roundtrip_identical_future() -> void:
 	var db := GameData.load_default()
 	var g := F.new_game(21)
-	var entrance := Vector2i(int(Town.spec()["mine_entrance"][0]), int(Town.spec()["mine_entrance"][1]))
-	g.enter_level(g.level, entrance)
+	g.enter_level(g.level, Town.mine_arrival())
 	g.perform({"type": "stairs_down"})
 	g.perform({"type": "wait"})
 	var path := _path("roundtrip")

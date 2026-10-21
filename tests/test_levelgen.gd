@@ -81,15 +81,22 @@ func test_deterministic() -> void:
 
 func test_town_loads() -> void:
 	var t := Town.build()
-	var spec: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/maps/town.json"))
+	var spec := Town.spec()
 	assert_eq(t.width, int(spec["width"]))
 	assert_eq(t.height, int(spec["height"]))
 	assert_eq(t.depth, 0)
-	var start := Vector2i(int(spec["player_start"][0]), int(spec["player_start"][1]))
+	var start := Town.player_start()
 	assert_true(Tile.passable(t.get_tile(start)), "start passable")
-	var mine := Vector2i(int(spec["mine_entrance"][0]), int(spec["mine_entrance"][1]))
-	assert_eq(t.get_tile(mine), Tile.T.STAIRS_DOWN)
-	assert_true(_flood_any(t, start).has(mine), "mine reachable from start")
+	assert_eq(t.get_tile(Town.mine_arrival() + Vector2i(0, -1)), Tile.T.TOWN_GATE, "the mine path leaves through the north gate")
+	assert_true(_flood_any(t, start).has(Town.mine_arrival()), "gate reachable from start")
+
+
+func test_town_is_ringed_by_farmland() -> void:
+	var t := Town.build()
+	for x in t.width:
+		assert_true(t.get_tile(Vector2i(x, t.height - 1)) == Tile.T.FARMLAND, "south edge")
+	assert_false(Tile.passable(Tile.T.FARMLAND))
+	assert_false(Tile.opaque(Tile.T.FARMLAND))
 
 
 func test_town_buildings_have_names() -> void:
@@ -97,7 +104,19 @@ func test_town_buildings_have_names() -> void:
 	assert_true(t.signs.size() >= 6)
 	assert_has(t.signs.values(), "Gunnhild's General Store")
 	for p in t.signs:
-		assert_eq(t.get_tile(p), Tile.T.BUILDING)
+		assert_true(t.get_tile(p) in [Tile.T.BUILDING, Tile.T.TOWN_GATE], "sign text on %s" % p)
+
+
+func test_town_signposts() -> void:
+	var t := Town.build()
+	var texts := []
+	for p in t.features:
+		var f: Dictionary = t.features[p]
+		assert_eq(f["sprite"], "tile.sign")
+		assert_true(Tile.passable(t.get_tile(p)) or t.get_tile(p) == Tile.T.GRASS)
+		texts.append(f["text"])
+	assert_has(texts, "A sign that says: Gunnhild's General Store")
+	assert_true(texts.size() >= 5)
 
 
 func _flood_any(l: Level, from: Vector2i) -> Dictionary:

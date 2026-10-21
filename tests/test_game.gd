@@ -174,7 +174,7 @@ func test_equip_rejected_no_turn() -> void:
 
 func test_stairs_roundtrip_persists_level() -> void:
 	var g := F.new_game(3)
-	var entrance := Vector2i(int(Town.spec()["mine_entrance"][0]), int(Town.spec()["mine_entrance"][1]))
+	var entrance := Town.mine_arrival()
 	g.enter_level(g.level, entrance)
 	var ev := g.perform({"type": "stairs_down"})
 	assert_has(F.types(ev), "level_changed")
@@ -191,6 +191,45 @@ func test_stairs_roundtrip_persists_level() -> void:
 	assert_false(g.level.actors.any(func(a): return a.id == victim_id), "dead monster stays dead")
 
 
+func test_walking_into_the_gate_goes_to_the_mine() -> void:
+	var g := F.new_game()
+	g.enter_level(g.level, Town.mine_arrival())
+	var ev := g.perform({"type": "move", "dir": Vector2i(0, -1)})
+	assert_has(F.types(ev), "level_changed")
+	assert_eq(g.level.depth, 1)
+	g.perform({"type": "stairs_up"})
+	assert_eq(g.level.depth, 0)
+	assert_eq(g.player.pos, Town.mine_arrival())
+
+
+func test_stepping_onto_stairs_hints_the_key() -> void:
+	var g := F.new_game()
+	var l := F.in_room(g, 3, 1, Vector2i(1, 1))
+	l.set_tile(Vector2i(2, 1), Tile.T.STAIRS_DOWN)
+	var ev := g.perform({"type": "move", "dir": Vector2i(1, 0)})
+	var texts := ev.filter(func(e): return e["type"] == "message").map(func(e): return e["text"])
+	assert_true(texts.any(func(t): return "stairs" in t.to_lower() and ">" in t), str(texts))
+
+
+func test_examine_sign_and_monster() -> void:
+	var g := F.new_game()
+	var sign_pos: Vector2i = g.level.features.keys()[0]
+	g.visible[sign_pos] = true
+	var ev := g.perform({"type": "examine", "pos": sign_pos})
+	assert_eq(F.types(ev), ["message"])
+	assert_true(ev[0]["text"].begins_with("A sign that says:"))
+	assert_eq(g.turn, 0, "examining is free")
+	F.in_room(g, 3, 1, Vector2i(1, 1))
+	F.monster(g, "kobold", Vector2i(2, 1))
+	assert_true("Kobold" in g.perform({"type": "examine", "pos": Vector2i(2, 1)})[0]["text"])
+
+
+func test_examine_unseen_tile() -> void:
+	var g := F.new_game()
+	F.in_room(g, 3, 1, Vector2i(1, 1))
+	assert_eq(g.perform({"type": "examine", "pos": Vector2i(40, 40)})[0]["text"], "You can't see that from here.")
+
+
 func test_stairs_down_requires_stairs() -> void:
 	var g := F.new_game()
 	F.in_room(g, 3, 3, Vector2i(1, 1))
@@ -199,8 +238,7 @@ func test_stairs_down_requires_stairs() -> void:
 
 func test_ids_unique_after_level_change() -> void:
 	var g := F.new_game(8)
-	var entrance := Vector2i(int(Town.spec()["mine_entrance"][0]), int(Town.spec()["mine_entrance"][1]))
-	g.enter_level(g.level, entrance)
+	g.enter_level(g.level, Town.mine_arrival())
 	g.perform({"type": "stairs_down"})
 	var ids := {}
 	for a in g.level.actors:

@@ -89,14 +89,16 @@ func _ground_sprite(t: int, town: bool) -> String:
 				return "tile.grass"
 			Tile.T.PALISADE:
 				return "tile.palisade"
+			Tile.T.FARMLAND:
+				return "tile.farmland"
 			_:
 				return "tile.dirt"
 	return "tile.wall" if t == Tile.T.WALL or t == Tile.T.SECRET_DOOR else "tile.floor"
 
 
 func _feature_sprite(t: int, town: bool) -> String:
-	if town and t == Tile.T.STAIRS_DOWN:
-		return "tile.mine.entrance"
+	if town and t == Tile.T.TOWN_GATE:
+		return ""  # drawn as the gate bitmap with the buildings
 	if t in [Tile.T.DOOR_CLOSED, Tile.T.DOOR_OPEN, Tile.T.STAIRS_DOWN, Tile.T.STAIRS_UP, Tile.T.TOWN_GATE]:
 		return Tile.sprite(t)
 	return ""
@@ -113,7 +115,8 @@ func refresh_all() -> void:
 	for c in buildings.get_children():
 		c.queue_free()
 	if town:
-		for b in Town.spec()["buildings"]:
+		var spec := Town.spec()
+		for b in spec["buildings"] + [spec["gate"]]:
 			var s := Sprite2D.new()
 			s.texture = ArtPack._load(ArtPack.ORIGINAL + "/" + b["bitmap"])
 			s.centered = false
@@ -146,6 +149,8 @@ func refresh_tile(p: Vector2i, town: bool = game.level.depth == 0) -> void:
 	var lit_layer := walls if Tile.opaque(t) else ground
 	(lit_layer if seen else memory).set_cell(p, _source(_ground_sprite(t, town)), Vector2i.ZERO)
 	var f := _feature_sprite(t, town)
+	if game.level.features.has(p):
+		f = game.level.features[p]["sprite"]
 	if f != "":
 		(features if seen else memory_features).set_cell(p, _source(f), Vector2i.ZERO)
 

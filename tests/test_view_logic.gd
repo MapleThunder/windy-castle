@@ -71,3 +71,10 @@ func test_killed_monster_sprite_survives_until_playback_ends() -> void:
 	w.refresh_entities()
 	assert_eq(w.actor_node(m.id), null, "removed once playback finishes")
 	w.queue_free()
+
+
+func test_log_collapses_repeats() -> void:
+	var msgs := ["You arrive.", "You can't go that way.", "You can't go that way.", "You can't go that way.", "You hit the Kobold."]
+	assert_eq(Hud.collapse(msgs, 5), ["You arrive.", "You can't go that way. (×3)", "You hit the Kobold."])
+	assert_eq(Hud.collapse(msgs, 2), ["You can't go that way. (×3)", "You hit the Kobold."])
+	assert_eq(Hud.collapse([], 5), [])

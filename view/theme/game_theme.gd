@@ -10,7 +10,17 @@ const TEXT := Color("e8e2d0")
 const DIM := Color("8d86a0")
 const HP := Color("c0392b")
 const MP := Color("3d6fd6")
-const FONT_SIZE := 14
+const FONT_SIZE := 20
+const FONT := preload("res://view/theme/fonts/VT323-Regular.ttf")  # body text and numbers (OFL)
+const HEADING := preload("res://view/theme/fonts/PixelifySans.ttf")  # titles and names (OFL)
+
+
+## Style a label as a heading in the title font.
+static func heading(l: Label, size: int = 20) -> Label:
+	l.add_theme_font_override("font", HEADING)
+	l.add_theme_font_size_override("font_size", size)
+	l.add_theme_color_override("font_color", ACCENT)
+	return l
 
 
 static func panel_box(border := BORDER) -> StyleBoxFlat:
@@ -34,6 +44,7 @@ static func bar_box(color: Color) -> StyleBoxFlat:
 
 static func build() -> Theme:
 	var t := Theme.new()
+	t.default_font = FONT
 	t.default_font_size = FONT_SIZE
 	t.set_stylebox("panel", "PanelContainer", panel_box())
 	t.set_stylebox("panel", "Panel", panel_box())

@@ -38,8 +38,7 @@ func _ready() -> void:
 	panel.add_child(v)
 	var title := Label.new()
 	title.text = "Create Character"
-	title.add_theme_font_size_override("font_size", 20)
-	title.add_theme_color_override("font_color", GameTheme.ACCENT)
+	GameTheme.heading(title, 24)
 	v.add_child(title)
 	var top := HBoxContainer.new()
 	top.add_theme_constant_override("separation", 12)
@@ -104,7 +103,7 @@ func _ready() -> void:
 	var hint := Label.new()
 	hint.text = "Tab moves between controls · Enter presses · Reroll spends the points at random"
 	hint.add_theme_color_override("font_color", GameTheme.DIM)
-	hint.add_theme_font_size_override("font_size", 11)
+	hint.add_theme_font_size_override("font_size", 16)
 	v.add_child(hint)
 	_refresh()
 	name_edit.grab_focus.call_deferred()

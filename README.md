@@ -23,9 +23,11 @@ The original's keys work as they did in 1993, and every menu item from its menu 
 | Numpad, arrows, or h j k l y u b n | Move (attack by moving into a monster, open doors by walking into them) |
 | Shift + direction | Run until something interesting happens |
 | Numpad 5 / . | Wait |
-| g · s · o · c | Get · Search · Open · Close |
+| g · s · o · c · x | Get · Search · Open · Close · Examine (then a direction or a click) |
 | r / Shift+R | Rest until healed |
-| < / > | Climb up / down stairs |
+| < / > | Climb up / down stairs (in the hamlet, walk into the north gate to reach the mine) |
+| Left click | Walk there (or as close as you know a way), attack or open next to you, use stairs under you |
+| Right click / hover | Examine a site; hovering shows signs, monsters and items |
 | i | Inventory (drag and drop, or arrows + Enter / E equip / D drop / U remove) |
 | m · F2 · F4 | Large map · Character · Message log |
 | Ctrl+S · Ctrl+Shift+S · Ctrl+O · Ctrl+N | Save · Save as · Load · New game |
@@ -44,7 +46,10 @@ All are in Options (F10), and each can be turned off on its own:
 ## What's faithful and what's not yet
 
 - **From the original:** monster and item names, the item table (armour values, weapon classes, weights, bulk, container capacities), the keyboard commands, the menu structure, the help text, the art and the messages.
-- **Placeholders, marked `ASSUMED` in the code:** monster stats, combat numbers, character creation limits, level generation odds and the town layout. They'll be replaced as the original's rules are recovered (`grep -rn ASSUMED engine/`).
+- **Traced from screenshots of the original:** the Tiny Hamlet's layout (`tools/town_layout.py`, ±1 tile).
+- **Placeholders, marked `ASSUMED` in the code:** monster stats, combat numbers, character creation limits and level generation odds. They'll be replaced as the original's rules are recovered (`grep -rn ASSUMED engine/`).
+
+The UI fonts are VT323 and Pixelify Sans, both under the SIL Open Font License (`view/theme/fonts/`).
 
 ## Test
 

@@ -140,6 +140,8 @@ func _player_action(action: Dictionary, options: Dictionary) -> Array:
 			return _act_stairs(Tile.T.STAIRS_UP, -1)
 		"rest":
 			return [_act_rest(), false]
+		"examine":
+			return [[_msg(describe(action["pos"]))], false]
 	return [[_msg("You can't do that.")], false]
 
 
@@ -223,10 +225,12 @@ func _act_move(dir: Vector2i, options: Dictionary) -> Array:
 	if t == Tile.T.DOOR_CLOSED:
 		level.set_tile(to, Tile.T.DOOR_OPEN)
 		return [[{"type": "door_opened", "pos": to}], true]
+	if t == Tile.T.TOWN_GATE:
+		return _travel(1, "You follow the path north to the abandoned mine.")
 	if level.signs.has(to):
 		return [[_msg(level.signs[to])], false]
-	if t == Tile.T.TOWN_GATE:
-		return [[_msg("The gate is too heavy to open.")], false]  # source: exe
+	if t == Tile.T.FARMLAND:
+		return [[_msg("You'd trample the farmland.")], false]
 	if not Tile.passable(t):
 		return [[_msg("You can't go that way.")], false]
 	var events := move_actor(player, to)
@@ -235,6 +239,12 @@ func _act_move(dir: Vector2i, options: Dictionary) -> Array:
 	var here := level.items_at(to)
 	if not here.is_empty():
 		events.append(_msg("You see: " + ", ".join(here.map(_item_label))))  # source: exe ("You see:")
+	if level.get_tile(to) == Tile.T.STAIRS_DOWN:
+		events.append(_msg("Stairs down. Press > to climb down."))
+	elif level.get_tile(to) == Tile.T.STAIRS_UP:
+		events.append(_msg("Stairs up. Press < to climb up."))
+	if level.features.has(to):
+		events.append(_msg(level.features[to]["text"]))
 	return [events, true]
 
 
@@ -320,18 +330,72 @@ func _act_search() -> Array:
 
 
 func _act_stairs(tile: int, delta: int) -> Array:
-	if level.get_tile(player.pos) != tile:
+	if level.depth == 0 and delta > 0 and _next_to(Tile.T.TOWN_GATE):
+		return _travel(1, "You follow the path north to the abandoned mine.")
+	if level.get_tile(player.pos) != tile or level.depth + delta < 0:
 		return [[_msg("No stairs here")], false]  # source: exe
+	return _travel(delta, "")
+
+
+func _next_to(t: int) -> bool:
+	return AI.DIRS.any(func(d): return level.get_tile(player.pos + d) == t)
+
+
+func _travel(delta: int, text: String) -> Array:
 	var depth := level.depth + delta
-	if depth < 0:
-		return [[_msg("No stairs here")], false]
 	var dest: Level = levels.get(depth)
 	if dest == null:
 		dest = Town.build() if depth == 0 else LevelGen.generate_mine(depth, rng, db)
-	var arrive := dest.find_tile(Tile.T.STAIRS_UP if delta > 0 else Tile.T.STAIRS_DOWN)
+	var arrive := Town.mine_arrival() if depth == 0 else dest.find_tile(Tile.T.STAIRS_UP if delta > 0 else Tile.T.STAIRS_DOWN)
 	player.energy = Scheduler.ACTION_COST
 	enter_level(dest, arrive)
-	return [[{"type": "level_changed", "depth": depth}, _msg(dest.name)], false]
+	var events: Array = [{"type": "level_changed", "depth": depth}]
+	if text != "":
+		events.append(_msg(text))
+	events.append(_msg(dest.name))
+	return [events, false]
+
+
+## What Examine (and hovering) says about a tile the player can see.
+func describe(pos: Vector2i) -> String:
+	if not visible.has(pos):
+		return "You can't see that from here."
+	var a := level.actor_at(pos)
+	if a != null:
+		return "You see yourself." if a.is_player() else "You see %s." % monster_name(a)
+	if level.features.has(pos):
+		var f: Dictionary = level.features[pos]
+		return f["text"] + ("\n" + f["detail"] if f.get("detail", "") != "" else "")
+	if level.signs.has(pos):
+		return level.signs[pos]
+	var here := level.items_at(pos)
+	if not here.is_empty():
+		return "You see: " + ", ".join(here.map(_item_label))
+	return _tile_name(level.get_tile(pos))
+
+
+func _tile_name(t: int) -> String:
+	# source: exe ("Rock", "The dungeon floor", "Stairs up", "A closed door", ... "grass", "road", "farmland")
+	match t:
+		Tile.T.WALL, Tile.T.SECRET_DOOR:
+			return "Rock"
+		Tile.T.FLOOR:
+			return "The dungeon floor"
+		Tile.T.STAIRS_UP:
+			return "Stairs up"
+		Tile.T.STAIRS_DOWN:
+			return "Stairs down"
+		Tile.T.DOOR_CLOSED:
+			return "A closed door"
+		Tile.T.DOOR_OPEN:
+			return "An open door"
+		Tile.T.GRASS:
+			return "grass"
+		Tile.T.DIRT:
+			return "road"
+		Tile.T.FARMLAND:
+			return "farmland"
+	return ""
 
 
 func _act_rest() -> Array:

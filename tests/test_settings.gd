@@ -143,3 +143,11 @@ func test_stolen_vi_key_stays_moved_after_restart() -> void:
 	assert_true(t.bindings()["search"].any(func(k): return GameSettings.parse_key(k).keycode == KEY_K))
 	s.free()
 	t.free()
+
+
+func test_display_names() -> void:
+	assert_eq(GameSettings.display("S"), "s")
+	assert_eq(GameSettings.display("Shift+R"), "R")
+	assert_eq(GameSettings.display("Shift+Period"), ">")
+	assert_eq(GameSettings.display("Shift+Comma"), "<")
+	assert_eq(GameSettings.display("Ctrl+S"), "Ctrl+S")

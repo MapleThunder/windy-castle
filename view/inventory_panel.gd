@@ -60,7 +60,7 @@ func setup(g: Game, a: ArtPack, submit_action: Callable) -> void:
 	var hint := Label.new()
 	hint.text = "Enter pick up/place · E equip · D drop · U remove · Tab section · Esc close"
 	hint.add_theme_color_override("font_color", GameTheme.DIM)
-	hint.add_theme_font_size_override("font_size", 11)
+	hint.add_theme_font_size_override("font_size", 16)
 	right.add_child(hint)
 	h.add_child(right)
 	rebuild()
@@ -69,8 +69,7 @@ func setup(g: Game, a: ArtPack, submit_action: Callable) -> void:
 func _title(text: String) -> Label:
 	var l := Label.new()
 	l.text = text
-	l.add_theme_color_override("font_color", GameTheme.ACCENT)
-	return l
+	return GameTheme.heading(l, 18)
 
 
 func open() -> void:
@@ -105,7 +104,7 @@ func rebuild() -> void:
 		b.position = DOLL[s]
 		if inv.equipped[s] == null:
 			b.text = s.replace("_", " ").left(5)
-			b.add_theme_font_size_override("font_size", 9)
+			b.add_theme_font_size_override("font_size", 14)
 			b.add_theme_color_override("font_color", GameTheme.DIM)
 		doll.add_child(b)
 	for it in inv.pack:

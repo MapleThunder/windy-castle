@@ -29,6 +29,31 @@ static func route(level: Level, from: Vector2i, to: Vector2i) -> Array[Vector2i]
 	return out
 
 
+## Like route(), but when `to` can't be reached, walk to the reachable known tile closest to it.
+static func route_toward(level: Level, from: Vector2i, to: Vector2i) -> Array[Vector2i]:
+	var direct := route(level, from, to)
+	if not direct.is_empty() or from == to:
+		return direct
+	var best := from
+	var best_d := from.distance_squared_to(to)
+	var seen := {from: true}
+	var queue: Array[Vector2i] = [from]
+	var head := 0
+	while head < queue.size():
+		var p := queue[head]
+		head += 1
+		var d := p.distance_squared_to(to)
+		if d < best_d:
+			best = p
+			best_d = d
+		for step in AI.DIRS:
+			var n: Vector2i = p + step
+			if not seen.has(n) and _walkable(level, n) and level.actor_at(n) == null:
+				seen[n] = true
+				queue.append(n)
+	return route(level, from, best)
+
+
 static func _walkable(level: Level, p: Vector2i) -> bool:
 	var t := level.get_tile(p)
 	return level.is_explored(p) and (Tile.passable(t) or t == Tile.T.DOOR_CLOSED)

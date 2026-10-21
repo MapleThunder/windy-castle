@@ -50,6 +50,13 @@ def build(names_path, out_root):
     crop = b"".join(px[y * w * 4:(y * w + 32) * 4] for y in range(32))
     png.write(os.path.join(art, "tiles/palisade.png"), 32, 32, crop)
     sprites["tile.palisade"] = "tiles/palisade.png"
+    # The hamlet's farmland border: green with furrows, after the hatched fields in the original.
+    rows = []
+    for y in range(32):
+        rgb = {0: (60, 100, 20), 1: (0, 112, 0)}.get(y % 3, (0, 128, 0))
+        rows.append(bytes((*rgb, 255)) * 32)
+    png.write(os.path.join(art, "tiles/farmland.png"), 32, 32, b"".join(rows))
+    sprites["tile.farmland"] = "tiles/farmland.png"
     for name, (first, last) in TRANSITIONS.items():
         for i, bm in enumerate(range(first, last + 1)):
             sprites[f"edge.{name}.{i}"] = f"bitmaps/{bm}.png"

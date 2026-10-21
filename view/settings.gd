@@ -116,6 +116,9 @@ static func _canon_all(d: Dictionary) -> Dictionary:
 
 ## How a key is shown to the player: plain letters in lower case, as the original's help does.
 static func display(text: String) -> String:
+	var symbols := {"Shift+Comma": "<", "Shift+Period": ">", "Shift+Slash": "?", "Period": ".", "Comma": ",", "Slash": "/"}
+	if symbols.has(text):
+		return symbols[text]
 	var parts := text.split("+")
 	var last := parts[-1]
 	if last.length() == 1 and parts.size() == 1:

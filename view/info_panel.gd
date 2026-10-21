@@ -14,8 +14,7 @@ func _init(heading: String = "", bbcode: String = "", min_size := Vector2(560, 3
 	v.add_theme_constant_override("separation", 10)
 	add_child(v)
 	title.text = heading
-	title.add_theme_font_size_override("font_size", 18)
-	title.add_theme_color_override("font_color", GameTheme.ACCENT)
+	GameTheme.heading(title, 20)
 	v.add_child(title)
 	body.bbcode_enabled = true
 	body.text = bbcode
@@ -25,7 +24,7 @@ func _init(heading: String = "", bbcode: String = "", min_size := Vector2(560, 3
 	var hint := Label.new()
 	hint.text = "Esc to close"
 	hint.add_theme_color_override("font_color", GameTheme.DIM)
-	hint.add_theme_font_size_override("font_size", 11)
+	hint.add_theme_font_size_override("font_size", 16)
 	v.add_child(hint)
 
 
