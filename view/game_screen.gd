@@ -13,12 +13,15 @@ const SIMPLE := {"wait": "wait", "search": "search", "rest": "rest", "sleep": "r
 	"stairs_up": "stairs_up", "stairs_down": "stairs_down"}
 const NEEDS_DIRECTION := {"open": "open", "close": "close"}
 const RUN_LIMIT := 60
+const NOT_YET := {"examine": "Examine", "disarm": "Disarm Trap", "free_hand": "Free Hand", "view": "View"}
+const ROUTED := ["menu_new", "menu_load", "menu_save", "menu_save_as", "menu_quit"]
 
 var game: Game
 var world := WorldView.new()
 var player := EventPlayer.new()
 var hud := Hud.new()
 var inventory := InventoryPanel.new()
+var _modals: Array[Control] = []
 var _queued: Dictionary = {}
 var _pending_direction := ""  # "open"/"close" waiting for a direction key
 var _running := Vector2i.ZERO
@@ -38,7 +41,7 @@ func start(g: Game, art: ArtPack) -> void:
 	get_viewport().size_changed.connect(func():
 		world.map_rect = hud.map_rect(world.get_viewport_rect().size)
 		world._fit())
-	hud.root.add_child(_modal_layer(inventory))
+	_add_modal(inventory)
 	inventory.setup(g, art, _submit_now)
 	inventory.close()
 	player.finished.connect(_on_finished)
@@ -47,7 +50,27 @@ func start(g: Game, art: ArtPack) -> void:
 	player.player_died.connect(func(cause): game_over.emit(cause))
 
 
-## A full-screen dimmed backdrop that centres one panel.
+## Panels open over a full-screen dimmed backdrop that centres them.
+func _add_modal(panel: Control) -> void:
+	hud.root.add_child(_modal_layer(panel))
+	_modals.append(panel)
+
+
+func open_panel(panel: Control) -> void:
+	if not panel in _modals:
+		_add_modal(panel)
+		if panel is InfoPanel:
+			panel.closed.connect(func(): _drop_modal(panel))
+	panel.open()
+
+
+func _drop_modal(panel: Control) -> void:
+	if panel == inventory:
+		return
+	_modals.erase(panel)
+	panel.get_parent().queue_free()
+
+
 func _modal_layer(panel: Control) -> Control:
 	var center := CenterContainer.new()
 	center.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -61,7 +84,7 @@ func _modal_layer(panel: Control) -> Control:
 
 
 func modal_open() -> bool:
-	return inventory.visible
+	return _modals.any(func(m): return m.visible)
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -80,15 +103,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		return
 	get_viewport().set_input_as_handled()
 	if action.begins_with("menu_"):
-		match action:
-			"menu_map":
-				hud.toggle_minimap()
-			"menu_log":
-				hud.toggle_full_log()
-			"menu_inventory":
-				inventory.open()
-			_:
-				menu_requested.emit(action)
+		dispatch_menu(action)
+		return
+	if NOT_YET.has(action):
+		hud.add_transient("%s isn't in this version yet." % NOT_YET[action])
 		return
 	player.fast = event.is_echo()
 	if DIRS.has(action):
@@ -124,6 +142,63 @@ func _submit(action: Dictionary) -> void:
 	if _running != Vector2i.ZERO and not _keep_running(events):
 		_running = Vector2i.ZERO
 	player.play(events, before)
+
+
+func dispatch_menu(action: String) -> void:
+	match action:
+		"menu_map":
+			hud.toggle_minimap()
+		"menu_log":
+			hud.toggle_full_log()
+		"menu_inventory":
+			open_panel(inventory)
+		"menu_character":
+			open_panel(InfoPanel.new("Character", _character_sheet()))
+		"menu_story":
+			var story: Array = JSON.parse_string(FileAccess.get_file_as_string("res://data/story.json"))
+			open_panel(InfoPanel.new("The Story So Far", story[0]["text"]))
+		"menu_spellbook", "menu_activate":
+			open_panel(InfoPanel.new("Not yet", "Spells and item activation arrive in a later version.", Vector2(420, 160)))
+		"menu_help":
+			open_panel(HelpPanel.new())
+		"menu_keys":
+			open_panel(InfoPanel.new("Keyboard Commands", cheat_sheet(), Vector2(620, 460)))
+		"menu_rebind":
+			open_panel(RebindPanel.new())
+		"menu_options":
+			var o := OptionsPanel.new()
+			o.rebind_requested.connect(func():
+				o.close()
+				dispatch_menu("menu_rebind"))
+			open_panel(o)
+		_:
+			if action in ROUTED:
+				menu_requested.emit(action)
+
+
+func _character_sheet() -> String:
+	var s := game.stats
+	var c: Dictionary = game.player.data["combat"]
+	var inv := game.inventory
+	return ("[b]%s[/b]\n\nStrength %d\nIntelligence %d\nConstitution %d\nDexterity %d\n\n" +
+		"Hit points %d / %d\nArmor value %d\nPlus to hit %d\nPlus to damage %d\nWeapon damage %s\n\n" +
+		"Gold %d\nCarrying %d / %d g") % [game.spec.get("name", "Hero"), int(s["str"]), int(s["int"]),
+		int(s["con"]), int(s["dex"]), game.player.hp, game.player.max_hp, int(c["armor"]), int(c["to_hit"]),
+		int(c["damage_bonus"]), c["damage"], inv.gold, inv.total_weight(game.db), inv.carry_limit()]
+
+
+## Generated from the live bindings, grouped like the original's menus.
+static func cheat_sheet() -> String:
+	var b := Settings.bindings()
+	var out := ""
+	for group in Menus.GROUP_ORDER:
+		var rows := ""
+		for action in Menus.DESCRIPTIONS:
+			if Menus.DESCRIPTIONS[action][0] == group and b.has(action) and not b[action].is_empty():
+				rows += "[cell]%s[/cell][cell][color=#e0a050]%s[/color][/cell]" % [Menus.DESCRIPTIONS[action][1], ", ".join(b[action])]
+		if rows != "":
+			out += "[b]%s[/b]\n[table=2]%s[/table]\n\n" % [group, rows]
+	return out
 
 
 ## Run one action from a panel: the turn passes and monsters act, so play the events too.

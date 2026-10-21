@@ -68,6 +68,10 @@ func bind(action: String, key: String) -> String:
 		if other != action and key in _bindings[other]:
 			_bindings[other].erase(key)
 			lost = other
+	for other in _vi:
+		if key in _vi[other]:
+			_vi[other].erase(key)
+			lost = other if other != action else lost
 	if not key in _bindings[action]:
 		_bindings[action].append(key)
 	apply()
@@ -76,6 +80,8 @@ func bind(action: String, key: String) -> String:
 
 func unbind(action: String, key: String) -> void:
 	_bindings[action].erase(key)
+	if _vi.has(action):
+		_vi[action].erase(key)
 	apply()
 
 
