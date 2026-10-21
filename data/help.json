@@ -1,0 +1,438 @@
+[
+ {
+  "title": "Index",
+  "text": "Castle Index\nOrder Information Background Overview of the Game Screen Layout Keyboard Commands Mouse Commands Menu Commands Inventory Stores Magic Spell Directory Object Directory Bestiary Glossary"
+ },
+ {
+  "title": "Overview of the Game",
+  "text": "OVERVIEW OF THE GAME\nCastle of the Winds is a two part graphical adventure game, loosely based on fantasy role playing games, and drawing much inspiration from Norse mythology.  Part one concerns the character's efforts to avenge the deaths of his or her godparents, who were foully murdered by unknown agents.  Along the way, you will do battle with evil monsters, brave deadly traps, and collect the money and magical treasures guarded by dangerous foes. As the story unfolds, the character will also learn of his or her mysterious past, and the legacy left by the character's long dead father. To start a new game, choose the Start New Game button on the opening screen.  You can also choose New Game from the File menu at any time while playing.  This will allow you to set the statistics of a new character, and choose such things as the player's name and gender.  If you like, you can also specify an icon you've created for your character.  Just create a standard icon, and specify the path to it in the dialog; the game will load your icon and use it for your character.  The game then starts out with the player in the small hamlet where he or she was raised.  It's a small place, but you'll find a blacksmith shop and a general store to help you get equipped.  Signs outside the shop will tell you what's what.  To read a sign with the mouse right, click on the sign to bring up a popup description window.  From the keyboard , use the 'x' (eXamine) command, position the crosshairs over the sign, and press return.  Just move along the road into a building, and you'll bring up the store window.  These stores will be happy to sell you equipment to aid your quest, and will often buy back used or found equipment (at a much lower price of course).  There is also a shrine in the hamlet where you can get healed.  A visit to the ruins of your farmhouse will also be useful to help you get started. You can find your farm by exiting through the gate to the hamlet, and then taking the first path to the right along the road outside.\nHere are a few basic commands to get you started:\nMovement: Use the numeric keypad to move in the 8 directions, or click on the player icon and drag with the mouse. Combat: Moving onto a monster's square attacks the monster. Exploring: Right clicking on almost anything gives you information about it, whether in dungeon view, map view, or in the inventory.\nFor more information about commands see the sections on keyboard or mouse commands.  For more about the background of the story, see background . Good Luck!"
+ },
+ {
+  "title": "Background",
+  "text": "BACKGROUND\nHiding anything from young children is difficult, for when no one is watching they have a way of getting into every nook and cranny of their ever expanding world.  And so it was, that at the age of twelve you found an ornately carved wooden box hidden above the rafters of your farmhouse home.  Intrigued, you examined it closely, from the intricate crown on the lid to the tiny lock that resisted your simple attempts to pick it.  At last you replaced it where you'd found it, and continued the search for bird's nests and mice that had taken you there in the first place.  It stayed in your mind, however, and you found yourself wondering, as you lay down to sleep at night, just what might be inside. Farm life can be hard, for there are always chores to be done, especially as the only child being raised by aging godparents.  But there are joyous times as well, when the harvest is in, and life slows down to contemplate the splendors of autumn's beauty.  And often, on those crisp autumn nights you managed to coax a story out of your godfather.  Sometimes he would tell legends of the gods, wondrous tales of the battle between Thor and the giants, or the troubles caused by the trickster Loki.  Other times he would tell of the days of his youth, when as a brave young warrior he had served in King Lifthransir's royal guard.  But this night you had another subject in mind, for the carved box had been in your mind for days.\n\"Grandfather,\" you said, for while he was not truly your grandfather he seemed as close as one, \"what's in the box under the eaves?\" His eyes opened wide, and he shot a look at your godmother who sat nearby.  \"Well,\" he said at last, \"if ye be old enough to be askin', I guess ye be old enough to know.  Why don't you fetch it here, child, and we'll take a look inside.\" Minutes later you watched with anticipation as he drew a fine chain out from under his tunic and used the small key that dangled from it to open the lock.  Slowly he lifted the lid, and you caught a glimpse of gold reflecting the firelight.  He reached inside and drew forth a finely crafted gold chain, with a circular pendant suspended beneath.\n\"What is it?\" you asked in a hushed voice, as you stared at the slowly spinning pendant glinting in the firelight. \"A gift from your true father,\" he replied.  \"He came to us a dozen years ago, with the blood of a hundred wounds covering his body, and the awareness of his own mortality in his eyes.  He handed us a small bundle, you as an infant, and collapsed on our doorstep.  He awoke just once before he died, and asked us to raise you for him.  He said the amulet he wore was to be yours on your eighteenth birthday.  If you were worthy, he whispered as his voice failed, it would lead you to fortune and glory.\" You watched as your godfather gently lowered the pendant back into the box, and closed the lid.\n\"And so, my child, you have much to live up to.  Grow strong and wise, for the Norns have reached out and touched your life, as they do with few mortals, and I feel you will have need of all the talent and ability you can muster in whatever task lies ahead.\""
+ },
+ {
+  "title": "Order Information",
+  "text": "ORDER INFORMATION\nCastle of the Winds is a shareware product.  This means you can use the product for a trial period without payment, but if you continue to use the product you must become a registered user.  The registration fee is $25.00 + $4.00 postage and handling.  For this fee you receive a registered copy of A Question of Vengeance , plus the sequel Lifthransir's Bane . The second game has almost twice as many levels as the first, plus a final confrontation with the malevolent god who has been after your head!  You can even carry forward your character from the first game, and continue your adventures in a quest to reclaim the throne that is rightfully yours!  The second game has new monsters who will attempt to thwart your quest, including fire-breathing dragons, boulder-lobbing giants, elementals, devils, and foul undead creatures from beyond the grave!  But of course there are also new and more powerful enchanted objects to help you, such as Swords of Dragon Slaying, Giant Slaying, and Wound Healing, Wands of Fireball and Transmogrify Monster, Staves of Healing and Identify, and dozens more items you'll discover as you play!  It's well worth the $25 registration fee, and in addition, you'll get a hint sheet with tips and tricks on how to defeat the evil denizens of the lower realms.  As a special bonus you'll also get a free disk of the latest releases from Epic Megagames!\nYou may distribute the first game freely, provided you agree to distribute all the files included in the original package (castle1.exe, castle1.hlp, foreign.doc, install.txt, order.txt, vendor.txt, and sysop.txt).  The second game, Castle2.exe, is NOT a shareware package.  Duplication and distribution of the second game beyond the registered owner is expressly prohibited. To order by mail: Send $25.00 (Maryland residents add 5% sales tax) + $4.00 postage and handling to:\nEpic MegaGames 10406 Holbrook Drive Potomac, Md. 20854\nTo order by phone using your Visa or Mastercard: Call 1-(800) 972-7434 . This number should be used for orders only (see below for technical support). To order on Compuserve: You can place your order for Castle of the Winds and other Epic games on Compuserve -- just GO SWREG. International Orders: If you live outside of the USA or Canada,  order conveniently from one of our distributors. If we don't have a distributor in your country,  order from your nearest distributor or order direct from Epic. AUSTRALIA: Manaccom 9 Camford St. Milton, Qld. 4064 Price: 45 dollars + 5 dollars Shipping\nPhone: (07) 368-2366 Fax: (07) 369-7589 CIS: 70031,3236 AUSTRIA: Pearl Agency Grunburgerstr. 7a A-4540 Bad Hall Price: 350 (includes shipping) Phone: (07258) 53 33 Fax: (07258) 53 15 FRANCE: Pearl Agency 25, Rue Turgot 68110 Illazach Price: 180 FF (includes shipping) Phone: 89.66.12.11 Fax: 89.66.33.63 GERMANY: CDV-Software Ettlingerstr. 5 7500 Karlsruhe 1 GERMANY\nPrice: 59,- DM (includes shipping) Orders: 0721-22295 Fax: 0721-21314 CIS: 100022,274 Or Pearl Agency GMBH Am Kalischacht 4 W-7845 Buggingen GERMANY Price: 59,- DM (includes shipping) Orders: (07631) 120 91-99 Fax: (07631) 120 08-9 SWITZERLAND: Pearl Agency Grossmattstr. 16 CH-8964 Rudolfstein Price: 59 sFr Phone: 05731 70 20 Fax: 05731 70 30 UNITED KINGDOM: Precision Software Publishing\nUnit 3, Valley Court Offices Lower Road, Croydon, Nr. Royston Herts,  SG8 0HF  U.K. Price: 20 pounds + VAT + 2 pounds p&p Orders: 0223 208288 Fax: 0223 208089 European customers please add 4 pounds p&h. Technical Support: Free technical support for registered users is available by calling (301) 983-9771, faxing your question to (301) 299-9771, writing to the address above, or send email to Rick Saada (User ID 70702,3316 on Compuserve). Call Epic's BBS:\nIf you have a modem,  call Software Creations BBS to get all of Epic's latest games and news. 2400 Baud:  508-365-2359 9600 Baud:  508-365-9825 14.4K Baud:  508-365-9668"
+ },
+ {
+  "title": "Screen Layout",
+  "text": "SCREEN LAYOUT\nThe screen is divided into three main windows, the Dungeon Window , the Status Window , and the Description Window. There is also an optional Button Bar that may appear below the menus. The Dungeon Window shows the player and the area immediately surrounding him or her.  This window will scroll to keep the player on the screen.  Once the player has left the outside, only areas the player has previously seen will be shown.  The scroll bars can be used to move this window around to see other parts of the dungeon, but it's usually easier to use the Map command instead.  This will draw a condensed view of the entire level, showing you a map of where you've been (so you can figure out how to get out!). The Status Window , along the bottom-right side of the screen, shows the current state of your character. HP (hit points), tells how much damage you can stand before being killed. Mana shows spell points. Speed gives two values measuring how fast your character is.  The first number is overall speed.  The second number is movement speed. Time gives a simple hours:minutes:seconds display of the time since you started the game.  This may be useful to keep track of how long a spell effect will last, or to figure out when an object will recharge (there are some objects that can only be activated once per day or once every few hours).  The location line gives a quick description of where you are in the game.  This may be a name like Town or Castle Road, or the current Dungeon Level .  More detailed information on your character is available using the Character menu command.\nThe Description Window is on the bottom.  Combat descriptions, site descriptions and the like go here.  You can scroll back through the last 30 or so messages. These windows are resizable using the Window Move command., or by clicking and dragging on the borders between the windows. The Button Bar is a short cut feature for mouse users.  It provides one click access to most common commands, as well as for the spells on the Spell Menu.  If you are a keyboard user and don't want the Button Bar visible, it can be turned off in the Options dialog, which is accessed via the File Options menu."
+ },
+ {
+  "title": "Create Character",
+  "text": "CREATE CHARACTER The Create Character dialog allows you to create a new character to play in Castle of the Winds. This consists primarily of setting the statistics of the character, and then choosing such things as the character's name and gender. Setting Statistics: At the top of the dialog there are five bar graphs, four of them with scroll bars.  These four graphs represent the character's abilities in four areas: Strength, Intelligence, Constitution, and Dexterity.  The scroll bars can be used to adjust these graphs to balance the character's abilities as you see fit.  With the keyboard, you can use the Tab key to move from scroll bar to scroll bar, and the arrow keys to raise and lower the value. With the mouse, you can either click on the arrow buttons or drag the thumb button to the desired location.  On each of these bar graphs are three lines.  The middle line represents where an \"average person\" falls on the scale.  The lowest and highest lines represent the minimum and maximum values you can initially give your character.  Enchanted objects may modify these values during the course of the game.  The leftmost bar graph shows the number of points left to be distributed among the other four.  When you raise a statistic, this graph will decrease. Conversely, if you lower a statistic, this graph will increase.  It is important to note that characters with above average abilities in an area receive bonuses, so it is usually to your advantage to improve your character's abilities in one area, rather than being equal in all of them and not receiving bonuses from any of them.\nSetting a Custom Character Icon: This section of the dialog allows the user to provide a custom icon for their character.  Create a standard Windows icon, check the box, and provide the filename in the edit.  Castle will then load the icon and use it for the player.  You can use the View Icon button to get the dialog to load the icon for verification, if you want. Setting the Game Difficulty: This section of the dialog allows the user to determine how hard a game they want to play.  Just click the radio button below the appropriate symbol.  At harder settings there are more monsters and traps, less treasure and objects to find, and you need more experience to increase in levels of power. Easy or Intermediate are for beginning players who don't have a lot of experience with adventure games, or are playing this one for the first time. Difficult and Experts Only are for people who know what they are doing and want a more challenging game."
+ },
+ {
+  "title": "Statistics",
+  "text": "Your statistics are a measure of your character's Strength, Intelligence, Constitution, and Dexterity.  These statistics are measured on a scale of 1-100, and affect how well your character can fight, cast spells, dodge or disarm traps, etc."
+ },
+ {
+  "title": "Keyboard",
+  "text": "KEYBOARD COMMANDS\nMovement Commands: There are two different sets of movement keys in Castle, the alphabetic set, and the numeric keypad set. The following table describes the commands:\nDirection Alphabetic Numeric North k 8 Northeast u 9 East l 6 Southeast n 3 South j 2 Southwest b 1 West h 4 Northwest y 7\nAs a shortcut, you can move in a direction until something stops you by holding down the shift key and then using the movement keys. Other Keyboard Commands:\nClimb up stairs or attack monster on stairs above. < Climb down stairs or attack monster on stairs below. > Open a door o Close a door c Search for traps and secret doors adjacent to you. s\nNote that you may have to search more than once to find them!\nDisarm a trap adjacent to you d\nYou may have to try more than once to be successful, and you run the risk of setting the trap off!\nMap mode to see entire level at once m\nBy default, Map mode provides a \"shrunk\" view of what's on the screen.  On small monitors this may be hard to read, and on some video cards it can be slow.  There is a \"Fast Map\" option in the Options dialog that will make this display simpler, but also faster and more legible.\nSwitch to Inventory Mode i\nRest until player is fully healed r\nThis command is interrupted as soon as a monster comes in sight, by clicking the mouse, or by hitting any key.\nRest until player's mana is restored R\nThis is a deeper sleep than the above.  You regenerate mana at twice the normal rate, but it is only interrupted when a monster attacks you, not when they come into view.  It is also interruptable by clicking the mouse, or by hitting any key.\nLook at a site x View the dungeon by scrolling the screen. v Free Hand Command (put one item into free hand) f Get Command g\nThis command generally puts everything on the floor into the player's pack.  The special case is if the object is a pack, purse, or belt, and the player isn't wearing one, the object goes in the appropriate inventory slot.\nSeveral commands require a target or a direction.  In this case you'll get a command pending message in the description window, and the cursor will change to cross hairs.  Use the movement keys (or mouse) to target the cursor and hit return.  The view command allows you to use the movement keys to scroll the dungeon window from the keyboard."
+ },
+ {
+  "title": "Mouse Commands",
+  "text": "MOUSE COMMANDS\nMouse Movement:\nYou can left click and drag the player icon to move the character with the mouse.  Mouse movement will be aborted if the player is attacked or hits a trap.\nOther Mouse Commands:\nClimb up and down stairs Double left clicking on the player. Open or close an adjacent door Left click on the door. Attack an adjacent monster Left click on the monster.\nPopup Look Command:\nRight clicking on a site opens a popup window with a description of the site and its contents.  If there is a monster on the site, this window will also give the current status of the monster (uninjured, slightly injured...).  This description is currently limited to 10 lines.  If there is a large number of objects on the site, the text \"more ...\" will appear at the end of the last line.  In this case use the keyboard version (x), or the menu command Verbs-Look should be used to display the contents of the site in the description window.\nCommands not available via direct manipulation with the mouse can be executed using either the Button Bar or via the Verbs menu."
+ },
+ {
+  "title": "Menu Commands",
+  "text": "MENU COMMANDS\nMain Menu:\nFile Character Inventory Map Spell Activate Verbs Window\nInventory Menu:\nExit Character Sort Pack Name Object Spell Activate Window"
+ },
+ {
+  "title": "File Menu Commands",
+  "text": "FILE MENU\nThe file menu allows you to save and restore games, and to start new games.\nNew Game Starts a new game Load Loads a saved game from disk. Save Saves the current game to disk using the current file name. Save As Saves the current game to disk, prompting for a new file name.\nOptions Brings up a dialog that allows you to set various game and display options.\nReview Story Allows you to review descriptions and story text from earlier in the game. Exit Exits Castle of the Winds"
+ },
+ {
+  "title": "Character Menu",
+  "text": "CHARACTER MENU\nThis menu brings up a dialog that contains more detailed information about your character. Character Name: This edit field allows you to rename your character as the game progresses, adding such descriptions as you feel you deserve (the bold, the mighty, etc.). Statistic bars: There are four pairs of these, one for each of the character statistics (strength, intelligence, constitution, dexterity).  In each pair, the left bar gives your current value, and the right gives the maximum value, on a scale of 0-100.  Your current value can be above or below your maximum if you are wearing magical items that modify an attribute ( a ring of strength, for example). To the right of the statistic bars is a list of numerical character information.: Character Level: As your character's experience passes certain values, you will move to the next level.  Each level increase will add to your hit points, mana, spells, and fighting skills.  Note that if you lose a level due to loss of experience to undead such as ghosts and vampires, these added skills will be lost!\nCharacter Experience: This is the way in which a character's progress in the game is measured.  A character will gain experience for killing monsters and for certain actions such as disarming traps. Next Level At: This gives how much experience is required before the character moves to the next level. Weight: How much all the equipment you are currently carrying weighs, measured in grams.  The value in parenthesis is your rated maximum.  This is the most you can carry and still travel at normal movement speed.  If you are carrying less or more, your movement speed will vary accordingly (see Speed below).  Note that certain magical containers may cause the weight of their contents to be less than expected! Bulk: A measure of how much space all your equipment takes, measured in cubic centimeters.  This, along with weight , determines how much can fit in a container.  Some objects are much bulkier for their weight than others, and all containers have both weight and bulk limits.\nSpeed: Gives two values measuring how fast your character is.  The first number is overall speed.  This affects how long it takes you to perform most actions,  such as casting spells, searching, or combat.  If it reads 200% then you are moving at twice normal speed, and all your actions will take half as long.  Potions of Speed, Boots of Speed, and spells cast upon the player can all affect your overall speed. The second number is movement speed.  This number affects how quickly your character can move about the dungeon, and it is affected by how much weight the character is carrying.  If your character is lightly loaded (carrying less than 1/2 his or her rated maximum) then he/she will be able to move at 200% of normal speed.  As you accumulate equipment and gather treasure this value will drop.  At your rated maximum you will be moving at 100%, and at twice your rated maximum (the real limit on what you can carry) you will be moving at 50%.  Note that movement speed (or slowness) doesn't affect other actions, so you can cast spells at the same rate no matter how heavily loaded you are.\nHP: Hit points, tells how much damage you can stand before being killed.  If this reaches zero, you're toast.  Hit points regenerate fairly quickly as time passes, about 1 per minute.  Additional hit points are gained each time the character goes up in level.  Characters with a high constitution will gain extra hit points for each level as well.  The 'R' command causes your character to rest until all HP are regained, or until the character is interrupted by a monster. Mana: Shows the amount of mystical power a player possesses.  Each magic spell takes a certain number of mana points to cast.  Simple spells, such as Magic Arrow, take only one, but a Fireball spell nominally takes 5.  You will also find that the mana required for a spell decreases as you go up in level.  Casting a spell that is more powerful than you can normally handle requires extra mana, but casting low level spells gets easier.  Your mana is restored every time your player goes up a level in power, and certain magic items will restore your mana as well.  It will also regenerate, but slowly, about 1 point an hour.  Additional mana points are gained as the character goes up in level, and characters with a high intelligence will gain extra mana points.\nCopper: Indicates how much money you are carrying in your purse, plus any money you have in the bank.  It doesn't include any money you have in your pack.  Other types of coins you may have (silver, gold, etc.) are converted to copper to get this value. Armor Value: A measure of how much damage your armor can absorb.  A high armor value means monsters have a lesser chance of making a hit that inflicts damage.  As a simplification, I assume that the armor value for an object affects all attacks, rather than trying to only apply helmet armor value to your head, etc. Custom Character Icon: This section of the dialog allows the user to provide a custom icon for their character.  Create a standard Windows icon, check the box, and provide the filename in the edit.  Castle will then load the icon and use it for the player.  You can use the View button to get the dialog to load the icon for verification, if you want.\nGame Difficulty: This section of the dialog lets you know what game difficulty you are playing at.  It will have both a text description (Easy, Intermediate, Difficult, or Experts Only), and a graphics symbol (Green Circle, Blue Square, Black Diamond, or Yellow Caution sign)."
+ },
+ {
+  "title": "Inventory Menu",
+  "text": "INVENTORY MENU\nThis menu item takes you to the inventory screen, where you can view and change your equipment and the contents of your pack."
+ },
+ {
+  "title": "Map Menu",
+  "text": "MAP MENU\nThis menu item replaces the regular dungeon view with a full screen view of everything the player has seen on the current level, scaled so the entire scene will fit in the window.  A good strategy is to use a potion of Detect Objects or Detect Monsters, and then use the map command to locate them on the entire level.  Depending on the setting of the Fast Map option (see Options Dialog ), this will either be a shrunken version of the regular display (if Fast Map is turned off), or a version drawn with smaller symbols for monster, object, and site features such as stairs (if Fast Map is turned on).  The second view is less informative but much speedier to display.  While all monsters look the same, and all objects look the same, you can still use the right mouse button (see Mouse Commands ) to get popup help describing what is actually on a given site."
+ },
+ {
+  "title": "Magic Menu",
+  "text": "SPELL MENU\nThe Spell menu allows you to cast spells.  There is room for 10 spells of your choice on the Spell menu.  The first 10 spells you learn appear on the menu.  Any spells you learn beyond that can be accessed through the Spellbook dialog. You can customize the spells that appear on this menu by choosing the Customize Menu item from this menu.  These same 10 spells also appear on the Button Bar for easy mouse access.  For more information on spells, see Magic and the Spell Directory ."
+ },
+ {
+  "title": "Spellbook Dialog",
+  "text": "SPELLBOOK DIALOG\nThe Spellbook dialog presents a listbox of all the spells the character knows in each of six categories.  You can choose the category you want with the option buttons on the left, and all the spells you know in that category will appear in the listbox.  Pressing the Cast button will cast that spell.  For more information on spells, see Magic and the Spell Directory ."
+ },
+ {
+  "title": "Customize Menu Dialog",
+  "text": "CUSTOMIZE MENU DIALOG\nThis dialog presents a list of all the available positions on the menu.  To put a spell on the menu, choose the menu position you would like it to be in from the list on the left.  Then choose the spell you want to put there from the listbox on the right, and press the Change button.  These same 10 spells also appear on the Button Bar for easy mouse access. For more information on spells and spell casting, see Magic ."
+ },
+ {
+  "title": "Activate Menu",
+  "text": "ACTIVATE MENU\nThe Activate menu allows you to use objects you are carrying about your person, either in one of the inventory slots or on your belt (Objects in your pack cannot be activated).  Objects such as potions, scrolls, and wands typically appear on this menu.  In addition, objects that you have not yet identified, that may or may not have activate properties, will appear here.  Identified objects that have no activate properties will be removed (blank scrolls, distillations of water).  To use an object, simply select it from the menu. Some objects, such as potions and scrolls, disappear when you use them.  Others, such as wands and staves, have a limited number of charges.  If further information or targeting is required, the program will prompt you.  Some objects also have a \"class identify\" property.  This means once you've identified an object of a particular type once, you'll recognize any other objects of the same type.  In the case of a wand, you will not know how many charges are left, but you'll at least know it's a Wand of Fireball.  Typically, these objects are also marked as \"identify on use\".  (After you use a Wand of Fireball for the first time, you know what it is....)  Most armor and weapons are marked as \"identify on wield\".  If you actually use the object, you'll find out whether or not it's enchanted.  Of course it may also be cursed ."
+ },
+ {
+  "title": "Cursed",
+  "text": "Cursed items can have all kinds of harmful effects.  They may summon monsters, lower your attributes, or decrease your prowess in combat.  Typically, they are also enchanted so they cannot be removed until the curse has been lifted."
+ },
+ {
+  "title": "Verbs Menu",
+  "text": "VERBS MENU\nMost of the items on the Verbs menu duplicate keyboard commands .  They are here to allow an easier mouse interface.  The exceptions to this are the site specific verbs, Drink from Fountain and Sit on Throne.\nClimb Up Stairs Climb Down Stairs Search Disarm Get Look Free hand Rest until healed\nDrink from fountain: This menu item appears when the player is on a site with a fountain.  Drinking from fountains can have beneficial or harmful effects, or may do nothing at all. Sit on Throne: This menu appears when the player is on a site with a throne.  Sitting on thrones can have beneficial or harmful effects, or may do nothing at all."
+ },
+ {
+  "title": "Options Dialog",
+  "text": "OPTIONS DIALOG\nSave Levels To Disk: If you want Castle to use less memory when running, this option will cause the program to save all the levels you've visited to disk rather than to far memory.  Memory is faster, but the disk is better if you have lots of other applications running and don't want Castle to hog resources. Stop Running On Special Sites: This option toggles whether a running character should stop on sites that aren't empty floor.  It will cause the character to stop for objects, doors, and the boundaries between rooms and halls. Scroll Rooms Onto Screen: If this option is set, then whenever the character steps into a room, the game will attempt to scroll the dungeon window so the entire room is visible.  This causes some extra jumping around, but makes it much easier to see if a monster is lurking on the other side of the room!\nVisual Effects: This option enables or disables the animation effects for spells, traps, dragon breath, etc.  If you find these effects are slowing down the game too much, this lets you turn them off (of course it also makes it less fun ...). Fast Map: This option enables or disables the fast mapping feature.  If this feature is turned on then while in map view, a much simpler display is shown.  All objects are show as a small dagger symbol, all monsters are shown as a frowning face, stairs become up and down arrows, and most dungeon features are just shown as an asterisk.  If this feature is turned off, then shrunken versions of the regular pictures are used, which is much slower on some machines.  You can still identify just what is on a site by using the right mouse button to bring up a popup description window (see Mouse Commands )."
+ },
+ {
+  "title": "Window Menu",
+  "text": "WINDOW MENU\nMove Vertical & Move Horizontal: These commands allows you to resize the three main windows.  You can also just click and drag on the edges between windows if you have a mouse available. Arrange All: The Arrange All command returns the three main windows to their default sizes."
+ },
+ {
+  "title": "Help Menu",
+  "text": "HELP MENU\nHelp Index Takes you to the top level of this help file. Keyboard Commands Takes you directly to the keyboard help Mouse Commands Takes you directly to the mouse help Spell Directory Takes you directly to the spell directory Object Directory Takes you directly to the object directory Bestiary Takes you directly to the bestiary High Scores Displays the High Score list."
+ },
+ {
+  "title": "Dungeon Menu",
+  "text": "EXIT\nThis menu command takes you back to the main dungeon screen.  Use it to exit the inventory, or to exit stores."
+ },
+ {
+  "title": "Sort Pack Menu",
+  "text": "SORT PACK\nThis menu command sorts the items in your pack by object type.  This makes it easier to find specific objects by putting all potions together, all wands together, etc.  It also sorts objects within a type, so all potions of Cure Light Wounds will be together, and all unknown objects of a type are at the end."
+ },
+ {
+  "title": "Name Object Menu",
+  "text": "NAME OBJECT\nThis menu item brings up a dialog that allows you to assign a custom name to objects.  Go ahead, name your trusty sword \"Anthrax\"!"
+ },
+ {
+  "title": "Inventory Window Menu",
+  "text": "WINDOW MENU\nThis menu has commands for manipulating windows in the inventory:\nOpen Container: Opens a container window for the currently selected object.\nArrange All: Arranges all the open container windows tiled along the right side of the screen.\nAuto Arrange: Enables or disables auto arrangement of the container windows when new containers are opened or closed."
+ },
+ {
+  "title": "Inventory",
+  "text": "INVENTORY\nSCREEN LAYOUT: The inventory in Castle of the Winds is based on a click and drag model.  The group of boxes (or slots) surrounding the player picture on the left side of the screen represent the character's current equipment.  Each slot will display either the icon and name of the object in that slot, or the name of the slot itself. The right side of the screen is taken up by several container windows.  Each window has icons for all the objects in a particular container.  There is typically one for the Floor, one for your Pack, and optionally one for your Belt.  To open a container, double click on its icon, or select it and use the Window-Open Container command.  This works for packs, belts, purses, bags, and chests. MOUSE INTERFACE: To pick up an object off the floor and put it in your pack, you simply click on the icon in the floor window and drag it to your pack.  The reverse drops items.  As a shortcut, you can drop an object on the icon of a pack or purse container to put the object inside, even if the container isn't open.  This doesn't work for belts, however, because you need to specify what slot in the belt to use (see below).  You can move open containers, but you aren't allowed to do circular nesting.  To start using an object, you drag it from wherever it is and drop it in the appropriate slot.  The Weapon, Belt, and Ready hand slots are general purpose, so you can put any object type there.  The rest of the slots can only take objects of a specific type.  You can't carry armor in your ring slot, or vice versa.  To view the properties of an object, you can right click on it to summon a popup window .\nThe belt slot is special.  If you put a belt in the belt slot you can then stick extra items into your belt.  If you double click on the belt it will open a Container Window for it, with a fixed number of slots available.  Two and three slot belts are common, but the \"Utility Belt\" with 10 slots is more rare.  This is a valuable item! Since objects on your belt  appear on the Activate Menu , you can have a lot more objects ready for instant use.  Digging through your pack for that scroll of teleportation while the Ancient Red Dragon is breathing down your neck (literally) is a good recipe for roast adventurer. KEYBOARD INTERFACE: The movement keys can be used to navigate the inventory as well.  If the red highlight is on the inventory slots, then the movement keys navigate the slots.  If the highlight is on a container window, then the movement keys navigate there.\nChanging Windows: The Tab key can be used to move from window to window. Moving objects: Moving an object is accomplished by: 1. Selecting the object.\n2. Pressing Enter to start the movement command.  At this point the cursor will change to correspond to the object, and the movement keys will move the cursor.\n3. Positioning the cursor over the destination slot or window. 4. Pressing Enter a second time to release the object. Opening objects: With the keyboard, this is done via the Window-Open Container menu command. Viewing Properties: The properties of an object can be viewed by: 1. Selecting the object 2. Pressing Shift-Enter .  While the enter key is being depressed, a popup window will appear as described above.  When the enter key is released the window will disappear."
+ },
+ {
+  "title": "Popup Windows",
+  "text": "POPUP WINDOWS\nWhile in inventory mode, clicking the right mouse button on an object will bring up a popup window describing the object.  Selecting the object and pressing Shift-Enter from the keyboard will do the same thing.  The object's name, weight and bulk will always be given.  If the object has been identified, then all the properties of the object will be listed, and the name will also indicate if the object is Enchanted or Cursed .  Each property description has three parts: 1. What you have to do to the object for the property to apply:\nThis part is usually wield or activate .  Items such as weapons, armor, and amulets have to be wielded for their special attributes to take affect.  Items such as potions, scrolls, and wands have to be activated.\n2. What it does:\nObjects can have all kinds of properties.  Some objects affect your statistics, others can duplicate spells, and others affect your ability to do battle.\n3. How long it lasts\nSome objects are only effective while worn, so their attributes are listed as until removed .  Other objects, such as most potions, are only effective for a period of time , and then wear off.  A few objects, such as a \"Potion of Gain Strength\"  affect you permanently .  Healing potions are also listed as \"permanent\", because the effects don't wear off.  Nothing stops you from taking damage again, though!\nAn \"Amulet of Resist Fire\", for example, will say \"When wielded, makes the character more resistant to fire, until removed\".  A \"Potion of Levitation\" will say \"When activated, makes the character levitate, for a period of time\"."
+ },
+ {
+  "title": "Stores",
+  "text": "STORES\nStores operate as an extension of the inventory .  When you enter a store, the inventory window appears, but with the floor replaced by the contents of the store.  Clicking and dragging out of the store window buys an item, dragging into the store window sells an item.  In either case, a dialog with the price asked/offered appears and you are given a chance to accept or reject the offer. The Sage is a special case.  Dragging an object into this store window is a request that the Sage identify the object.  Once again a price will be quoted and the character will be given the chance to decline. The Junk Store is also a special case.  It will buy anything, for market price (if it's less than 25 C.P.), or for 25 C.P. if it's cursed or worthless.  Anything sold to this store is gone for good."
+ },
+ {
+  "title": "Temple of Odin",
+  "text": "TEMPLE OF ODIN The priests of the shrines and temples of Odin can work great magics to heal the injured adventurer.  For a suitable \"donation\" you can get curses removed, injuries healed, and even drained statistics restored.  They can also cast the useful Rune of Return spell to allow the character to jump quickly between town and the depths of the dungeon.  In most cases the spells that aren't appropriate are grayed to prevent mistakes.  The exception to this is Remove Curse, which is always available since it would give the player hints about unidentified objects to gray it."
+ },
+ {
+  "title": "Glossary",
+  "text": "GLOSSARY\nArmor Value: A measure of the potency of your armor and magical wards at deflecting attacks.  A higher value indicates greater protection. Strength: How much muscular force you can exert.  Higher strength allows you to do more damage per hit, and lets you carry more stuff.  Playing a character with a low strength will really cramp what armor you can wear! Intelligence: How deep and accurate your memory is, how agile your mind, and how much willpower you can exert.  Higher intelligence gives you more mystical power (mana) which allows you to cast more spells.  It also give you a better chance of disarming traps. Constitution: How robust and healthy you are.  High constitution gives you more hit points. Dexterity: How nimble and coordinated you are.  High dexterity improves your AV, your chance to hit, and your chance to disarm traps.\nMana: Your mystical power.  Each spell you cast uses up 1 or more mana points, and when they are gone you can't cast any more spells.  Mana is replenished by going up a level in experience, by using certain magic items, or slowly with time (1 point per hour). CP: Copper pieces (copper coins).  The copper piece is the basic unit of monetary exchange.  All prices will be listed in CP, but you may find coins of different types in the dungeon. SP: Silver pieces (silver coins).  1 silver piece is worth 10 copper pieces. GP: Gold pieces (gold coins).  1 gold piece is worth 100 copper pieces. PP: Platinum pieces (platinum coins).  1 platinum piece is worth 1,000 copper pieces.  These are quite rare."
+ },
+ {
+  "title": "Magic",
+  "text": "MAGIC\nThere are several different classes of spells.  Missile type spells (Magic Arrow, Cold Bolt, Fire Bolt, Lightning Bolt, Cold Ball, Fireball, and Lightning Ball) are offensive spells to damage monsters from a distance.  The ball spells will cover a 3 by 3 square area and damage all the monsters therein.  The monster in the center takes the most damage.  Detection spells (Detect Traps, Object, or Monsters) allow you to see things in places you haven't been yet, or can't currently see.  Using Window Zoom or scrolling the Dungeon Window after a detect spell is a useful way to see what's around. Attribute spells (Resist Fire, Levitation, Healing, Restore Strength) modify your attributes or statistics.  A spell of Resist Fire, for example, temporarily gives you the attribute of resistance to flame attacks.  Red Dragon breath will do less damage.  The casting time for a spell is variable.  In general, attack spells are fast, but divination spells are slow.  There are often magic items that mimic spell effects, such as Amulets (for the resist spells), or potions and scrolls for most things.  Some of these are one shot effects, others are timed (a potion of levitation for instance), and others last as long as you are wearing the item.  Messages will appear in the Description Window to notify you of effects wearing off."
+ },
+ {
+  "title": "Spells",
+  "text": "SPELL DIRECTORY\nATTACK SPELLS DEFENSE SPELLS Magic Arrow Shield Cold Bolt Resist Cold Lightning Bolt Resist Lightning Fire Bolt Resist Fire Cold Ball Ball Lightning HEALING SPELLS Fireball Heal Minor Wounds Sleep Monster Heal Medium Wounds Slow Monster Heal Major Wounds Transmogrify Monster Neutralize Poison Healing MOVEMENT SPELLS Phase Door DIVINATION SPELLS Levitation Detect Objects\nRune of Return Detect Monsters Teleport Detect Traps Identify NON-CHARACTER SPELLS Clairvoyance Create Traps Haste Monster MISCELLANEOUS SPELLS Clone Monster Light Teleport Away Remove Curse"
+ },
+ {
+  "title": "Magic Missile",
+  "text": "MAGIC ARROW Spell Level: 1 Base Mana: 1 Time to Cast: 5 seconds\nThe magic arrow spell hurls a small bolt of sorcerous energy at the target.  It will unerringly strike any target within sight of the caster, doing damage equivalent to an arrow."
+ },
+ {
+  "title": "Cold Bolt",
+  "text": "COLD BOLT Spell Level: 2 Base Mana: 2 Time to Cast: 5 seconds\nThe cold bolt spell sends a bolt of freezing cold blasting towards the target.  Fire-using creatures will take extra damage from the bolt, but cold-using creatures will take only partial damage."
+ },
+ {
+  "title": "Lightning Bolt",
+  "text": "LIGHTNING BOLT Spell Level: 3 Base Mana: 3 Time to Cast: 5 seconds\nThe lightning bolt spell sends an electrical discharge arcing towards the target.  Electrically-based creatures such as Blue Dragons will take only partial damage from this attack."
+ },
+ {
+  "title": "Fire Bolt",
+  "text": "FIRE BOLT Spell Level: 3 Base Mana: 3 Time to Cast: 5 seconds\nThe fire bolt spell sends a bolt of fire blasting towards the target.  Cold-using creatures will take extra damage from the bolt, but fire-using creatures will take only partial damage."
+ },
+ {
+  "title": "Cold Ball",
+  "text": "COLD BALL Spell Level: 3 Base Mana: 4 Time to Cast: 5 seconds\nThe cold ball is a more powerful version of the Cold Bolt.  Upon reaching its target, the energy released by this spell explodes into a freezing sphere covering the nine squares around the target.  The monster on the target square takes full damage, and those on the eight adjoining squares take half damage.  As with the cold bolt, fire-using creatures will take extra damage from the spell, but cold-using creatures will take only partial damage."
+ },
+ {
+  "title": "Sleep Monster",
+  "text": "SLEEP MONSTER Spell Level: 3 Base Mana: 4 Time to Cast: 5 seconds\nThe sleep monster spell causes the targeted monster to fall into an light, enchanted sleep.  Any attempt to attack the monster while it sleeps will awaken it; hence this is useful mostly for quick escapes.  The effects of this spell wear off in 10 minutes."
+ },
+ {
+  "title": "Slow Monster",
+  "text": "SLOW MONSTER Spell Level: 3 Base Mana: 4 Time to Cast: 5 seconds\nThe slow monster spell causes the targeted monster to move at about half its normal speed.  Note that the effects of several of these spells can accumulate, but each successive one is less effective than the last.  This means a monster will move at 1/2, then 1/3, then 1/4, then 1/5 ... of its normal speed.  The effects of this spell wear off in 10 minutes."
+ },
+ {
+  "title": "Ball Lightning",
+  "text": "BALL LIGHTNING Spell Level: 4 Base Mana: 4 Time to Cast: 5 seconds\nThe ball lightning spell is a more powerful version of the Lighting Bolt.  Upon reaching its target, the energy released by this spell explodes into a ball of lightning covering the nine squares around the target.  The monster on the target square takes full damage, and those on the eight adjoining squares take half damage.  As with the lightning bolt, electrically-based creatures will take only partial damage."
+ },
+ {
+  "title": "Fireball",
+  "text": "FIREBALL Spell Level: 4 Base Mana: 5 Time to Cast: 5 seconds\nThe fireball spell is a more powerful version of the Fire Bolt.  Upon reaching its target, the energy released by this spell explodes into a firestorm covering the nine squares around the target.  The monster on the target square takes full damage, and those on the eight adjoining squares take half damage.  As with the fire bolt, cold-using creatures will take extra damage from the spell, but fire-using creatures will take only partial damage."
+ },
+ {
+  "title": "Polymorph Monster",
+  "text": "TRANSMOGRIFY MONSTER Spell Level: 5 Base Mana: 6 Time to Cast: 5 seconds\nThe transmogrify monster spell causes a targeted monster to be transformed into another type.  The new type could be more or less powerful than the old.  Note that the \"injuredness\" of a monster is preserved, so a Red Dragon that has lost half its hit points and is transformed into a Hill Giant will have half the normal hit points of a Hill Giant."
+ },
+ {
+  "title": "Shield",
+  "text": "SHIELD Spell Level 1 Base Mana: 1 Time to Cast: 5 seconds\nThe shield spell conjures a small magical shield, which will move itself to block attacks on you.  In effect, it temporarily increases the character's Armor Value.  You may cast this spell multiple times to create many such shields, greatly increasing your protection."
+ },
+ {
+  "title": "Resist Cold",
+  "text": "RESIST COLD Spell Level: 3 Base Mana: 3 Time to Cast: 5 seconds\nThe resist cold spell increases the character's resistance to a cold-based attack, reducing the damage by half.  Its effects are cumulative, so casting two Resist Cold spells cuts the damage from White Dragon breath to 1/4 its normal value."
+ },
+ {
+  "title": "Resist Lightning",
+  "text": "RESIST LIGHTNING Spell Level: 3 Base Mana: 3 Time to Cast: 5 seconds\nThe resist lightning spell increases the character's resistance to an electrical attack, reducing the damage by half.  Its effects are cumulative, so casting two Resist Lightning spells cuts the damage from Blue Dragon breath to 1/4 its normal value."
+ },
+ {
+  "title": "Resist Fire",
+  "text": "RESIST FIRE Spell Level: 3 Base Mana: 3 Time to Cast: 5 seconds\nThe resist fire spell increases the character's resistance to a fire-based attack, reducing the damage by half.  Its effects are cumulative, so casting two Resist Fire spells cuts the damage from Red Dragon breath to 1/4 its normal value."
+ },
+ {
+  "title": "Cure Light Wounds",
+  "text": "HEAL MINOR WOUNDS Spell Level: 1 Base Mana: 1 Time to Cast: 5 seconds\nThe heal minor wounds spell repairs injuries suffered in combat, restoring Hit Points (HP) to the player.  The greater of 8 hit points or 20% of the player's maximum hit points will be regained, but not exceeding the character's maximum."
+ },
+ {
+  "title": "Neutralize Poison",
+  "text": "NEUTRALIZE POISON Spell Level: 2 Base Mana: 3 Time to Cast: 5 seconds\nThe neutralize poison spell purges all the poisons from the body of the character.  While it doesn't cure the damage caused by the poisons, it does prevent further damage from occurring.  The spell is potent enough to counter even the effects of Green Dragon breath."
+ },
+ {
+  "title": "Cure Serious Wounds",
+  "text": "HEAL MEDIUM WOUNDS Spell Level: 3 Base Mana: 3 Time to Cast: 5 seconds\nThe heal medium wounds spell repairs injuries suffered in combat, restoring Hit Points (HP) to the player.  The greater of 16 or 40% of the player's maximum hit points will be regained, but not exceeding the character's maximum."
+ },
+ {
+  "title": "Cure Critical Wounds",
+  "text": "HEAL MAJOR WOUNDS Spell Level: 4 Base Mana: 5 Time to Cast: 5 seconds\nThe heal major wounds spell repairs injuries suffered in combat, restoring Hit Points (HP) to the player.  The greater of 24 or 60% of the player's maximum hit points will be regained, but not exceeding the character's maximum."
+ },
+ {
+  "title": "Healing",
+  "text": "HEALING Spell Level: 5 Base Mana: 6 Time to Cast: 5 seconds\nThe healing spell repairs all injuries suffered in combat, restoring maximum Hit Points (HP) to the player."
+ },
+ {
+  "title": "Phase Door",
+  "text": "PHASE DOOR Spell Level: 1 Base Mana: 1 Time to Cast: 5 seconds\nThe phase door spell opens an extra-dimensional portal which transports the player to a random location from 5 to 10 squares from his or her current position."
+ },
+ {
+  "title": "Levitation",
+  "text": "LEVITATION Spell Level: 2 Base Mana: 2 Time to Cast: 5 seconds\nThe levitation spell allows the player to walk on air for a time, thereby avoiding many of the gravity activated traps in the dungeon."
+ },
+ {
+  "title": "Word of Recall",
+  "text": "RUNE OF RETURN Spell Level: 3 Base Mana: 3 Time to Cast: 5 seconds\nOne of the most useful spells in the adventurer's repertoire, the rune of return spell can have two effects, depending on the player's location.  From inside the mine (game 1), the fortress (game 1) or the castle dungeons (game 2), the spell will return the player to the ground level, bypassing the levels in between.  From ground level (the hamlet or village in game 1, the town in game 2, and the trails outside them), the spell teleports the player to the deepest place the player has visited so far.  From the hamlet or the trail outside of it, this will be in the mine.  From the village or the trail to the fortress, it will be in the fortress.  In game 2 it will be in the castle itself.  This saves a lot of time when exploring the deeper realms, since you don't have to fight your way to the surface all the time."
+ },
+ {
+  "title": "Teleport",
+  "text": "TELEPORT Spell Level: 3 Base Mana: 3 Time to Cast: 5 seconds\nA more powerful version of the Phase Door spell, the teleport spell will move the player to a random location at least 10 squares from his/her current location."
+ },
+ {
+  "title": "Detect Objects",
+  "text": "DETECT OBJECTS Spell Level: 1 Base Mana: 1 Time to Cast: 30 seconds (this spell can be interrupted)\nThe detect objects spell shows the location of all the objects on the current level.  These sites will remain seen, but if the objects are later moved by some creature, this will not be discovered until the site is actually visited."
+ },
+ {
+  "title": "Detect Monsters",
+  "text": "DETECT MONSTERS Spell Level: 2 Base Mana: 2 Time to Cast: 30 seconds (this spell can be interrupted)\nThe detect monsters spell allows the player to detect all monsters in the dungeon, even through solid rock.  It lasts for approximately 30 minutes, plus one additional minute for each level of the character casting the spell."
+ },
+ {
+  "title": "Detect Traps",
+  "text": "DETECT TRAPS Spell Level: 2 Base Mana: 2 Time to Cast: 30 seconds (this spell can be interrupted)\nThe detect traps spell attempts to detect all the traps on the current level.  Traps within 10 squares of the player are guaranteed to be found.  Beyond that the chance of detection drops with distance.  A known trap is less likely to go off, and of course can be disarmed or avoided as well."
+ },
+ {
+  "title": "Identify",
+  "text": "IDENTIFY Spell Level: 2 Base Mana: 2 Time to Cast: 60 seconds (this spell can be interrupted)\nThe identify spell identifies the target object, which can be in one of the inventory slots, your pack, on the belt, or on the floor.  Identifying an object before use allows cursed objects to be avoided, and helps the player compare objects by identifying any bonuses they may have."
+ },
+ {
+  "title": "Clairvoyance",
+  "text": "CLAIRVOYANCE Spell Level: 2 Base Mana: 3 Time to Cast: 30 seconds (this spell can be interrupted)\nThe clairvoyance spell allows the character to \"see\" an area of the dungeon without visiting it.  Once targeted it maps out an area of the dungeon 10 rows by 10 columns in size, including showing all secret doors and traps."
+ },
+ {
+  "title": "Light",
+  "text": "LIGHT Spell Level: 1 Base Mana: 1 Time to Cast: 5 seconds\nThe light spell has one of two effects.  Cast in a hallway, it will light the 3x3 square region around the target square.  In a room, however, the entire room is lit."
+ },
+ {
+  "title": "Remove Curse",
+  "text": "REMOVE CURSE Spell Level: 3 Base Mana: 3 Time to Cast: 60 seconds (this spell can be interrupted)\nThe remove curse spell removes the curse on items with negative bonuses.  This allows them to be removed and disposed of.  Note that it can only be cast on items in the player's inventory slots, belt or pack."
+ },
+ {
+  "title": "Haste Monster",
+  "text": "HASTE MONSTER Spell Level: NA Base Mana: NA Time to Cast: NA\nThis spell is the opposite of Slow Monster .  It causes the target monster to move at faster than normal speed.  These spells accumulate, so successive casts at the same creature will continue to increase its speed.  While not available to the character as a spell, there are several cursed magical items that cast this spell."
+ },
+ {
+  "title": "Clone Monster",
+  "text": "CLONE MONSTER Spell Level: NA Base Mana: NA Time to Cast: NA\nThis spell clones the target monster, creating a healthy duplicate adjacent to the target.  While not available to the character as a spell, there are several cursed magical items that cast this spell."
+ },
+ {
+  "title": "Teleport Away",
+  "text": "TELEPORT AWAY Spell Level: NA Base Mana: NA Time to Cast: NA\nThis spell teleports the target monster to another place on the level.  It's useful for getting rid of creatures you don't want to deal with!  While not available to the character as a spell, there are magical items that cast this spell."
+ },
+ {
+  "title": "Create Traps",
+  "text": "CREATE TRAPS Spell Level: NA Base Mana: NA Time to Cast: NA\nThis spell surrounds the player with traps.  While not available to the character as a spell, there are several cursed magical items that cast this spell."
+ },
+ {
+  "title": "Objects",
+  "text": "OBJECT DIRECTORY\nThis list gives some basic information about some of the objects, such as their Armor Value, Weapon Class, weight and bulk.  I stretch containers a bit to let the player carry more than is strictly realistic.  Since you don't have porters, this evens things out a bit.\nArmor Type Armor Value Weight Bulk\nRusty Armor 0 10000 30000 Leather Armor 6 5000 24000 Studded Leather Armor 12 7000 25000 Ring Mail 18 8000 30000 Scale Mail 24 9000 30000 Chain Mail 30 10000 30000 Splint Mail 36 12000 40000 Plate Mail 42 15000 40000 Plate Armor 48 15000 60000 Meteoric Steel Plate 54 5000 30000 Elven Mail 52 5000 24000\nHelmet Type Armor Value Weight Bulk\nBroken Helmet 0 1000 1000 Leather Helmet 3 500 500 Iron Helmet 6 2000 2000 Steel Helmet 9 2500 2000 Meteoric Steel Helmet 15 1000 2000 Helmet of Detect Monsters 9 2500 2000\nShield Type Armor Value Weight Bulk\nBroken Shield 0 4000 35000 Small Wooden Shield 3 3000 15000 Medium Wooden Shield 6 4000 35000 Small Iron Shield 6 4000 15000 Large Wooden Shield 9 5000 50000 Medium Iron Shield 9 5000 35000 Small Steel Shield 9 4000 15000 Large Iron Shield 12 6000 50000 Medium Steel Shield 12 5000 35000 Large Steel Shield 15 6000 50000 Small Meteoric Steel Shield 15 2500 10000 Medium Meteoric Steel Shield 18 3500 25000 Large Meteoric Steel Shield 21 4500 35000\nWeapon Type Weapon Class Weight Bulk\nBroken Sword 0 1000 5000 Club 1 1500 3000 Dagger 2 500 500 Hammer 2 2000 3000 Hand Axe 3 1000 3000 Quarterstaff 3 750 5000 Spear 4 1500 5000 Short Sword 5 1000 5000 Mace 5 2500 4375 Flail 6 2000 3250 Axe 6 2000 5000 War Hammer 7 1400 7500 Long Sword 8 1500 8000 Battle Axe 8 3000 6000 Broad Sword 9 1600 9000 Morningstar 10 3000 9000 Bastard Sword 11 3000 10000 Two Handed Sword 12 5000 12000\nMisc. Object Type Weight Bulk\nPotion 200 200 Scroll or Book 150 200 Amulet 200 350 Staff 750 5000 Boots 1500 4000 Gauntlets 500 2000 Bracers 500 2000 Cloak 500 6000 Ring 50 30"
+ },
+ {
+  "title": "Weapon Class",
+  "text": "Weapons within the same weapon class do equivalent damage.  Higher classes do more damage than lower ones."
+ },
+ {
+  "title": "Armor Value",
+  "text": "Armor value denotes the ability to deflect a blow, with higher values deflecting more attacks than lower ones."
+ },
+ {
+  "title": "Weight",
+  "text": "Weight is in grams."
+ },
+ {
+  "title": "Bulk",
+  "text": "Bulk is given in cubic centimeters (roughly)."
+ },
+ {
+  "title": "Containers",
+  "text": "CONTAINERS\nThere are various types of containers in the game, some of which have special properties.  All containers have their own weight and bulk, and a max weight and bulk they can contain.  If containers are nested then things get a little trickier, as there is also the weight and bulk they report to what is holding them.  In the case of bags, the bulk fluctuates with the contents, but for chests the bulk is fixed.  It is also possible to have containers with fixed weight.  The weight of a \"pack of holding\" is constant no matter what you put inside.  If non-zero, the Wt. Fx and Bulk Fx columns are used instead of the sum of the contents (plus whatever intrinsic weight and bulk the container has) in calculating the value reported to the parent.\nContainer Wt Bulk Wt. Max Bulk Max Wt.Fx Bulk Fx\nBroken Pack 1000 1000 0 0 0 0 Small Pack 1000 1000 12000 50000 0 0 Small Bag 300 500 5000 6000 0 0 Medium Pack 2000 1500 22000 75000 0 0 Medium Bag 500 700 10000 12000 0 0 Small Chest 5000 10000 100000 50000 0 50000 Large Pack 4000 2000 35000 100000 0 100000 Large Bag 900 900 15000 18000 0 0 Medium Chest 15000 2000 100000 150000 0 150000 Large Chest 25000 4000 100000 250000 0 250000 Small Pack of Holding 1000 1000 50000 150000 5000 75000 Medium Pack of Holding 2000 1500 75000 200000 7500 100000 Large Pack of Holding 4000 2000 100000 250000 10000 125000"
+ },
+ {
+  "title": "Animals",
+  "text": "ANIMALS\nWild animals have always been a danger to travelers.  This is especially true In the depths of the dungeon, where fierce competition and the occasional intervention of foul magic have caused some creatures to grow to enormous size. Bears Huge Lizard Giant Ant Large Snake Giant Bat Viper Giant Rat Wild Dog Giant Scorpion Wolves Giant Trapdoor Spider"
+ },
+ {
+  "title": "Giants",
+  "text": "JOTUN (GIANT)\nJotuns: the enormous manlike denizens of Jotunheim and associated realms, including Niflheim and Muspelheim.  The smallest jotuns each stand over eight cubits tall, with near-human proportions, though tending toward short bowed legs.  Most are cruel to smaller creatures; all are avaricious, and jealously guard their possessions from other creatures and each other, carrying as much on their person as is practical.  Jotuns wear armor and wield weapons, all crafted to their great scale.  They are fond of hurling boulders at their opponents, killing from a distance. The different lands of Jotunheim have spawned different races of jotuns (commonly called Giants); these races coexist, but tend to avoid one another.  Four of the jotun races are described below; other, rarer, varieties are certainly possible.\nHill Giant Stone Giant Frost Giant Fire Giant"
+ },
+ {
+  "title": "Other",
+  "text": "OTHER\nThese creatures have no better category, either due to their origin (such as the manticore), or because no one has quite discovered what it is (such as slime).\nCarrion Creeper Gelatinous Glob Manticore Slime"
+ },
+ {
+  "title": "Giant Ant",
+  "text": "GIANT ANT\nAnt: dog-sized giant insect.  Ants will range a great distance from their nest in search of food to claim.  They are formidable foes, with a crushing bite and stiffly armored body, and a potent sting used in defense.  A ant will fight to the death."
+ },
+ {
+  "title": "Giant Bat",
+  "text": "GIANT BAT\nOvergrown versions of the common cave bat, these creatures haunt deserted ruins and dark caverns below ground.  While their bite does little damage, their speed and maneuverability makes them difficult to hit, and their tendency to flit in and out of range makes them dangerous opponents for beginning adventurers."
+ },
+ {
+  "title": "Giant Rat",
+  "text": "GIANT RAT\nInhabitants of the seedy underbelly of mankind's civilization, rats have scavenged our leavings for millennia.  The rats in the caves and dungeons below the castle, however, are larger and more intelligent than their city cousins, and when found in numbers can be much more deadly."
+ },
+ {
+  "title": "Giant Scorpion",
+  "text": "GIANT SCORPION\nThese creatures are rarely found on the surface, for they cannot take the cold.  Once a curiosity in the king's court, where the High Wizard had brought them from the south, they escaped after the destruction of the castle and fled into the caves below.  Volcanic heat from deep in the earth provided a climate warm enough for them to survive, and in some cases thrive.  Beware the poison sting of their tail!"
+ },
+ {
+  "title": "Giant Trapdoor Spider",
+  "text": "GIANT TRAPDOOR SPIDER\nSpider: overgrown cousin of the eight-legged predator of house and field, ranging in size from large cat to draft horse.  Many carry a venomous bite, quickly lethal to warm-blooded prey.  All are swift runners and dangerous."
+ },
+ {
+  "title": "Huge Lizard",
+  "text": "HUGE LIZARD\nLike the scorpions in the castle, this creature started out as a part of the High Wizard's animal collection, and has since adapted to life in the caves beneath the castle. These large saurians live underground to escape the cold above. When not mating, these lizards are solitary, prowling their territory in search of food. They are slow moving, but their scaly hide provides armor against most attacks, and their bite can do much damage."
+ },
+ {
+  "title": "Large Snake",
+  "text": "LARGE SNAKE\nSnake: a strangling sea monster, adapted to land.  Since longships first met the waves, Vikings and sailors have feared the great snakes of the sea, which can break a ship's hull in their powerful coils.  Recently, travelers have brought reports of similar (though mercifully smaller) snakes on land, hiding in dense forests or ruins."
+ },
+ {
+  "title": "Poisonous viper",
+  "text": "VIPER\nViper: large serpent with a venomous bite.  While poisonous snakes are not common in the land, a sufficiently ruthless householder may plant a few as guardians to deter thieves and other intruders.  Of course, it will bite friends as well as foes, and so is most useful when you have but few friends."
+ },
+ {
+  "title": "Wild Dog",
+  "text": "WILD DOG\nAges past, mankind bred domesticated canines from their wild cousins. Not all dogs were tamed, however, and some that were have gone back to the wilds.  While still less dangerous than wolves, beware the claws and bite of these hunters, especially if found in packs."
+ },
+ {
+  "title": "Hill Giant",
+  "text": "HILL GIANT\nHill Giants are the Jotuns most commonly found on Midgard; fortunately, they are the smallest and weakest of all the jotun races, the most similar to humans.  They wear enormous smocks of homespun, or leather armor when they can get it made in their size, and wield great wooden clubs.  Very rarely an individual will show a talent for magic."
+ },
+ {
+  "title": "Stone Giant",
+  "text": "STONE GIANT\nStone Giants are Jotuns which have lived in the great mountains of Midgard for ages.  Taller and duller than Hill Giants, they are fairly reclusive as Jotuns go, emerging from the impassable peaks at rare intervals for reasons known only to them.  Little is known of their life in the mountains and crevasses of Jotunheim.  They wield great clubs hewn of stone, and hurl especially large boulders with great accuracy.  Stone giants spurn armor, trusting their gray stony hides to protect them from harm."
+ },
+ {
+  "title": "Frost Giant",
+  "text": "FROST GIANT\nFrost Giants are Jotuns from the icy underworld of Niflheim, crossing into Midgard only during the deadliest winters; very rarely will they will remain, should they find a lonely glacier or ice cave.  They are even taller than most giants, with weird pink or gray eyes and ulcerated, ivory-colored skin.  Frost Giants wear enormous animal hides and chain-link or metal-scale armor, and wield huge axes, spears, and broadswords; rather than boulders, they hurl great blocks of ice."
+ },
+ {
+  "title": "Fire Giant",
+  "text": "FIRE GIANT\nFire Giants are Jotuns from the hot hells of Muspelheim.  They are squat and huge, with disproportionately long arms, stumpy short legs, a broad barrel-like torso, and filthy, bristly black beards covering their broad, brick-colored faces.  Fire Giants wear metal armor, forged in the heat of their hellish home, and carry huge swords and morningstars."
+ },
+ {
+  "title": "Goblin",
+  "text": "GOBLIN\nGoblins: predatory humanoid warrior tribe.  These bandits roam craggy and mountainous areas, preying on lone travelers, small caravans, and small outlying townships.  Vigorous military action has cleansed much of the land from their scourge; most of the survivors have fled deep into the mountains, or taken refuge in ruins and caves.  Goblins range from three to four cubits in height, with the larger individuals (\"fighters\") bullying and leading the smaller; they have little other apparent organization, traveling in familial bands.  Some tribes of goblins may enlist the protection of a larger monster, yielding to it a large share of any booty collected in exchange for its handling any outsize foes."
+ },
+ {
+  "title": "Hobgoblin",
+  "text": "HOBGOBLIN\nHobgoblin: large, solitary goblin.  Physically, a hobgoblin resembles a goblin fighter suffering from malnutrition, which is exactly what it is: the occasional survivor of an intra-tribal conflict, exiled from the tribe by the victorious chieftain.  Hobgoblins wear armor stolen from humans or goblins, and wield any weapon that comes to hand.  They hold no allegiance to their former tribe, but will usually avoid it in the interest of self-preservation.  All other weaker creatures are possible game to a desperate hobgoblin.  Occasionally hobgoblins will locate one another, and may form a small band of their own, though such bands are usually short-lived."
+ },
+ {
+  "title": "Kobold",
+  "text": "KOBOLD\nKobolds: diminutive race of miners.  Originally from Svartalfheim, the kobolds live their lives entirely underground, mining for precious metals and stones; they are highly territorial, and will defend a rich lode against intruders.  Occasionally they will band together and poach the mines of men, killing any miners they encounter.  They need no light source, being used to moving through lightless tunnels, and can fight well in complete darkness; however, as a kobold stands less than two cubits tall, a single specimen stands but little chance against an armed and armored warrior of any skill.  Kobolds fight with sundry bent knives and cleavers, or else with their mining picks and small sledges if at hand."
+ },
+ {
+  "title": "Huge ogre",
+  "text": "OGRE\nOgre: huge, man-eating humanoid monster.  Ogres superficially resemble gigantic humans of bestial aspect; they stand approximately six cubits tall, and weigh some thirty stone, or more for well-fed individuals.  The face is broad and ruddy, with a mouth filled with jutting tusks; the skin is leathery. and varies in color from ochre to brick red.  An ogre will wield any sufficiently large weapon, and will wear patchwork or cap-and-pie armor when it can find such; typically, however, it carries but a crude club or spear.  Ogres love gold and silver; indeed, the promise of lucre sometimes leads a more intelligent ogre to adopt the veneer of civilization and consort with humans, though its cruel hungers will eventually tell true."
+ },
+ {
+  "title": "Thief",
+  "text": "THIEF\nAs long as men have coveted the possessions of their fellows, there have been thieves in the world, and many a man or women has been turned to evil through Loki's temptation.  Beware these ruthless ones, for despite the smirk, they often show the world they will rob you of your possessions and vanish before your eyes!"
+ },
+ {
+  "title": "Gruesome troll",
+  "text": "TROLL\nTroll: large, vicious, omnivorous humanoid with near-supernatural regenerative powers.  Tall as an ogre, a troll appears all arms, legs, ribs, and jaws.  Its slouch bends its gaunt, ribby body halfway back to the ground; its olive-green skin, studded with warts, glistens with slime, while its black hair writhes like living snakes over large, wet black eyes.  Each long, knotty limb is tipped with enormous claws.  While a troll, ever hungry, will eat anything it can rend and swallow, it prefers warm flesh, which it can track with its keen sense of smell and doglike intelligence.  Life burns brightly within the troll, which can recover from a mortal wound within minutes.  A troll fears fire."
+ },
+ {
+  "title": "Ghost",
+  "text": "GHOSTS\nGhosts are the remains of people who died in great pain of some sort, not understanding why they suffered.  Their anguish lives on as a ghost, which feeds on the pain and fear of the living.  The sight of a ghost is enough to strike fear into the heart of those who face it, and the attack of a ghost is so terrifying as to drain the strength and dexterity of the victim.  Ghosts have no body, and so are difficult to see and very difficult to hit with normal weapons.  They also have the ability to pass through anything, so doors and even rock are no use in stopping their attacks."
+ },
+ {
+  "title": "Spectre",
+  "text": "SHADOWS, SHADES, and SPECTRES\nThese creatures, of varying strength, are the incorporeal remains of evil humans cursed to walk the earth for a time beyond death, until some condition is fulfilled.  Humans of great evil will become shades instead of shadows, and the greatest will become spectres.  These creatures aren't especially strong or smart, but they remember being alive and have a strong hatred for those who still are.  In battle they will typically animate some weapon, since they are intangible themselves.  While this weapon is real and can be blocked, the creatures themselves are difficult to destroy with mortal weapons."
+ },
+ {
+  "title": "Skeletons and Walking Corpses",
+  "text": "SKELETONS and WALKING CORPSES\nSkeletons and Walking Corpses are the creation of evil wizards and priest. For skeletons, the bones of a long dead creature are reunited using enchanted sinews and given a gruesome second life.  Mindless and soulless, they are used as terrifying guards or just let loose to harass mankind. A freshly dead corpse, if not properly buried, may be taken by an evil wizard or priest to create a walking corpse.  While slower than a skeleton, due to the rotting flesh that still clings to the bones, a walking corpse is harder to kill than a skeleton, for the flesh also provides some protection.  Like a skeleton, a walking corpse has no memory of its former life, and exists only to destroy whatever it finds."
+ },
+ {
+  "title": "Wights",
+  "text": "WIGHTS\nWights are the spirits that rise from improperly consecrated burials.  There are several varieties of different strengths, including Tunnel, Barrow, and Castle Wights.  Wights are occasionally mistaken for zombies at a distance, for they still have some corporeal body, but at close range their eyes burn with intelligence and hunger.  The touch of a wight allows it to feed on the life essence of the victim, draining strength, constitution, and dexterity."
+ },
+ {
+  "title": "Carrion Creeper",
+  "text": "CARRION CREEPER\nAnother creation of wizardry run wild, this monster resembles a giant green cutworm, with a set of tentacles sprouting from its head.  It roams the caves seeking carrion for food, but has no qualms about attacking a living creature if carrion is scarce.  Its many attacks make it a feared opponent."
+ },
+ {
+  "title": "Giant gelatinous glob",
+  "text": "GELATINOUS GLOB\nGelatinous Glob: eerie subterranean scavenger, resembling nothing so much as an enormous lump of near-transparent aspic.  Gelatinous Globs measure roughly seven cubits in each direction.  Oozing slowly about, they surround any object, living or dead, that they encounter; organic objects they paralyze and digest, while inorganic objects they encase and retain, excreting them at rare intervals.  Their strange structure, or perhaps their strange lack of structure, renders them immune to many forms of magical attack."
+ },
+ {
+  "title": "Manticore",
+  "text": "MANTICORE\nManticore: monstrous guardian, originally created by sorcery.  The manticore has the body and claws of a great lion, feathered vulture-like wings, the face of a cruel, bearded man, but with tusks in the wide mouth, and a long, rather insectile tail behind.  The many-jointed tail is tipped with a pinecone of barbed quills, which it can fling with the accuracy and effect of a company of crossbowmen; with this, a manticore will try to slay lesser opponents at a distance, or cripple stronger opponents before closing with claws and jaws.  Too, as a crossbowman can empty a case of quarrels, so can a manticore exhaust the spines on its tail, though it will usually cease fire before such exhaustion and so hazard a few quills against emergency.  While manticores are intelligent, their bestial, angry nature overrides most subtlety.  They talk, and will mock their prey during combat."
+ },
+ {
+  "title": "Slime",
+  "text": "SLIME\nSlime: sessile, cancerous underground growth.  In unclean places beneath the earth there grows a thick, gray-green, gluey stuff which clings in great sheets to walls, ceilings, and floors.  Vibrations draw it; it is sufficiently motile to slop itself in the direction of felt motion.  Where it touches flesh, it clings and grows, rapidly devouring the victim in a fit of fungal gluttony.  Even a hit from a small blob of slime will burn and chew, and if left unchecked will eventually grow over the rest of the victim.  All other creatures hate and fear slime.  It is difficult to destroy without magical means."
+ },
+ {
+  "title": "Wolves",
+  "text": "WOLVES\nWolves and men have been enemies for centuries, despite our successful attempts to breed domestic canines millennia ago.  Although most fearsome in packs, even a single gray wolf can be deadly to an unprepared adventurer.  But even more dangerous is the rare white wolf, whose chill breath can freeze the blood in a man's veins."
+ },
+ {
+  "title": "Bears",
+  "text": "BEARS\nThere are several varieties of bears that roam the hills and caves of the land, and all are considered dangerous foes.  The fiercest of these is the monstrous cave bear, a giant omnivore that stands 8-10 feet tall on its hind legs.  The brown bear, while smaller in stature, is still a mighty opponent, and both these creatures can do substantial damage with both claw and bite."
+ },
+ {
+  "title": "Bestiary",
+  "text": "BESTIARY\nWhile attempting to avenge the death of your godparents, you will encounter many creatures which will seek to hinder, oppose, or devour you.  The land has many, many traveler's advisories outstanding....\nAnimals Giants Humans and Humanoids Undead Other"
+ },
+ {
+  "title": "Humans and Humanoids",
+  "text": "HUMANS AND HUMANOIDS\nThis section details the various types of men and manlike creatures that are likely to be encountered.\nGoblins and Goblin Fighters Ogre Hobgoblin Thief Kobold Troll"
+ },
+ {
+  "title": "Undead",
+  "text": "UNDEAD\nThe world would be a simpler place if what was killed stayed dead. Alas, the gods have willed that it not always be so. Various creatures, whose rightful place is in the world beyond, still walk the plane of Midgard, much to the woe of those they meet. Some have been created by the work of evil priests and mages, others are the result of improper burials or tragic deaths, and some are minions from Hela's realm, that walk the earth seeking to cause pain and death.\nGhosts Shadows, Shades, and Spectres Skeletons and Walking Corpses Wights"
+ }
+]

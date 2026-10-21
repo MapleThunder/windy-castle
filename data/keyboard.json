@@ -1,0 +1,182 @@
+[
+ {
+  "keys": "k",
+  "command": "North",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "8",
+  "command": "North",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "u",
+  "command": "Northeast",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "9",
+  "command": "Northeast",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "l",
+  "command": "East",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "6",
+  "command": "East",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "n",
+  "command": "Southeast",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "3",
+  "command": "Southeast",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "j",
+  "command": "South",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "2",
+  "command": "South",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "b",
+  "command": "Southwest",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "1",
+  "command": "Southwest",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "h",
+  "command": "West",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "4",
+  "command": "West",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "y",
+  "command": "Northwest",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "7",
+  "command": "Northwest",
+  "group": "movement",
+  "source": "hlp"
+ },
+ {
+  "keys": "<",
+  "command": "Climb up stairs or attack monster on stairs above.",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": ">",
+  "command": "Climb down stairs or attack monster on stairs below.",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": "o",
+  "command": "Open a door",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": "c",
+  "command": "Close a door",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": "s",
+  "command": "Search for traps and secret doors adjacent to you.",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": "d",
+  "command": "Disarm a trap adjacent to you",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": "m",
+  "command": "Map mode to see entire level at once",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": "i",
+  "command": "Switch to Inventory Mode",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": "r",
+  "command": "Rest until player is fully healed",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": "R",
+  "command": "Rest until player's mana is restored",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": "x",
+  "command": "Look at a site",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": "v",
+  "command": "View the dungeon by scrolling the screen.",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": "f",
+  "command": "Free Hand Command (put one item into free hand)",
+  "group": "command",
+  "source": "hlp"
+ },
+ {
+  "keys": "g",
+  "command": "Get Command",
+  "group": "command",
+  "source": "hlp"
+ }
+]
