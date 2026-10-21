@@ -1,5 +1,5 @@
 extends Control
-## Entry point. Debug options (after `--`): --screenshot=<path>, --start-depth=<n>, --seed=<n>.
+## Entry point. Debug options (after `--`): --screenshot=<path> [--frames=<n>], --start-depth=<n>, --seed=<n>, --fps.
 
 var options := {}
 var game: Game
@@ -26,6 +26,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	_frames += 1
-	if options.has("screenshot") and _frames == 30:
+	if options.has("fps") and _frames % 60 == 0:
+		print("fps ", Engine.get_frames_per_second())
+	if options.has("screenshot") and _frames == int(options.get("frames", "30")):
 		get_viewport().get_texture().get_image().save_png(options["screenshot"])
 		get_tree().quit()

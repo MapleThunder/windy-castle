@@ -7,8 +7,13 @@ const MAX_SCALE := 4
 
 var game: Game
 var art: ArtPack
-var ground := TileMapLayer.new()
+var memory := TileMapLayer.new()  # explored, out of sight
+var memory_features := TileMapLayer.new()
+var ground := TileMapLayer.new()  # in sight, lit, receives shadows
+var walls := TileMapLayer.new()  # in sight, lit without shadows so wall faces catch the torch
 var features := TileMapLayer.new()
+var lighting := Lighting.new()
+var fx := Fx.new()
 var buildings := Node2D.new()
 var items := Node2D.new()
 var actors := Node2D.new()
@@ -25,8 +30,20 @@ static func pick_scale(map_area: Vector2i) -> int:
 
 
 func _ready() -> void:
-	for n in [ground, features, buildings, items, actors, camera]:
+	for n in [memory, memory_features, ground, walls, features, buildings, items, actors, camera]:
 		add_child(n)
+	var ground_mat := ShaderMaterial.new()
+	ground_mat.shader = preload("res://view/shaders/ground.gdshader")
+	ground.material = ground_mat
+	var wall_mat := ShaderMaterial.new()
+	wall_mat.shader = preload("res://view/shaders/wall.gdshader")
+	walls.material = wall_mat
+	walls.light_mask = Lighting.WALL_MASK
+	features.light_mask = Lighting.WALL_MASK
+	var memory_mat := ShaderMaterial.new()
+	memory_mat.shader = preload("res://view/shaders/memory.gdshader")
+	memory.material = memory_mat
+	memory_features.material = memory_mat
 	camera.position_smoothing_enabled = true
 	camera.position_smoothing_speed = 10.0
 	get_viewport().size_changed.connect(_fit)
@@ -37,11 +54,16 @@ func bind(g: Game, a: ArtPack) -> void:
 	art = a
 	var ts := TileSet.new()
 	ts.tile_size = Vector2i(a.tile_size(), a.tile_size())
-	ground.tile_set = ts
-	features.tile_set = ts
+	for layer in [memory, memory_features, ground, walls, features]:
+		layer.tile_set = ts
 	_sources.clear()
 	refresh_all()
 	camera.reset_smoothing()
+	if lighting.get_parent() == null:
+		add_child(lighting)
+		lighting.setup(self)
+		add_child(fx)
+		fx.setup(self)
 
 
 func _source(name: String) -> int:
@@ -80,8 +102,8 @@ func _feature_sprite(t: int, town: bool) -> String:
 
 
 func refresh_all() -> void:
-	ground.clear()
-	features.clear()
+	for layer in [memory, memory_features, ground, walls, features]:
+		layer.clear()
 	var l := game.level
 	var town := l.depth == 0
 	for y in l.height:
@@ -98,20 +120,33 @@ func refresh_all() -> void:
 			buildings.add_child(s)
 	refresh_entities()
 	camera.position = tile_to_px(game.player.pos)
+	if lighting.world != null:
+		lighting.update_level()
+		fx.update_level()
+
+
+## Redraw the tiles whose visibility may have changed since `previous` was the visible set.
+func refresh_visibility(previous: Dictionary) -> void:
+	var town := game.level.depth == 0
+	for p in previous:
+		refresh_tile(p, town)
+	for p in game.visible:
+		refresh_tile(p, town)
+	refresh_entities()
 
 
 func refresh_tile(p: Vector2i, town: bool = game.level.depth == 0) -> void:
+	for layer in [memory, memory_features, ground, walls, features]:
+		layer.erase_cell(p)
 	if not game.level.is_explored(p):
-		ground.erase_cell(p)
-		features.erase_cell(p)
 		return
+	var seen := game.visible.has(p)
 	var t := game.level.get_tile(p)
-	ground.set_cell(p, _source(_ground_sprite(t, town)), Vector2i.ZERO)
+	var lit_layer := walls if Tile.opaque(t) else ground
+	(lit_layer if seen else memory).set_cell(p, _source(_ground_sprite(t, town)), Vector2i.ZERO)
 	var f := _feature_sprite(t, town)
-	if f == "":
-		features.erase_cell(p)
-	else:
-		features.set_cell(p, _source(f), Vector2i.ZERO)
+	if f != "":
+		(features if seen else memory_features).set_cell(p, _source(f), Vector2i.ZERO)
 
 
 func refresh_entities() -> void:
