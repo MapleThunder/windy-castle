@@ -17,6 +17,7 @@ const RUN_LIMIT := 60
 var game: Game
 var world := WorldView.new()
 var player := EventPlayer.new()
+var hud := Hud.new()
 var _queued: Dictionary = {}
 var _pending_direction := ""  # "open"/"close" waiting for a direction key
 var _running := Vector2i.ZERO
@@ -29,7 +30,16 @@ func start(g: Game, art: ArtPack) -> void:
 	world.bind(g, art)
 	world._fit()
 	player.setup(world)
+	add_child(hud)
+	hud.bind(g)
+	world.map_rect = hud.map_rect(world.get_viewport_rect().size)
+	world._fit()
+	get_viewport().size_changed.connect(func():
+		world.map_rect = hud.map_rect(world.get_viewport_rect().size)
+		world._fit())
 	player.finished.connect(_on_finished)
+	player.message_logged.connect(func(_t): hud.refresh())
+	player.stats_changed.connect(hud.refresh)
 	player.player_died.connect(func(cause): game_over.emit(cause))
 
 
@@ -49,7 +59,13 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		return
 	get_viewport().set_input_as_handled()
 	if action.begins_with("menu_"):
-		menu_requested.emit(action)
+		match action:
+			"menu_map":
+				hud.toggle_minimap()
+			"menu_log":
+				hud.toggle_full_log()
+			_:
+				menu_requested.emit(action)
 		return
 	player.fast = event.is_echo()
 	if DIRS.has(action):
@@ -65,7 +81,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		_submit({"type": SIMPLE[action]})
 	elif NEEDS_DIRECTION.has(action):
 		_pending_direction = NEEDS_DIRECTION[action]
-		player.message_logged.emit("Command Pending: %s..." % action.capitalize())  # source: exe
+		hud.add_transient("Command Pending: %s..." % action.capitalize())  # source: exe
 
 
 func _match(event: InputEvent) -> String:
@@ -79,6 +95,7 @@ func _submit(action: Dictionary) -> void:
 	if player.is_busy():
 		_queued = action  # one buffered action at most
 		return
+	hud.clear_transient()
 	var before := game.visible.duplicate()
 	var events := game.perform(action, Settings.options)
 	if _running != Vector2i.ZERO and not _keep_running(events):
@@ -98,6 +115,7 @@ func _keep_running(events: Array) -> bool:
 
 
 func _on_finished() -> void:
+	hud.refresh()
 	if not _queued.is_empty():
 		var next := _queued
 		_queued = {}

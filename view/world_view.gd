@@ -18,6 +18,7 @@ var buildings := Node2D.new()
 var items := Node2D.new()
 var actors := Node2D.new()
 var camera := Camera2D.new()
+var map_rect := Rect2()  # the part of the screen the map shows through (empty = whole viewport)
 var _sources: Dictionary = {}  # sprite name -> TileSet source id
 var _actor_nodes: Dictionary = {}  # actor id -> Sprite2D
 
@@ -194,5 +195,8 @@ func clear_actors() -> void:
 
 
 func _fit() -> void:
-	var s := pick_scale(Vector2i(get_viewport_rect().size))
+	var view := get_viewport_rect().size
+	var area := map_rect if map_rect.has_area() else Rect2(Vector2.ZERO, view)
+	var s := pick_scale(Vector2i(area.size))
 	camera.zoom = Vector2(s, s)
+	camera.offset = (view / 2.0 - area.get_center()) / float(s)
