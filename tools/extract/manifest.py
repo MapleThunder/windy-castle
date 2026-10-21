@@ -14,6 +14,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # python3 -I drops the script dir
 
 import png
+from contact_sheet import read_png
 
 # source: exe — colours sampled from transition bitmaps 19–54.
 BASE_TILES = {
@@ -44,6 +45,11 @@ def build(names_path, out_root):
         path = f"tiles/{name.split('.', 1)[1]}.png"
         png.write(os.path.join(art, path), 32, 32, bytes((*rgb, 255)) * 1024)
         sprites[name] = path
+    # source: exe — the palisade tile is the leftmost 32×32 of the hamlet fence bitmap.
+    w, h, px = read_png(os.path.join(art, "bitmaps/193.png"))
+    crop = b"".join(px[y * w * 4:(y * w + 32) * 4] for y in range(32))
+    png.write(os.path.join(art, "tiles/palisade.png"), 32, 32, crop)
+    sprites["tile.palisade"] = "tiles/palisade.png"
     for name, (first, last) in TRANSITIONS.items():
         for i, bm in enumerate(range(first, last + 1)):
             sprites[f"edge.{name}.{i}"] = f"bitmaps/{bm}.png"

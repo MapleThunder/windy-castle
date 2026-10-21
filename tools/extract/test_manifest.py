@@ -8,7 +8,7 @@ ART = os.path.join(ROOT, "assets/original")
 REQUIRED = [
     "player.male", "player.female",
     "tile.floor", "tile.wall", "tile.door.closed", "tile.door.open", "tile.stairs.down", "tile.stairs.up",
-    "tile.grass", "tile.dirt", "tile.building", "tile.town.gate",
+    "tile.grass", "tile.dirt", "tile.building", "tile.town.gate", "tile.palisade", "tile.mine.entrance",
     "item.gold", "item.dagger", "item.short_sword", "item.club", "item.leather_armor", "item.small_shield",
     "item.helmet", "item.cloak", "item.boots", "item.gauntlets", "item.ring", "item.amulet", "item.belt",
     "item.pack",

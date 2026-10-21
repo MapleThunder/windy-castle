@@ -94,6 +94,7 @@
   "tile.fountain": "icons/12.png",
   "tile.grass": "tiles/grass.png",
   "tile.mine.entrance": "icons/65.png",
+  "tile.palisade": "tiles/palisade.png",
   "tile.pillar": "icons/22.png",
   "tile.pool": "icons/30.png",
   "tile.rubble": "icons/32.png",

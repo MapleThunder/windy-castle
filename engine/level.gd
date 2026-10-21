@@ -9,6 +9,8 @@ var tiles: PackedByteArray
 var explored: PackedByteArray
 var actors: Array[Actor] = []
 var floor_items: Dictionary = {}  # Vector2i -> Array of item instances {"uid", "id", "qty"}
+var signs: Dictionary = {}  # Vector2i -> description shown when the player bumps or examines it
+var name: String = ""
 
 
 func _init(w: int = 1, h: int = 1, d: int = 0) -> void:
@@ -66,7 +68,10 @@ func to_dict() -> Dictionary:
 	var items := {}
 	for p in floor_items:
 		items["%d,%d" % [p.x, p.y]] = floor_items[p]
-	return {"width": width, "height": height, "depth": depth,
+	var sign_out := {}
+	for p in signs:
+		sign_out["%d,%d" % [p.x, p.y]] = signs[p]
+	return {"width": width, "height": height, "depth": depth, "name": name, "signs": sign_out,
 		"tiles": Marshalls.raw_to_base64(tiles), "explored": Marshalls.raw_to_base64(explored),
 		"actors": actors.map(func(a): return a.to_dict()), "floor_items": items}
 
@@ -75,6 +80,10 @@ static func from_dict(d: Dictionary) -> Level:
 	var l := Level.new(int(d["width"]), int(d["height"]), int(d["depth"]))
 	l.tiles = Marshalls.base64_to_raw(d["tiles"])
 	l.explored = Marshalls.base64_to_raw(d["explored"])
+	l.name = d.get("name", "")
+	for key: String in d.get("signs", {}):
+		var sxy := key.split(",")
+		l.signs[Vector2i(int(sxy[0]), int(sxy[1]))] = d["signs"][key]
 	for a in d["actors"]:
 		l.actors.append(Actor.from_dict(a))
 	for key: String in d["floor_items"]:
