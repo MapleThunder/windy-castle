@@ -122,6 +122,18 @@ func test_pickup_and_drop() -> void:
 	assert_eq(l.items_at(Vector2i(1, 1))[0]["uid"], uid)
 
 
+func test_pickup_single_uid() -> void:
+	var g := F.new_game()
+	var l := F.in_room(g, 3, 3, Vector2i(1, 1))
+	var club := g.new_item("club")
+	var dagger := g.new_item("dagger")
+	l.floor_items[Vector2i(1, 1)] = [club, dagger]
+	var ev := g.perform({"type": "pickup", "uid": dagger["uid"]})
+	assert_has(F.types(ev), "item_picked")
+	assert_eq(l.items_at(Vector2i(1, 1)).map(func(it): return it["uid"]), [club["uid"]])
+	assert_true(g.inventory.find(dagger["uid"]) >= 0)
+
+
 func test_pickup_nothing_no_turn() -> void:
 	var g := F.new_game()
 	F.in_room(g, 3, 3, Vector2i(1, 1))

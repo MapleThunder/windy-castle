@@ -123,7 +123,7 @@ func _player_action(action: Dictionary, options: Dictionary) -> Array:
 		"search":
 			return _act_search()
 		"pickup":
-			return _act_pickup()
+			return _act_pickup(int(action.get("uid", 0)))
 		"drop":
 			return _act_drop(int(action["uid"]))
 		"equip":
@@ -269,10 +269,11 @@ func _pickup_where(pred: Callable) -> Array:
 	return events
 
 
-func _act_pickup() -> Array:
+## uid 0 picks up everything here (source: hlp "Get Command"); otherwise just that item.
+func _act_pickup(uid: int) -> Array:
 	if level.items_at(player.pos).is_empty():
 		return [[_msg("There's nothing here.")], false]
-	var events := _pickup_where(func(_it): return true)
+	var events := _pickup_where(func(it): return uid == 0 or int(it["uid"]) == uid)
 	var took := events.any(func(e): return e["type"] in ["item_picked", "gold_picked"])
 	if took:
 		events.append({"type": "stats_changed"})

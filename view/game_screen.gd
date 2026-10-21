@@ -18,6 +18,7 @@ var game: Game
 var world := WorldView.new()
 var player := EventPlayer.new()
 var hud := Hud.new()
+var inventory := InventoryPanel.new()
 var _queued: Dictionary = {}
 var _pending_direction := ""  # "open"/"close" waiting for a direction key
 var _running := Vector2i.ZERO
@@ -37,14 +38,34 @@ func start(g: Game, art: ArtPack) -> void:
 	get_viewport().size_changed.connect(func():
 		world.map_rect = hud.map_rect(world.get_viewport_rect().size)
 		world._fit())
+	hud.root.add_child(_modal_layer(inventory))
+	inventory.setup(g, art, _submit_now)
+	inventory.close()
 	player.finished.connect(_on_finished)
 	player.message_logged.connect(func(_t): hud.refresh())
 	player.stats_changed.connect(hud.refresh)
 	player.player_died.connect(func(cause): game_over.emit(cause))
 
 
+## A full-screen dimmed backdrop that centres one panel.
+func _modal_layer(panel: Control) -> Control:
+	var center := CenterContainer.new()
+	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	var dim := ColorRect.new()
+	dim.color = Color(0, 0, 0, 0.45)
+	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dim.mouse_filter = Control.MOUSE_FILTER_STOP
+	center.add_child(dim)
+	center.add_child(panel)
+	return center
+
+
+func modal_open() -> bool:
+	return inventory.visible
+
+
 func _unhandled_key_input(event: InputEvent) -> void:
-	if not event.is_pressed() or game == null:
+	if not event.is_pressed() or game == null or modal_open():
 		return
 	var action := _match(event)
 	var run := false
@@ -64,6 +85,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 				hud.toggle_minimap()
 			"menu_log":
 				hud.toggle_full_log()
+			"menu_inventory":
+				inventory.open()
 			_:
 				menu_requested.emit(action)
 		return
@@ -101,6 +124,14 @@ func _submit(action: Dictionary) -> void:
 	if _running != Vector2i.ZERO and not _keep_running(events):
 		_running = Vector2i.ZERO
 	player.play(events, before)
+
+
+## Run one action from a panel: the turn passes and monsters act, so play the events too.
+func _submit_now(action: Dictionary) -> Array:
+	var before := game.visible.duplicate()
+	var events := game.perform(action, Settings.options)
+	player.play(events, before)
+	return events
 
 
 func _keep_running(events: Array) -> bool:
