@@ -52,7 +52,7 @@ func start(g: Game, art: ArtPack) -> void:
 
 ## Panels open over a full-screen dimmed backdrop that centres them.
 func _add_modal(panel: Control) -> void:
-	hud.root.add_child(_modal_layer(panel))
+	hud.root.add_child(Modal.wrap(panel))
 	_modals.append(panel)
 
 
@@ -71,24 +71,12 @@ func _drop_modal(panel: Control) -> void:
 	panel.get_parent().queue_free()
 
 
-func _modal_layer(panel: Control) -> Control:
-	var center := CenterContainer.new()
-	center.set_anchors_preset(Control.PRESET_FULL_RECT)
-	var dim := ColorRect.new()
-	dim.color = Color(0, 0, 0, 0.45)
-	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
-	dim.mouse_filter = Control.MOUSE_FILTER_STOP
-	center.add_child(dim)
-	center.add_child(panel)
-	return center
-
-
 func modal_open() -> bool:
 	return _modals.any(func(m): return m.visible)
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if not event.is_pressed() or game == null or modal_open():
+	if not event.is_pressed() or game == null or game.dead or modal_open():
 		return
 	var action := _match(event)
 	var run := false
